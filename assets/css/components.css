@@ -81,6 +81,18 @@
 .header-actions { display: flex; align-items: center; gap: 10px; margin-inline-start: auto; }
 .site-nav + .header-actions { margin-inline-start: 0; }
 
+/* Header CTA labels shorten on narrow screens. Both buttons stay in the bar at
+   every width — booking is never buried in the menu — but the full labels wrap
+   to three lines at 375px, so below 768 they fall back to the short forms
+   already defined in site.json. nowrap guarantees a single line either way. */
+.header-actions .btn { white-space: nowrap; }
+.header-actions .lbl-full  { display: none; }
+.header-actions .lbl-short { display: inline; }
+@media (min-width: 768px) {
+  .header-actions .lbl-full  { display: inline; }
+  .header-actions .lbl-short { display: none; }
+}
+
 .hamburger {
   display: inline-flex;
   align-items: center;
