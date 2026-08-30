@@ -138,11 +138,8 @@
 
     <div class="tech-grid">
       <div class="tech-col reveal">
-        <!-- slot: sim-screen -->
-        <div class="slot slot-16x9">
-          <img src="images/sim-screen.png" alt="A simulator display showing a course view with ball speed, carry, launch angle and club path" loading="lazy" width="1600" height="900"/>
-        </div>
-        <p class="slot-caption">{{ technology.simScreenCaption }}</p>
+        {{> vx-rotator }}
+        <p class="slot-caption">{{ technology.rotatorCaption }}</p>
       </div>
 
       <div class="tech-col reveal" data-delay="1">
@@ -184,13 +181,16 @@
   </div>
 </section>
 
+<!-- 7b · AI SWING TRAINER ================================================ -->
+{{> ai-swing }}
+
 <!-- 8 · MEMBERSHIP ======================================================= -->
 <section class="band band-paper" id="membership">
   <div class="container">
     <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
       <span class="eyebrow">Membership</span>
       <h2 class="h2">Choose your tier</h2>
-      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and AI swing analysis. Four simple tiers, from $100 a month.</p>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. Four simple tiers, from $100 a month.</p>
     </div>
 
     <div class="tier-grid reveal" data-swipe="tiers">

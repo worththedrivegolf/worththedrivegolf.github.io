@@ -1,0 +1,28 @@
+<!-- AI Swing Trainer. Shared by the homepage and the Studio page.
+
+     Content lives in technology.aiSwing in site.json, including the honesty
+     note: the feature is in public beta from ProTee. Do not upgrade that
+     wording to a finished-product claim while it is still beta. -->
+<section class="band band-paper-alt" id="ai-swing">
+  <div class="container">
+    <div class="split" style="align-items:end;margin-bottom:clamp(36px,4vw,58px)">
+      <div class="reveal">
+        <span class="eyebrow">{{ technology.aiSwing.eyebrow }}</span>
+        <h2 class="h2">{{ technology.aiSwing.heading }}</h2>
+      </div>
+      <p class="lead reveal" data-delay="1">{{ technology.aiSwing.lead }}</p>
+    </div>
+
+    <div class="grid grid-3">
+      {{#each technology.aiSwing.points}}
+      <div class="feature reveal" data-delay="{{ @index }}">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#{{ this.icon }}"></use></svg>
+        <h3>{{ this.title }}</h3>
+        <p>{{ this.body }}</p>
+      </div>
+      {{/each}}
+    </div>
+
+    <p class="fine reveal" style="margin-top:clamp(30px,3vw,46px)">{{ technology.aiSwing.note }}</p>
+  </div>
+</section>

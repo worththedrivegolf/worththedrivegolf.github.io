@@ -1,0 +1,34 @@
+<!-- Rotating simulator screens. Shared by the homepage and the Studio page so
+     the two can never drift.
+
+     Driven by technology.vx.shots in site.json. Adding a photo is one entry in
+     that list plus two image files — see cardsNote beside the list. The full
+     parameter list is separate (technology.vx.groups) and renders as the data
+     section on the Studio page; it is deliberately not in this rotator, since
+     the checklist next to it already covers club and ball data. -->
+<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="Simulator and launch monitor screens">
+  <div class="vx-stage" data-rotator-stage>
+    {{#each technology.vx.shots}}
+    <article class="vx-slide">
+      <img src="images/{{ this.image }}.jpg"
+           srcset="images/{{ this.image }}-800.jpg 800w, images/{{ this.image }}.jpg 1200w"
+           sizes="(min-width: 1025px) 40vw, 80vw"
+           alt="{{ this.alt }}" loading="lazy" width="1200" height="675"/>
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">{{ this.group }}</span>
+        <h3 class="vx-slide-name">{{ this.name }}</h3>
+        <p class="vx-slide-blurb">{{ this.blurb }}</p>
+      </div>
+    </article>
+    {{/each}}
+  </div>
+
+  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous screen">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next screen">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+
+  <div class="vx-dots" data-rotator-dots aria-hidden="true"></div>
+</div>

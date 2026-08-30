@@ -266,8 +266,8 @@
       </div>
       <div class="feature">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-radar"></use></svg>
-        <h3>AI swing analysis</h3>
-        <p>Powered by ProTee VX™ — AI-assisted club tracking, swing video and performance data, included with every tier.</p>
+        <h3>Swing A.I. Trainer</h3>
+        <p>Swing analysis &amp; training on the ProTee VX™ — two cameras read your whole body, not just the club. Included with every tier.</p>
       </div>
       <div class="feature">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-globe"></use></svg>
@@ -329,10 +329,78 @@
 
     <div class="tech-grid">
       <div class="tech-col reveal">
-        <div class="slot slot-16x9">
-          <img src="images/sim-screen.png" alt="A simulator display showing a course view with ball speed, carry, launch angle and club path" loading="lazy" width="1600" height="900"/>
-        </div>
-        <p class="slot-caption">Illustration with sample data — in-bay display varies by session and settings.</p>
+        <!-- Rotating simulator screens. Shared by the homepage and the Studio page so
+     the two can never drift.
+
+     Driven by technology.vx.shots in site.json. Adding a photo is one entry in
+     that list plus two image files — see cardsNote beside the list. The full
+     parameter list is separate (technology.vx.groups) and renders as the data
+     section on the Studio page; it is deliberately not in this rotator, since
+     the checklist next to it already covers club and ball data. -->
+<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="Simulator and launch monitor screens">
+  <div class="vx-stage" data-rotator-stage>
+    
+    <article class="vx-slide">
+      <img src="images/sim-protee-labs.jpg"
+           srcset="images/sim-protee-labs-800.jpg 800w, images/sim-protee-labs.jpg 1200w"
+           sizes="(min-width: 1025px) 40vw, 80vw"
+           alt="The ProTee Labs session view showing club speed, launch angle, spin axis, smash factor and carry for a single shot" loading="lazy" width="1200" height="675"/>
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">ProTee VX</span>
+        <h3 class="vx-slide-name">Every number, one screen</h3>
+        <p class="vx-slide-blurb">Club speed, launch, spin, smash factor, carry — measured and laid out shot by shot.</p>
+      </div>
+    </article>
+    
+    <article class="vx-slide">
+      <img src="images/sim-gspro-course.jpg"
+           srcset="images/sim-gspro-course-800.jpg 800w, images/sim-gspro-course.jpg 1200w"
+           sizes="(min-width: 1025px) 40vw, 80vw"
+           alt="A GSPro on-course view of a par 4 with live shot data panels on both sides" loading="lazy" width="1200" height="675"/>
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">GSPro</span>
+        <h3 class="vx-slide-name">Play the course</h3>
+        <p class="vx-slide-blurb">2,500+ community-built layouts, with your live numbers on screen as you play.</p>
+      </div>
+    </article>
+    
+    <article class="vx-slide">
+      <img src="images/sim-protee-vx.jpg"
+           srcset="images/sim-protee-vx-800.jpg 800w, images/sim-protee-vx.jpg 1200w"
+           sizes="(min-width: 1025px) 40vw, 80vw"
+           alt="A golfer mid-swing under the ceiling-mounted ProTee VX, with carry, ball speed and launch angle shown beside the shot" loading="lazy" width="1200" height="675"/>
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">ProTee VX</span>
+        <h3 class="vx-slide-name">The Power of VX</h3>
+        <p class="vx-slide-blurb">Dual high-speed cameras overhead, reading club and ball on every swing.</p>
+      </div>
+    </article>
+    
+    <article class="vx-slide">
+      <img src="images/sim-gspro-range.jpg"
+           srcset="images/sim-gspro-range-800.jpg 800w, images/sim-gspro-range.jpg 1200w"
+           sizes="(min-width: 1025px) 40vw, 80vw"
+           alt="A GSPro driving range view showing carry, ball speed, peak height and total length" loading="lazy" width="1200" height="675"/>
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">GSPro</span>
+        <h3 class="vx-slide-name">Dial in your yardages</h3>
+        <p class="vx-slide-blurb">Range sessions with carry, peak height and total length on every swing.</p>
+      </div>
+    </article>
+    
+  </div>
+
+  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous screen">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next screen">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+
+  <div class="vx-dots" data-rotator-dots aria-hidden="true"></div>
+</div>
+
+        <p class="slot-caption">Simulator and launch-monitor screens shown from GSPro and ProTee. Planned equipment — specifications subject to change before opening.</p>
       </div>
       <div class="tech-col reveal" data-delay="1">
         <h3 class="tech-sub">ProTee VX™ — the practice engine</h3>
@@ -341,6 +409,8 @@
           <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Ceiling-mounted launch monitor</span></li>
           
           <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Dual high-speed camera tracking</span></li>
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Swing A.I. Trainer — swing analysis &amp; training, every tier</span></li>
           
           <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>AI-assisted club and ball data</span></li>
           
@@ -399,6 +469,157 @@
 </section>
 
 <!-- COURSES ============================================================== -->
+<!-- AI Swing Trainer. Shared by the homepage and the Studio page.
+
+     Content lives in technology.aiSwing in site.json, including the honesty
+     note: the feature is in public beta from ProTee. Do not upgrade that
+     wording to a finished-product claim while it is still beta. -->
+<section class="band band-paper-alt" id="ai-swing">
+  <div class="container">
+    <div class="split" style="align-items:end;margin-bottom:clamp(36px,4vw,58px)">
+      <div class="reveal">
+        <span class="eyebrow">Swing A.I. Trainer</span>
+        <h2 class="h2">Something watching every swing</h2>
+      </div>
+      <p class="lead reveal" data-delay="1">Launch monitors tell you what the ball did. The Swing A.I. Trainer looks at what you did — two cameras track your whole body through the swing, not just the club, and the analysis points at the specific thing costing you shots.</p>
+    </div>
+
+    <div class="grid grid-3">
+      
+      <div class="feature reveal" data-delay="0">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg>
+        <h3>Your whole body, not just the club</h3>
+        <p>Two swing cameras come with the VX and record from two angles at once, so the analysis sees your actual motion rather than inferring it from the clubhead.</p>
+      </div>
+      
+      <div class="feature reveal" data-delay="1">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-target"></use></svg>
+        <h3>It finds the fault</h3>
+        <p>The analysis identifies where your swing is losing you shots, instead of handing you twenty numbers and leaving you to work out which one matters.</p>
+      </div>
+      
+      <div class="feature reveal" data-delay="2">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-image"></use></svg>
+        <h3>Then it shows you the fix</h3>
+        <p>Each point it raises comes paired with an instructional video showing what to work on and how to make the change.</p>
+      </div>
+      
+    </div>
+
+    <p class="fine reveal" style="margin-top:clamp(30px,3vw,46px)">The Swing A.I. Trainer is in public beta from ProTee and improving continuously. It runs inside ProTee Labs with no extra subscription, and it is included with studio access — every tier, no upcharge.</p>
+  </div>
+</section>
+
+
+<!-- PROTEE VX DATA ======================================================= -->
+<section class="band band-paper" id="data">
+  <div class="container">
+    <div class="split reveal" style="align-items:end;margin-bottom:clamp(36px,4vw,60px)">
+      <div>
+        <span class="eyebrow">The Technology</span>
+        <h2 class="h2">Every number<br/>your swing makes</h2>
+      </div>
+      <p class="lead">Every shot is measured, not estimated. Here is what the launch monitor reads off a single swing — ball, club and flight — and what each number actually tells you.</p>
+    </div>
+
+    <div class="vx-grid reveal" data-swipe="vx">
+      
+      <article class="vx-card">
+        <div class="vx-head">
+          <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-target"></use></svg>
+          <div>
+            <h3>Ball data</h3>
+            <span class="vx-count">7 measured</span>
+          </div>
+        </div>
+        <ul class="vx-list">
+          
+          <li>Ball speed</li>
+          
+          <li>Total spin</li>
+          
+          <li>Spin axis</li>
+          
+          <li>Back spin</li>
+          
+          <li>Side spin</li>
+          
+          <li>Launch direction</li>
+          
+          <li>Launch angle</li>
+          
+        </ul>
+      </article>
+      
+      <article class="vx-card">
+        <div class="vx-head">
+          <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-radar"></use></svg>
+          <div>
+            <h3>Club data</h3>
+            <span class="vx-count">9 measured</span>
+          </div>
+        </div>
+        <ul class="vx-list">
+          
+          <li>Club speed</li>
+          
+          <li>Swing path</li>
+          
+          <li>Club face angle</li>
+          
+          <li>Club face to path</li>
+          
+          <li>Attack angle</li>
+          
+          <li>Dynamic loft</li>
+          
+          <li>Club lie angle</li>
+          
+          <li>Impact point vertical</li>
+          
+          <li>Impact point horizontal</li>
+          
+        </ul>
+      </article>
+      
+      <article class="vx-card">
+        <div class="vx-head">
+          <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
+          <div>
+            <h3>Flight data</h3>
+            <span class="vx-count">9 tracked</span>
+          </div>
+        </div>
+        <ul class="vx-list">
+          
+          <li>Flight path</li>
+          
+          <li>Carry distance</li>
+          
+          <li>Total distance</li>
+          
+          <li>Apex height</li>
+          
+          <li>Apex time</li>
+          
+          <li>Descent angle</li>
+          
+          <li>Off line</li>
+          
+          <li>Air time</li>
+          
+          <li>Run</li>
+          
+        </ul>
+      </article>
+      
+    </div>
+    <div class="swipe-dots" data-swipe-dots="vx"><span></span><span></span><span></span></div>
+
+    <p class="fine reveal" style="margin-top:var(--s4)">Data points published by <a href="https://proteegroup.com/the-power-of-vx/" target="_blank" rel="noopener" style="color:var(--green-deep)">ProTee</a>. Planned equipment — specifications subject to change before opening.</p>
+  </div>
+</section>
+
 <section class="band band-navy" id="courses">
   <div class="container">
     <div class="reveal" style="margin-bottom:clamp(28px,3vw,44px)">
@@ -455,7 +676,7 @@
     <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
       <span class="eyebrow">Membership</span>
       <h2 class="h2">Choose your tier</h2>
-      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and AI swing analysis. Four simple tiers, from $100 a month.</p>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. Four simple tiers, from $100 a month.</p>
     </div>
     <div class="tier-grid reveal" data-swipe="tiers">
       

@@ -1,6 +1,5 @@
 {
   "_comment": "Single source of truth for cross-page facts. HANDOFF rule 1: tiers are defined ONCE here; every surface renders from this file. Business facts are frozen — presentation may change, values may not.",
-
   "brand": {
     "name": "Worth the Drive Golf Studio",
     "shortName": "Worth the Drive",
@@ -13,53 +12,95 @@
       "postal": "46794",
       "oneLine": "7032 N Main St · Wawaka, IN 46794"
     },
-    "phone": { "display": "(844) GOLF-WTD", "numeric": "(844) 465-3983", "href": "tel:8444653983" },
+    "phone": {
+      "display": "(844) GOLF-WTD",
+      "numeric": "(844) 465-3983",
+      "href": "tel:8444653983"
+    },
     "email": "info@worththedrivegolf.com",
     "bookingsEmail": "bookings@worththedrivegolf.com",
-    "counties": ["Noble", "LaGrange", "Steuben", "DeKalb"]
+    "counties": [
+      "Noble",
+      "LaGrange",
+      "Steuben",
+      "DeKalb"
+    ]
   },
-
   "_socialComment": "HANDOFF rule 9: source of truth = live main site. Never invent alternates. The booking footer must use these exact URLs too.",
   "social": {
     "facebook": "https://www.facebook.com/worththedrivegolf",
     "instagram": "https://www.instagram.com/worththedrivegolf/"
   },
-
   "urls": {
     "booking": "https://book.worththedrivegolf.com",
     "site": "https://worththedrivegolf.com"
   },
-
   "_ctaComment": "HANDOFF rule 3: CTAs are swappable config. Pre-opening values are live now. After opening, flip `state` to \"open\" — no layout changes required.",
   "cta": {
     "state": "pre-opening",
     "preOpening": {
-      "primary": { "label": "Join the Waitlist", "short": "Join", "href": "membership.html#waitlist" },
-      "founders": { "label": "Reserve a Founders Spot", "href": "membership.html#founders" },
-      "booking": { "label": "Book a Mobile Event", "short": "Book", "alt": "Book an Event", "href": "https://book.worththedrivegolf.com" }
+      "primary": {
+        "label": "Join the Waitlist",
+        "short": "Join",
+        "href": "membership.html#waitlist"
+      },
+      "founders": {
+        "label": "Reserve a Founders Spot",
+        "href": "membership.html#founders"
+      },
+      "booking": {
+        "label": "Book a Mobile Event",
+        "short": "Book",
+        "alt": "Book an Event",
+        "href": "https://book.worththedrivegolf.com"
+      }
     },
     "open": {
-      "primary": { "label": "Become a Member", "short": "Join", "href": "membership.html" },
-      "founders": { "label": "Reserve a Founders Spot", "href": "membership.html#founders" },
-      "booking": { "label": "Book an Event", "short": "Book", "alt": "Book an Event", "href": "https://book.worththedrivegolf.com" }
+      "primary": {
+        "label": "Become a Member",
+        "short": "Join",
+        "href": "membership.html"
+      },
+      "founders": {
+        "label": "Reserve a Founders Spot",
+        "href": "membership.html#founders"
+      },
+      "booking": {
+        "label": "Book an Event",
+        "short": "Book",
+        "alt": "Book an Event",
+        "href": "https://book.worththedrivegolf.com"
+      }
     }
   },
-
   "nav": [
-    { "label": "The Studio", "href": "studio.html" },
-    { "label": "Membership", "href": "membership.html" },
-    { "label": "On Tour", "href": "on-tour.html" },
-    { "label": "About", "href": "about.html" },
-    { "label": "Contact", "href": "contact.html" }
+    {
+      "label": "The Studio",
+      "href": "studio.html"
+    },
+    {
+      "label": "Membership",
+      "href": "membership.html"
+    },
+    {
+      "label": "On Tour",
+      "href": "on-tour.html"
+    },
+    {
+      "label": "About",
+      "href": "about.html"
+    },
+    {
+      "label": "Contact",
+      "href": "contact.html"
+    }
   ],
-
   "announcement": {
     "desktop": "The Studio is under construction in Wawaka — opening 2026",
     "desktopGold": "Founders Club now forming · 40 spots",
     "mobile": "Opening 2026",
     "mobileGold": "Founders Club forming"
   },
-
   "_tiersComment": "FROZEN — HANDOFF rule 1. Exactly the current live memberships page. Do not add priority windows, holds, peak definitions, or new guest fees.",
   "tiers": [
     {
@@ -82,7 +123,7 @@
         "2-hour blocks when booking with another Weekday Member",
         "Up to 3 guests at $10 each",
         "1 active booking at a time",
-        "AI swing analysis included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     },
@@ -105,7 +146,7 @@
         "2-hour tee times",
         "1 guest included; additional guests $10 each",
         "1 active booking at a time",
-        "AI swing analysis included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     },
@@ -128,7 +169,7 @@
         "3-hour tee times",
         "Up to 3 guests included",
         "2 active bookings at a time",
-        "AI swing analysis included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     },
@@ -153,18 +194,17 @@
         "Up to 4 guests per visit",
         "2 active bookings at a time",
         "1 private event per year included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     }
   ],
-
   "membershipNotes": {
     "everyTier": "Every tier: priority registration & preferred pricing on league play",
     "annual": "Annual plans: 1 month free — or 2 months free paid in full",
     "limits": "Booking limits protect availability for all members.",
     "waitlistNote": "The waitlist records your preferred tier — no payment required."
   },
-
   "_foundersComment": "HANDOFF rule 4. Gold appears ONLY here and in the announcement bar founders mention. Counter stays omitted until a real source exists.",
   "founders": {
     "pill": "Limited · 40 spots only",
@@ -178,14 +218,30 @@
       "Founding member events"
     ]
   },
-
   "_onTourComment": "FROZEN — HANDOFF rule 5.",
   "onTour": {
     "packages": [
-      { "duration": "4 Hours", "price": 500, "note": "Minimum booking", "badge": "Most popular" },
-      { "duration": "5 Hours", "price": 625, "note": "Great for parties" },
-      { "duration": "6 Hours", "price": 750, "note": "Most flexible" },
-      { "duration": "Full Day", "price": 1000, "note": "Up to 10 hours" }
+      {
+        "duration": "4 Hours",
+        "price": 500,
+        "note": "Minimum booking",
+        "badge": "Most popular"
+      },
+      {
+        "duration": "5 Hours",
+        "price": 625,
+        "note": "Great for parties"
+      },
+      {
+        "duration": "6 Hours",
+        "price": 750,
+        "note": "Most flexible"
+      },
+      {
+        "duration": "Full Day",
+        "price": 1000,
+        "note": "Up to 10 hours"
+      }
     ],
     "extraHour": 125,
     "deposit": 100,
@@ -193,15 +249,15 @@
     "hours": "10 AM – 10 PM",
     "cancellation": "Cancellations within 48 hours forfeit the deposit."
   },
-
   "_techComment": "HANDOFF rule 6. Re-verify the GSPro course count at build. Disclaimers are not optional.",
   "technology": {
     "courseCount": "2,500+",
     "equipmentDisclaimer": "Planned equipment — specifications subject to change before opening.",
-    "simScreenCaption": "Illustration with sample data — in-bay display varies by session and settings.",
+    "rotatorCaption": "Simulator and launch-monitor screens shown from GSPro and ProTee. Planned equipment — specifications subject to change before opening.",
     "protee": [
       "Ceiling-mounted launch monitor",
       "Dual high-speed camera tracking",
+      "Swing A.I. Trainer — swing analysis & training, every tier",
       "AI-assisted club and ball data",
       "No club stickers or special golf balls required"
     ],
@@ -209,22 +265,164 @@
       "2,500+ community-built courses — famous layouts to local favorites",
       "League play and member events on the Studio calendar",
       "The same library that powers On Tour events today"
-    ]
+    ],
+    "vx": {
+      "_source": "Parameter lists and specs published by ProTee at proteegroup.com/the-power-of-vx. Do not add a data point that is not on their list.",
+      "sourceName": "ProTee",
+      "sourceUrl": "https://proteegroup.com/the-power-of-vx/",
+      "groups": [
+        {
+          "name": "Ball data",
+          "icon": "i-target",
+          "count": "7 measured",
+          "points": [
+            "Ball speed",
+            "Total spin",
+            "Spin axis",
+            "Back spin",
+            "Side spin",
+            "Launch direction",
+            "Launch angle"
+          ]
+        },
+        {
+          "name": "Club data",
+          "icon": "i-radar",
+          "count": "9 measured",
+          "points": [
+            "Club speed",
+            "Swing path",
+            "Club face angle",
+            "Club face to path",
+            "Attack angle",
+            "Dynamic loft",
+            "Club lie angle",
+            "Impact point vertical",
+            "Impact point horizontal"
+          ]
+        },
+        {
+          "name": "Flight data",
+          "icon": "i-flag",
+          "count": "9 tracked",
+          "points": [
+            "Flight path",
+            "Carry distance",
+            "Total distance",
+            "Apex height",
+            "Apex time",
+            "Descent angle",
+            "Off line",
+            "Air time",
+            "Run"
+          ]
+        }
+      ],
+      "cardsNote": "The rotator shows photos only — `shots`. The full parameter list lives in `groups`, rendered on the Studio page. TO ADD A PHOTO: save a 16:9 image as images/<name>.jpg AND images/<name>-800.jpg, then append to `shots` with image set to <name> (no extension), a real alt description, plus group, name and blurb. Nothing else changes — the homepage and Studio share one partial. Order here is the order on screen.",
+      "shots": [
+        {
+          "image": "sim-protee-labs",
+          "alt": "The ProTee Labs session view showing club speed, launch angle, spin axis, smash factor and carry for a single shot",
+          "group": "ProTee VX",
+          "name": "Every number, one screen",
+          "blurb": "Club speed, launch, spin, smash factor, carry — measured and laid out shot by shot."
+        },
+        {
+          "image": "sim-gspro-course",
+          "alt": "A GSPro on-course view of a par 4 with live shot data panels on both sides",
+          "group": "GSPro",
+          "name": "Play the course",
+          "blurb": "2,500+ community-built layouts, with your live numbers on screen as you play."
+        },
+        {
+          "image": "sim-protee-vx",
+          "alt": "A golfer mid-swing under the ceiling-mounted ProTee VX, with carry, ball speed and launch angle shown beside the shot",
+          "group": "ProTee VX",
+          "name": "The Power of VX",
+          "blurb": "Dual high-speed cameras overhead, reading club and ball on every swing."
+        },
+        {
+          "image": "sim-gspro-range",
+          "alt": "A GSPro driving range view showing carry, ball speed, peak height and total length",
+          "group": "GSPro",
+          "name": "Dial in your yardages",
+          "blurb": "Range sessions with carry, peak height and total length on every swing."
+        }
+      ]
+    },
+    "aiSwing": {
+      "_source": "ProTee VX Swing A.I. Trainer (ProTee also write it AI Swing Trainer), powered by GolfSwings.ai, inside ProTee Labs. Two included swing cameras, full-body tracking, an instructional video paired with each point it raises, no extra subscription. In public beta as of August 2026 — say so.",
+      "eyebrow": "Swing A.I. Trainer",
+      "heading": "Something watching every swing",
+      "lead": "Launch monitors tell you what the ball did. The Swing A.I. Trainer looks at what you did — two cameras track your whole body through the swing, not just the club, and the analysis points at the specific thing costing you shots.",
+      "points": [
+        {
+          "icon": "i-users",
+          "title": "Your whole body, not just the club",
+          "body": "Two swing cameras come with the VX and record from two angles at once, so the analysis sees your actual motion rather than inferring it from the clubhead."
+        },
+        {
+          "icon": "i-target",
+          "title": "It finds the fault",
+          "body": "The analysis identifies where your swing is losing you shots, instead of handing you twenty numbers and leaving you to work out which one matters."
+        },
+        {
+          "icon": "i-image",
+          "title": "Then it shows you the fix",
+          "body": "Each point it raises comes paired with an instructional video showing what to work on and how to make the change."
+        }
+      ],
+      "note": "The Swing A.I. Trainer is in public beta from ProTee and improving continuously. It runs inside ProTee Labs with no extra subscription, and it is included with studio access — every tier, no upcharge."
+    }
   },
-
   "_coursesComment": "HANDOFF rule 7 gate: the two `local` cards require SGT course-server verification before launch. If unverified, swap for verified regional courses (owner decides) — never ship unconfirmed claims.",
   "courses": {
     "disclaimer": "Simulated recreations from the GSPro community library. Not affiliated with or endorsed by the real-world clubs; availability varies.",
     "cards": [
-      { "tag": "Bucket list", "name": "Pebble Beach", "sub": "Oceanside icon", "location": "California", "verified": true },
-      { "tag": "Bucket list", "name": "Tobacco Road", "sub": "Cult classic", "location": "North Carolina", "verified": true },
-      { "tag": "Regional favorite", "name": "Whistling Straits", "sub": "Major-championship host", "location": "Wisconsin", "verified": true },
-      { "tag": "Regional favorite", "name": "Conway Farms", "sub": "Championship host", "location": "Chicago, Illinois", "verified": true },
-      { "tag": "Close to home", "name": "Noble Hawk Golf Links", "sub": "", "location": "Kendallville, Indiana", "verified": false },
-      { "tag": "Close to home", "name": "Cobblestone Golf Course", "sub": "", "location": "Kendallville, Indiana", "verified": false }
+      {
+        "tag": "Bucket list",
+        "name": "Pebble Beach",
+        "sub": "Oceanside icon",
+        "location": "California",
+        "verified": true
+      },
+      {
+        "tag": "Bucket list",
+        "name": "Tobacco Road",
+        "sub": "Cult classic",
+        "location": "North Carolina",
+        "verified": true
+      },
+      {
+        "tag": "Regional favorite",
+        "name": "Whistling Straits",
+        "sub": "Major-championship host",
+        "location": "Wisconsin",
+        "verified": true
+      },
+      {
+        "tag": "Regional favorite",
+        "name": "Conway Farms",
+        "sub": "Championship host",
+        "location": "Chicago, Illinois",
+        "verified": true
+      },
+      {
+        "tag": "Close to home",
+        "name": "Noble Hawk Golf Links",
+        "sub": "",
+        "location": "Kendallville, Indiana",
+        "verified": false
+      },
+      {
+        "tag": "Close to home",
+        "name": "Cobblestone Golf Course",
+        "sub": "",
+        "location": "Kendallville, Indiana",
+        "verified": false
+      }
     ]
   },
-
   "_accessComment": "HANDOFF rule 2: generic access language until hardware is confirmed. Never name keycard/app/phone unlock.",
   "access": {
     "honesty": "Access details are finalized before opening — every member gets a full walkthrough."

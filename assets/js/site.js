@@ -233,4 +233,86 @@
     }, { passive: true });
     sync();
   });
+
+  /* ── ProTee VX rotator ──────────────────────────────────────────────────
+     Coverflow rotation of the data-point cards. Auto-advances, pauses on
+     hover, focus and when scrolled out of view, and stops entirely if the
+     visitor has asked for reduced motion. Arrow keys work when focused. */
+  document.querySelectorAll('[data-rotator]').forEach(function (root) {
+    var stage  = root.querySelector('[data-rotator-stage]');
+    var dotBox = root.querySelector('[data-rotator-dots]');
+    if (!stage) return;
+
+    var slides = Array.prototype.slice.call(stage.children);
+    var count  = slides.length;
+    if (count < 2) return;
+
+    var index  = 0;
+    var timer  = null;
+    var paused = false;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var DELAY  = 4200;
+
+    // Dots are built here rather than in the template: their number always
+    // matches the slides, so the two cannot fall out of step.
+    var dots = [];
+    if (dotBox) {
+      slides.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Show data point ' + (i + 1));
+        b.addEventListener('click', function () { go(i); restart(); });
+        dotBox.appendChild(b);
+        dots.push(b);
+      });
+      dotBox.removeAttribute('aria-hidden');
+    }
+
+    function go(next) {
+      index = (next + count) % count;
+      slides.forEach(function (slide, i) {
+        // Shortest signed distance around the ring, so wrapping does not
+        // send a card sliding the long way across the stage.
+        var d = i - index;
+        if (d >  count / 2) d -= count;
+        if (d < -count / 2) d += count;
+        if (d >= -2 && d <= 2) slide.setAttribute('data-pos', String(d));
+        else slide.removeAttribute('data-pos');
+        slide.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+      });
+      dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === index); });
+    }
+
+    function tick()    { if (!paused) go(index + 1); }
+    function start()   { if (!reduce && !timer) timer = setInterval(tick, DELAY); }
+    function stop()    { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    root.addEventListener('mouseenter', function () { paused = true; });
+    root.addEventListener('mouseleave', function () { paused = false; });
+    root.addEventListener('focusin',    function () { paused = true; });
+    root.addEventListener('focusout',   function () { paused = false; });
+
+    var prev = root.querySelector('[data-rotator-prev]');
+    var next = root.querySelector('[data-rotator-next]');
+    if (prev) prev.addEventListener('click', function () { go(index - 1); restart(); });
+    if (next) next.addEventListener('click', function () { go(index + 1); restart(); });
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { go(index - 1); restart(); }
+      if (e.key === 'ArrowRight') { go(index + 1); restart(); }
+    });
+
+    // Don't burn cycles rotating a carousel nobody is looking at.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { entry.isIntersecting ? start() : stop(); });
+      }, { threshold: 0.25 }).observe(root);
+    } else {
+      start();
+    }
+
+    go(0);
+  });
+
 })();
