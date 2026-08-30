@@ -238,7 +238,7 @@
         <span class="eyebrow">The Technology</span>
         <h2 class="h2">Every number<br/>your swing makes</h2>
       </div>
-      <p class="lead">ProTee VX reads {{ technology.vx.total }} data points off a single shot — ball, club and flight — and puts them on screen in under a third of a second. {{ technology.vx.noMarkers }}</p>
+      <p class="lead">Every shot is measured, not estimated. Here is what the launch monitor reads off a single swing — ball, club and flight — and what each number actually tells you.</p>
     </div>
 
     <div class="vx-grid reveal" data-swipe="vx">
@@ -261,16 +261,7 @@
     </div>
     <div class="swipe-dots" data-swipe-dots="vx"><span></span><span></span><span></span></div>
 
-    <div class="vx-specs reveal">
-      {{#each technology.vx.specs}}
-      <div class="vx-spec">
-        <span class="vx-spec-value">{{ this.prefix }}{{ this.value }}</span>
-        <span class="vx-spec-label">{{ this.label }}</span>
-      </div>
-      {{/each}}
-    </div>
-
-    <p class="fine reveal" style="margin-top:var(--s4)">{{ technology.vx.handedness }} Specifications published by <a href="{{ technology.vx.sourceUrl }}" target="_blank" rel="noopener" style="color:var(--green-deep)">{{ technology.vx.sourceName }}</a>. {{ technology.equipmentDisclaimer }}</p>
+    <p class="fine reveal" style="margin-top:var(--s4)">Data points published by <a href="{{ technology.vx.sourceUrl }}" target="_blank" rel="noopener" style="color:var(--green-deep)">{{ technology.vx.sourceName }}</a>. {{ technology.equipmentDisclaimer }}</p>
   </div>
 </section>
 

@@ -268,7 +268,6 @@
       "_source": "Parameter lists and specs published by ProTee at proteegroup.com/the-power-of-vx. Do not add a data point that is not on their list.",
       "sourceName": "ProTee",
       "sourceUrl": "https://proteegroup.com/the-power-of-vx/",
-      "total": 25,
       "groups": [
         {
           "name": "Ball data",
@@ -317,30 +316,6 @@
           ]
         }
       ],
-      "specs": [
-        {
-          "value": "0.3s",
-          "prefix": "under ",
-          "label": "Strike to data"
-        },
-        {
-          "value": "2",
-          "prefix": "",
-          "label": "High-speed cameras"
-        },
-        {
-          "value": "9 ft",
-          "prefix": "",
-          "label": "Minimum ceiling"
-        },
-        {
-          "value": "25″ × 21″",
-          "prefix": "",
-          "label": "Hitting zone"
-        }
-      ],
-      "noMarkers": "No club stickers. No marked balls. No floor sensors.",
-      "handedness": "Right- and left-handed play, switched instantly.",
       "cardsNote": "The rotator shows photos only — `shots`. The full parameter list lives in `groups`, rendered on the Studio page. TO ADD A PHOTO: save a 16:9 image as images/<name>.jpg AND images/<name>-800.jpg, then append to `shots` with image set to <name> (no extension), a real alt description, plus group, name and blurb. Nothing else changes — the homepage and Studio share one partial. Order here is the order on screen.",
       "shots": [
         {
