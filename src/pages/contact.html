@@ -1,0 +1,161 @@
+<!--meta
+{
+  "slug": "contact",
+  "canonical": "contact.html",
+  "title": "Contact | Worth the Drive Golf Studio — Wawaka, Indiana",
+  "description": "Get in touch with Worth the Drive Golf Studio about mobile simulator events, Studio membership, the waitlist or the Founders Club. Wawaka, Indiana.",
+  "year": 2026
+}
+-->
+
+<section class="band band-navy page-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h1 class="h1">Let's <span class="accent">connect.</span></h1>
+      <p class="lead" style="margin-top:var(--s3)">Questions about a mobile event, Studio membership or the Founders Club? We answer within 24 hours — and we're happy to talk it through by phone.</p>
+      <div class="actions" style="margin-top:var(--s4)">
+        <a class="btn btn-primary" href="{{ brand.phone.href }}"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg> {{ brand.phone.display }}</a>
+        <a class="btn btn-ghost" href="mailto:{{ brand.email }}">Email us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-deep">
+  <div class="container">
+    <div class="split" style="align-items:start">
+
+      <!-- INFO ---------------------------------------------------------- -->
+      <div class="reveal">
+        <div class="card card-dark">
+          <h2 class="h4" style="margin-bottom:var(--s2)">Contact info</h2>
+
+          <div class="contact-item">
+            <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-phone"></use></svg>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value"><a href="{{ brand.phone.href }}">{{ brand.phone.display }}</a><br/><a href="{{ brand.phone.href }}">{{ brand.phone.numeric }}</a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-mail"></use></svg>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:{{ brand.email }}">{{ brand.email }}</a><br/>
+                <a href="mailto:{{ brand.bookingsEmail }}">{{ brand.bookingsEmail }}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+            <div>
+              <div class="contact-label">Studio address</div>
+              <div class="contact-value">{{ brand.address.street }}<br/>{{ brand.address.city }}, {{ brand.address.region }} {{ brand.address.postal }}<br/><span class="fine">Under construction — opening {{ brand.opening }}</span></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-globe"></use></svg>
+            <div>
+              <div class="contact-label">Social</div>
+              <div class="contact-value">
+                <a href="{{ social.facebook }}" target="_blank" rel="noopener">Facebook</a> ·
+                <a href="{{ social.instagram }}" target="_blank" rel="noopener">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-dark reveal" style="margin-top:var(--s3)">
+          <h2 class="h4" style="margin-bottom:var(--s2)">Mobile event hours</h2>
+          <div class="hours">
+            <div class="hour"><b>Friday</b><span>{{ onTour.hours }}</span></div>
+            <div class="hour"><b>Saturday</b><span>{{ onTour.hours }}</span></div>
+            <div class="hour"><b>Sunday</b><span>{{ onTour.hours }}</span></div>
+          </div>
+          <p class="fine" style="margin-top:var(--s2)">Studio hours will be 24/7 for members once open.</p>
+        </div>
+      </div>
+
+      <!-- FORM ---------------------------------------------------------- -->
+      <div class="card card-dark reveal" data-delay="1">
+        <h2 class="h4" style="margin-bottom:var(--s3)">Send us a message</h2>
+
+        <!-- Submits over fetch to FormSubmit's AJAX endpoint so the response is
+             actually inspected. The old site's form showed "Message sent!"
+             unconditionally and threw the message away; this one only shows
+             success when the service confirms delivery, and surfaces a real
+             error with a working fallback otherwise. -->
+        <form class="wtd-form" id="contactForm"
+              action="https://formsubmit.co/ajax/{{ brand.email }}" method="POST" novalidate>
+          <div class="field-row">
+            <label class="field"><span>Your name</span>
+              <input type="text" name="name" required autocomplete="name" placeholder="John Smith"/></label>
+            <label class="field"><span>Phone <em>(optional)</em></span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="(260) 555-0100"/></label>
+          </div>
+          <label class="field"><span>Email address</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="john@email.com"/></label>
+          <label class="field"><span>What's this about?</span>
+            <select name="topic" required>
+              <option value="">Select a topic…</option>
+              <option>Mobile Event Inquiry</option>
+              <option>Studio Membership</option>
+              <option>Studio Waitlist</option>
+              <option>Founders Club — Reserve Spot</option>
+              <option>Corporate / Sponsorship</option>
+              <option>General Question</option>
+            </select></label>
+          <label class="field"><span>Message</span>
+            <textarea name="message" required placeholder="Tell us what you're looking for…"></textarea></label>
+
+          <input type="hidden" name="_subject" value="Website enquiry — worththedrivegolf.com"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+
+          <button type="submit" class="btn btn-primary" id="contactSubmit" style="width:100%;margin-top:var(--s2)">Send message</button>
+
+          <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+
+          <p class="fine" style="margin-top:var(--s2)">We reply within 24 hours. Prefer to talk? Call <a href="{{ brand.phone.href }}" style="color:var(--green-bright)">{{ brand.phone.display }}</a>.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROUTES =============================================================== -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(28px,3vw,44px)">
+      <span class="eyebrow">Faster Routes</span>
+      <h2 class="h2">Know what you need?</h2>
+    </div>
+    <div class="grid grid-3 reveal">
+      <a class="card card-light" href="{{ urls.booking }}" style="text-decoration:none;display:grid;gap:12px;align-content:start">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-truck"></use></svg>
+        <h3 class="h4">Book a mobile event</h3>
+        <p style="font-size:0.9375rem">Pick your date and pay the ${{ onTour.deposit }} deposit online. Packages from ${{ onTour.packages.0.price }}.</p>
+        <span class="link-arrow">Book now <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+      <a class="card card-light" href="membership.html#waitlist" style="text-decoration:none;display:grid;gap:12px;align-content:start">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-lock"></use></svg>
+        <h3 class="h4">Join the waitlist</h3>
+        <p style="font-size:0.9375rem">Hear first about opening dates and membership availability. No payment required.</p>
+        <span class="link-arrow">Join the waitlist <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+      <a class="card card-light" href="membership.html#founders" style="text-decoration:none;display:grid;gap:12px;align-content:start">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
+        <h3 class="h4">Founders Club</h3>
+        <p style="font-size:0.9375rem">{{ founders.spots }} spots, a one-time ${{ founders.fee }} fee, and your rate locked for life.</p>
+        <span class="link-arrow">Reserve a spot <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+    </div>
+  </div>
+</section>

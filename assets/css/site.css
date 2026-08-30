@@ -1,0 +1,338 @@
+/* ==========================================================================
+   Worth the Drive — Direction B design system
+   One shared stylesheet. Replaces the per-page duplication of the old site.
+   Token values are the spec (HANDOFF §4); the width system is deliberately
+   guidelines rather than brittle fixed caps.
+   ========================================================================== */
+
+/* --- 1. Tokens ---------------------------------------------------------- */
+
+:root {
+  /* colour */
+  --navy:         #1A2744;  /* primary dark band / tier headers */
+  --navy-deep:    #0E1A2E;  /* immersive bands (strip, tech, closing top) */
+  --navy-darkest: #0A1424;  /* page base behind hero/footer gradient */
+  --navy-footer:  #081120;  /* footer + announcement bar */
+  --navy-header:  #12213C;  /* site header */
+  --green:        #5DA83A;  /* primary buttons, checks, accents on light */
+  --green-bright: #7BC65B;  /* accent text/eyebrows/links on dark */
+  --green-deep:   #4E8F30;  /* eyebrows/links on light, button hover */
+  --gold:         #F5C518;  /* FOUNDERS ONLY (+ announcement mention) */
+  --paper:        #FAF9F5;  /* light band */
+  --paper-alt:    #F1F0E8;  /* alternate light band (On Tour) */
+  --ink:          #17223C;  /* headings on light */
+  --body-light:   #4A5570;  /* body on light */
+  --body-light-2: #5A6580;  /* secondary body on light */
+  --body-dark:    #C9D3E4;  /* body on dark */
+  --body-dark-2:  #C2CCDD;  /* secondary body on dark */
+  --muted-dark:   #8FA0B8;  /* muted on dark */
+  --muted-light:  #6B7690;  /* muted on light */
+  --fine-light:   #8A93A8;  /* fine print on light */
+  --line-light:   #E4E2D8;  /* borders on light */
+  --line-dark:    rgba(255, 255, 255, 0.12);
+  --divider-dark: rgba(255, 255, 255, 0.10);
+  --card-dark:    #1F2C4C;  /* dark card surface on navy bands */
+
+  /* width system — guidelines, not brittle */
+  --container:      min(1300px, 100% - 48px);  /* 1280–1320 target */
+  --container-wide: min(1660px, 100%);         /* hero / major media only */
+  --measure:        700px;                     /* max text measure 640–720 */
+
+  /* type — Oswald display, Open Sans body */
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body:    'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --h1:      clamp(2.875rem, 1.55rem + 5.5vw, 6.375rem);    /* 46 → 102 */
+  --h2:      clamp(1.75rem, 1.28rem + 2vw, 3.375rem);       /* 28 → 54 */
+  --h3:      clamp(1.5rem, 1.2rem + 1.3vw, 2.75rem);        /* 24 → 44 */
+  --h4:      clamp(1.05rem, 1rem + 0.35vw, 1.3rem);         /* 17 → 21 */
+  --body:    clamp(0.9375rem, 0.91rem + 0.15vw, 1.03rem);   /* 15 → 16.5 */
+  --eyebrow: clamp(0.6875rem, 0.66rem + 0.15vw, 0.8125rem); /* 11 → 13 */
+
+  /* rhythm */
+  --section-pad: clamp(50px, 4.2vw + 24px, 120px);
+  --radius:      10px;  /* cards */
+  --radius-btn:  6px;
+  --radius-photo:12px;
+  --gap:         24px;
+
+  /* base-8 spacing scale */
+  --s1: 8px;  --s2: 16px; --s3: 24px; --s4: 32px;
+  --s5: 48px; --s6: 64px; --s7: 96px; --s8: 128px;
+
+  --header-h: 76px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 1023px) {
+  :root { --gap: 16px; --header-h: 64px; }
+}
+
+/* --- 2. Reset ----------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  /* fixed header must not cover anchor targets — the old site's bug */
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--body);
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--navy-darkest);
+  /* no overflow-x:hidden — overflow is prevented, not masked */
+}
+
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- 3. Layout primitives ----------------------------------------------- */
+
+.band { padding-block: var(--section-pad); position: relative; }
+.container { width: var(--container); margin-inline: auto; }
+.container-wide { width: var(--container-wide); margin-inline: auto; }
+.measure { max-width: var(--measure); }
+
+.band-navy    { background: var(--navy);        color: var(--body-dark); }
+.band-deep    { background: var(--navy-deep);   color: var(--body-dark); }
+.band-footer  { background: var(--navy-footer); color: var(--body-dark); }
+.band-paper   { background: var(--paper);       color: var(--body-light); }
+.band-paper-alt { background: var(--paper-alt); color: var(--body-light); }
+
+/* Auto-fit grids: columns reflow by available room, never by fixed count.
+   This is what kills the old site's 820px three-column squeeze. */
+.grid { display: grid; gap: var(--gap); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(283px, 100%), 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
+.split  { display: grid; gap: clamp(32px, 4vw, 72px); align-items: center; }
+@media (min-width: 1024px) { .split { grid-template-columns: 1fr 1fr; } }
+
+/* --- 4. Typography ------------------------------------------------------ */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.h1 { font-size: var(--h1); font-weight: 700; line-height: 0.96; letter-spacing: 0.005em; }
+.h2 { font-size: var(--h2); font-weight: 700; line-height: 1.04; }
+.h3 { font-size: var(--h3); font-weight: 600; line-height: 1.08; }
+.h4 { font-size: var(--h4); font-weight: 600; line-height: 1.25; letter-spacing: 0.02em; }
+
+/* the two-tone headline device — brand equity, one accent word max */
+.accent      { color: var(--green); }
+.accent-dark { color: var(--green-bright); }
+.accent-gold { color: var(--gold); }
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--s2);
+  color: var(--green-deep);
+}
+.on-dark .eyebrow, .band-navy .eyebrow, .band-deep .eyebrow, .band-footer .eyebrow {
+  color: var(--green-bright);
+}
+.eyebrow-gold { color: var(--gold) !important; }
+
+.lead { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem); line-height: 1.75; max-width: var(--measure); }
+p { max-width: var(--measure); }
+.fine { font-size: 0.8125rem; line-height: 1.6; color: var(--fine-light); }
+.on-dark .fine, .band-navy .fine, .band-deep .fine, .band-footer .fine { color: var(--muted-dark); }
+
+.band-navy h1, .band-navy h2, .band-navy h3, .band-navy h4,
+.band-deep h1, .band-deep h2, .band-deep h3, .band-deep h4,
+.band-footer h1, .band-footer h2, .band-footer h3, .band-footer h4,
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4 { color: #fff; }
+
+.band-paper h1, .band-paper h2, .band-paper h3, .band-paper h4,
+.band-paper-alt h1, .band-paper-alt h2, .band-paper-alt h3, .band-paper-alt h4 { color: var(--ink); }
+
+/* --- 5. Buttons --------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 30px;
+  min-height: 52px;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.18s var(--ease), border-color 0.18s var(--ease),
+              color 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.btn-sm { min-height: 44px; padding: 11px 20px; font-size: 0.8125rem; }
+
+.btn-primary { background: var(--green); color: #fff; }
+.btn-ghost   { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.45); }
+.btn-ghost-dark { background: transparent; color: var(--ink); border-color: rgba(23, 34, 60, 0.35); }
+/* gold fill is the founders CTA only — HANDOFF rule 4 */
+.btn-gold    { background: var(--gold); color: var(--navy); }
+
+@media (hover: hover) {
+  .btn-primary:hover { background: var(--green-deep); transform: translateY(-2px); }
+  .btn-ghost:hover   { background: rgba(255, 255, 255, 0.10); border-color: #fff; transform: translateY(-2px); }
+  .btn-ghost-dark:hover { background: rgba(23, 34, 60, 0.06); border-color: var(--ink); transform: translateY(-2px); }
+  .btn-gold:hover    { background: #ffd433; transform: translateY(-2px); }
+}
+
+/* tertiary — arrow text link */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--green-deep);
+  min-height: 44px;
+}
+.on-dark .link-arrow, .band-navy .link-arrow, .band-deep .link-arrow, .band-footer .link-arrow {
+  color: var(--green-bright);
+}
+.link-arrow svg { transition: transform 0.18s var(--ease); }
+@media (hover: hover) { .link-arrow:hover svg { transform: translateX(4px); } }
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* --- 6. Cards ----------------------------------------------------------- */
+
+.card {
+  border-radius: var(--radius);
+  padding: clamp(22px, 2vw, 32px);
+  transition: border-color 0.18s var(--ease), transform 0.18s var(--ease),
+              background-color 0.18s var(--ease);
+}
+.card-dark  { background: var(--card-dark); border: 1px solid var(--line-dark); color: var(--body-dark); }
+.card-light { background: #fff; border: 1px solid var(--line-light); color: var(--body-light); }
+.card-photo { border-radius: var(--radius-photo); overflow: hidden; border: 1px solid var(--line-dark); }
+
+@media (hover: hover) {
+  .card-dark:hover  { border-color: rgba(123, 198, 91, 0.55); transform: translateY(-2px); }
+  .card-light:hover { border-color: var(--green); transform: translateY(-2px); }
+}
+
+/* --- 7. Icons ----------------------------------------------------------- */
+/* One stroke set, currentColor, 20–26px. Replaces every emoji site-wide. */
+
+.icon {
+  width: 24px; height: 24px;
+  flex: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.icon-sm { width: 20px; height: 20px; }
+.icon-lg { width: 26px; height: 26px; }
+.icon-green { color: var(--green); }
+.on-dark .icon-green, .band-navy .icon-green, .band-deep .icon-green { color: var(--green-bright); }
+.icon-gold { color: var(--gold); }
+
+/* check lists */
+.checks { list-style: none; padding: 0; display: grid; gap: 14px; max-width: var(--measure); }
+.checks li { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; line-height: 1.6; }
+.checks svg { margin-top: 3px; }
+
+/* --- 8. Image slots ----------------------------------------------------- */
+/* Every image is a named slot: fixed container, object-fit cover, defined
+   object-position. Swapping = replacing the file at the same path. */
+
+.slot { position: relative; overflow: hidden; background: var(--navy-deep); }
+.slot img { width: 100%; height: 100%; object-fit: cover; }
+.slot-4x3  { aspect-ratio: 4 / 3; }
+.slot-3x2  { aspect-ratio: 3 / 2; }
+.slot-16x9 { aspect-ratio: 16 / 9; }
+
+/* empty-state for a slot awaiting a real asset — never shows customer-facing
+   meta labels, just a quiet branded surface */
+.slot-empty {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(93, 168, 58, 0.07), transparent 60%),
+    var(--navy-deep);
+  border: 1px solid var(--line-dark);
+  color: var(--muted-dark);
+}
+.slot-empty .icon { width: 42px; height: 42px; stroke-width: 1.2; opacity: 0.5; }
+
+/* --- 9. Motion ---------------------------------------------------------- */
+/* One entrance pattern only: fade + 12px rise, once, staggered ≤3. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.36s var(--ease), transform 0.36s var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal[data-delay="1"] { transition-delay: 0.08s; }
+.reveal[data-delay="2"] { transition-delay: 0.16s; }
+
+/* no-JS and reduced-motion must never hide content */
+.no-js .reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* --- 10. Utilities ------------------------------------------------------ */
+
+.center { text-align: center; }
+.center p, .center .measure { margin-inline: auto; }
+.stack   { display: grid; gap: var(--s3); justify-items: start; }
+.center .stack { justify-items: center; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.center .actions { justify-content: center; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 8px; top: -60px; z-index: 300;
+  background: var(--green); color: #fff; padding: 12px 20px;
+  border-radius: var(--radius-btn); text-decoration: none;
+  transition: top 0.15s var(--ease);
+}
+.skip-link:focus { top: 8px; }

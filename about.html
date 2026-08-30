@@ -1,335 +1,329 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
+<script>document.documentElement.classList.remove('no-js');</script>
+
+<!-- Google tag (gtag.js) — measurement ID unchanged from the live site -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJWD298VFD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-BJWD298VFD');
+  gtag('config', 'G-BJWD298VFD', {
+    // Cross-domain measurement: the booking app is a separate host on the same
+    // GA4 property, so the client id must survive the hop or conversions get
+    // attributed to a self-referral.
+    linker: { domains: ['worththedrivegolf.com', 'book.worththedrivegolf.com'] }
+  });
 </script>
 
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="About Worth the Drive Golf Studio — Built for Northeast Indiana. Midwest hospitality, premium golf experience, Wawaka, IN."/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>About | Worth the Drive Golf Studio — Wawaka, Indiana</title>
+<meta name="description" content="Worth the Drive started with a small winter league and a simple realization. Local golf, Midwest hospitality, and a better way to play close to home in Northeast Indiana."/>
 <link rel="canonical" href="https://worththedrivegolf.com/about.html"/>
 
-<!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Worth the Drive Golf Studio"/>
-<meta property="og:title" content="About | Worth the Drive Golf Studio"/>
-<meta property="og:description" content="Worth the Drive Golf Studio brings accessible, social golf to Northeast Indiana — mobile simulator events now, and a private member studio coming soon to Wawaka, IN."/>
+<meta property="og:title" content="About | Worth the Drive Golf Studio — Wawaka, Indiana"/>
+<meta property="og:description" content="Worth the Drive started with a small winter league and a simple realization. Local golf, Midwest hospitality, and a better way to play close to home in Northeast Indiana."/>
 <meta property="og:url" content="https://worththedrivegolf.com/about.html"/>
-<meta property="og:image" content="https://worththedrivegolf.com/images/hero-studio.jpg"/>
+<meta property="og:image" content="https://worththedrivegolf.com/images/og-share.jpg"/>
 <meta property="og:locale" content="en_US"/>
-
-<!-- Twitter / X card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="About — Worth the Drive Golf Studio"/>
-<meta name="twitter:description" content="Local golf, Midwest hospitality, and a better way to play close to home in Northeast Indiana."/>
-<meta name="twitter:image" content="https://worththedrivegolf.com/images/hero-studio.jpg"/>
-  <title>About | Worth the Drive Golf Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--navy:#1a2744;--navy-dk:#0e1a2e;--green:#5da83a;--green-lt:#7ed957;--gold:#f5c518;--white:#fff;--off:#f4f6f9;--muted:#5a6a8a;--border:#d0d8e8;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Open Sans',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(14,26,46,0.97);backdrop-filter:blur(12px);border-bottom:2px solid rgba(93,168,58,0.25);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
-    .nav-logo{height:44px;width:auto;}
-    .nav-links{display:flex;gap:22px;align-items:center;list-style:none;}
-    .nav-links a{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
-    .nav-book{background:linear-gradient(135deg,var(--green),var(--green-lt));color:var(--white)!important;padding:9px 20px;border-radius:50px;font-weight:700!important;letter-spacing:1.5px;}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;}
-    .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--navy-dk);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu a{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
-    .mob-book{background:linear-gradient(135deg,var(--green),var(--green-lt));padding:14px 40px;border-radius:50px;}
+<meta name="twitter:title" content="About | Worth the Drive Golf Studio — Wawaka, Indiana"/>
+<meta name="twitter:description" content="Worth the Drive started with a small winter league and a simple realization. Local golf, Midwest hospitality, and a better way to play close to home in Northeast Indiana."/>
+<meta name="twitter:image" content="https://worththedrivegolf.com/images/og-share.jpg"/>
 
-    .page-hero{background:linear-gradient(160deg,var(--navy-dk) 0%,var(--navy) 100%);padding:130px 24px 72px;text-align:center;}
-    .page-hero-inner{max-width:680px;margin:0 auto;animation:fadeUp 0.6s ease 0.1s both;}
-    .eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:700;display:block;margin-bottom:10px;}
-    .page-hero h1{font-family:'Oswald',sans-serif;font-size:clamp(34px,8vw,58px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
-    .page-hero h1 span{color:var(--green);}
-    .page-hero p{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.8;}
-
-    .section{padding:72px 24px;}
-    .section-inner{max-width:1000px;margin:0 auto;}
-    .section-title{font-family:'Oswald',sans-serif;font-size:clamp(24px,5vw,40px);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-    .section-title span{color:var(--green);}
-    .section-sub{font-size:15px;color:var(--muted);line-height:1.8;max-width:580px;}
-    .bg-off{background:var(--off);}
-    .bg-navy{background:var(--navy);}
-
-    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:44px;}
-    .story-text p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:18px;}
-    .story-text p:last-child{margin-bottom:0;}
-    .quote-block{background:var(--navy);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:22px 26px;margin-top:24px;}
-    .quote-block p{font-family:'Oswald',sans-serif;font-size:17px;font-weight:500;color:var(--white);line-height:1.5;font-style:italic;margin-bottom:7px;}
-    .quote-block cite{font-size:11px;color:var(--gold);font-style:normal;letter-spacing:1px;text-transform:uppercase;}
-
-    .values-list{display:flex;flex-direction:column;gap:2px;}
-    .value-item{background:var(--off);border-radius:6px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;transition:background 0.2s;}
-    .value-item:hover{background:var(--border);}
-    .value-icon{font-size:22px;flex-shrink:0;}
-    .value-item h4{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
-    .value-item p{font-size:13px;color:var(--muted);line-height:1.6;margin:0;}
-
-    .mission-strip{background:var(--navy);padding:56px 24px;text-align:center;}
-    .mission-strip blockquote{font-family:'Oswald',sans-serif;font-size:clamp(18px,3.5vw,30px);font-weight:600;color:var(--white);line-height:1.5;max-width:760px;margin:0 auto;font-style:italic;}
-    .mission-strip blockquote span{color:var(--gold);}
-
-    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px;}
-    .stat{background:var(--white);border:1.5px solid var(--border);border-top:3px solid var(--green);border-radius:8px;padding:22px;text-align:center;}
-    .stat-num{font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:5px;}
-    .stat-label{font-size:13px;color:var(--muted);}
-
-    .cta-strip{padding:72px 24px;background:linear-gradient(135deg,var(--green) 0%,#1f6b10 100%);text-align:center;}
-    .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 30px;border-radius:50px;text-decoration:none;transition:transform 0.2s,opacity 0.2s;cursor:pointer;border:none;min-height:48px;}
-    .btn:hover{transform:translateY(-2px);opacity:0.9;}
-    .btn-white{background:var(--white);color:var(--green);}
-    .btn-outline-w{background:rgba(255,255,255,0.07);color:var(--white);border:1.5px solid rgba(255,255,255,0.3);}
-    .btn-outline-w:hover{border-color:var(--gold);color:var(--gold);}
-
-    .site-footer{background:var(--navy-dk);border-top:3px solid var(--green);padding:44px 24px 24px;}
-    .footer-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;}
-    .footer-logo{width:120px;height:auto;margin-bottom:12px;}
-    .footer-brand p{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.8;}
-    .footer-brand a{color:rgba(255,255,255,0.38);text-decoration:none;}
-    .footer-col h4{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
-    .footer-col ul{list-style:none;}
-    .footer-col ul li{margin-bottom:9px;}
-    .footer-col ul li a{font-size:13px;color:rgba(255,255,255,0.42);text-decoration:none;transition:color 0.2s;}
-    .footer-col ul li a:hover{color:var(--white);}
-    .footer-bottom{max-width:1000px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:11px;color:rgba(255,255,255,0.18);}.footer-social{display:flex;gap:14px;margin-top:6px;}.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55);transition:all 0.2s;}.footer-social a:hover{background:var(--green);color:var(--white);transform:translateY(-2px);}
-
-    .modal-overlay{position:fixed;inset:0;background:rgba(8,15,30,0.88);backdrop-filter:blur(10px);z-index:500;display:none;align-items:center;justify-content:center;padding:24px;}
-    .modal-overlay.open{display:flex;}
-    .modal-box{background:var(--navy);border:1.5px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px 32px;max-width:460px;width:100%;text-align:center;position:relative;animation:fadeUp 0.3s ease;}
-    .modal-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.07);border:none;color:rgba(255,255,255,0.5);width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-    .modal-eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:8px;}
-    .modal-title{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:6px;}
-    .modal-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:26px;}
-    .modal-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-    .modal-option{border-radius:10px;padding:22px 14px;text-decoration:none;display:flex;flex-direction:column;gap:7px;align-items:center;text-align:center;transition:transform 0.2s;border:1.5px solid transparent;}
-    .modal-option:hover{transform:translateY(-3px);}
-    .modal-option.green{background:rgba(93,168,58,0.1);border-color:rgba(93,168,58,0.35);}
-    .modal-option.green:hover{background:rgba(93,168,58,0.18);border-color:var(--green);}
-    .modal-option.gold{background:rgba(245,197,24,0.07);border-color:rgba(245,197,24,0.28);}
-    .modal-option.gold:hover{background:rgba(245,197,24,0.13);border-color:var(--gold);}
-    .modal-option-icon{font-size:28px;}
-    .modal-option-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
-    .modal-option-label.green{color:var(--green);}
-    .modal-option-label.gold{color:var(--gold);}
-    .modal-option-title{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--white);text-transform:uppercase;}
-    .modal-option-desc{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.5;}
-    .modal-option-cta{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-    .modal-option-cta.green{color:var(--green);}
-    .modal-option-cta.gold{color:var(--gold);}
-
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-
-    @media(max-width:768px){
-      .nav-links{display:none;}.hamburger{display:flex;}
-      .story-grid{grid-template-columns:1fr;gap:32px;}
-      .stats-row{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr;gap:24px;}.footer-bottom{flex-direction:column;text-align:center;}
-      .modal-options{grid-template-columns:1fr;}
-    }
-  </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "About Worth the Drive Golf Studio",
-  "url": "https://worththedrivegolf.com/about.html",
-  "mainEntity": {
-    "@type": "LocalBusiness",
-    "name": "Worth the Drive Golf Studio",
-    "description": "Worth the Drive Golf Studio started with a small winter league and a simple realization — indoor golf can be social, competitive, convenient, and private. Worth the Drive On Tour brings the simulator experience to events across Northeast Indiana, and The Studio is a private indoor golf club coming soon to Wawaka, Indiana.",
-    "telephone": "+1-844-465-3983",
-    "email": "info@worththedrivegolf.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "7032 N Main St",
-      "addressLocality": "Wawaka",
-      "addressRegion": "IN",
-      "postalCode": "46794",
-      "addressCountry": "US"
-    },
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "Noble County, Indiana" },
-      { "@type": "AdministrativeArea", "name": "LaGrange County, Indiana" },
-      { "@type": "AdministrativeArea", "name": "Steuben County, Indiana" },
-      { "@type": "AdministrativeArea", "name": "DeKalb County, Indiana" }
-    ]
-  }
-}
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/wtd.css"/>
 </head>
 <body>
-<nav>
-  <a href="index.html"><img src="images/wtd-logo.png" alt="Worth the Drive Golf Studio" class="nav-logo"/></a>
-  <ul class="nav-links">
-    <li><a href="on-tour.html">On Tour</a></li>
-    <li><a href="studio.html">The Studio</a></li>
-    <li><a href="memberships.html">Memberships</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="#" class="nav-book" onclick="openBookingModal();return false;">Book Now</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="on-tour.html" onclick="closeMenu()">On Tour</a>
-  <a href="studio.html" onclick="closeMenu()">The Studio</a>
-  <a href="memberships.html" onclick="closeMenu()">Memberships</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
-  <a href="#" class="mob-book" onclick="openBookingModal();closeMenu();return false;">Book Now</a>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Stroke icon sprite (Lucide-style, 1.6px, currentColor).
+     Replaces every emoji site-wide. Referenced as:
+     <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2.5 6 12 13 21.5 6"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M21 20v-1.5a4 4 0 0 0-3-3.8"/><path d="M16.5 4.2a3.5 3.5 0 0 1 0 6.6"/></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v3h12v-3a2 2 0 0 1 4 0v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 14.8V4.5a2.5 2.5 0 0 0-5 0v10.3a4.5 4.5 0 1 0 5 0z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><line x1="3" y1="21" x2="21" y2="21"/><circle cx="13" cy="12" r="1"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="21" x2="6" y2="3"/><path d="M6 4h11l-2.5 3.5L17 11H6z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 7.5A1.5 1.5 0 0 1 3.5 6h9A1.5 1.5 0 0 1 14 7.5V17H2z"/><path d="M14 10h3.6a2 2 0 0 1 1.7 1l1.7 2.7V17h-7z"/><circle cx="6" cy="18.5" r="2"/><circle cx="17" cy="18.5" r="2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><polyline points="21 16 15.5 11 5 20"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 20 6v6c0 4.6-3.3 8.4-8 9.5-4.7-1.1-8-4.9-8-9.5V6z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<!-- Announcement bar — static, never a marquee. Founders phrase is the only
+     gold outside the founders band (HANDOFF rule 4). -->
+<div class="announce">
+  <span class="on-desktop">The Studio is under construction in Wawaka — opening 2026</span>
+  <span class="on-mobile">Opening 2026</span>
+  <span class="sep">·</span>
+  <b class="on-desktop">Founders Club now forming · 40 spots</b>
+  <b class="on-mobile">Founders Club forming</b>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <span class="eyebrow">Our Story</span>
-    <h1>Built for <span>Golfers</span><br/>By Golfers</h1>
-    <p>Worth the Drive Golf Studio started with a straightforward idea — bring a premium golf experience to the people of Northeast Indiana, right where they live.</p>
-  </div>
-</div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="index.html" aria-label="Worth the Drive Golf Studio — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+    </a>
 
-<section class="section">
-  <div class="section-inner">
-    <div class="story-grid reveal">
-      <div class="story-text">
-        <span class="eyebrow">The Story</span>
-        <h2 class="section-title">Where It All <span>Started</span></h2>
-        <p>Worth the Drive Golf Studio started with a small winter league, a group of friends, and a simple realization — indoor golf can be a lot more than something to do when the weather turns.</p>
-        <p>It can be social. It can be competitive. It can be convenient. And for some golfers, it can also be private, focused, and available on their own schedule.</p>
-        <p>That is exactly what Worth the Drive is being built to deliver.</p>
-        <p>Worth the Drive On Tour brings the simulator experience to birthdays, company events, fundraisers, private parties, and local gatherings across Northeast Indiana. It is golf made more accessible — built for groups, events, and anyone who wants a fun way to play without needing a country club connection or a long drive to a big-city facility.</p>
-        <p>The Studio is the private side of that same vision. It is being built for golfers who want 24/7 member access, better practice tools, league opportunities, and a place to play without the pressure, noise, or distractions of a crowded bar.</p>
-        <p>Some golfers want the social side. Some want a quiet place to work on their game. Some want both.</p>
-        <p>Worth the Drive is being built for all of it — local golf, Midwest hospitality, and a better way to play close to home.</p>
-        <div class="quote-block">
-          <p>"Greatness isn't reserved for the gifted — it's earned by those who commit, stay consistent, and refuse to quit."</p>
-          <cite>Worth the Drive Golf Studio</cite>
-        </div>
-      </div>
-      <div>
-        <span class="eyebrow">What We Stand For</span>
-        <h2 class="section-title" style="margin-bottom:22px;">Our <span>Values</span></h2>
-        <div class="values-list">
-          <div class="value-item"><span class="value-icon">🤝</span><div><h4>Midwest Hospitality</h4><p>We treat every customer like a neighbor — because most of the time, you are. No pretension, no attitude, just genuine service.</p></div></div>
-          <div class="value-item"><span class="value-icon">📍</span><div><h4>Community First</h4><p>Based in Wawaka, serving Noble, LaGrange, Steuben & DeKalb Counties. We're invested in the communities we serve.</p></div></div>
-          <div class="value-item"><span class="value-icon">⛳</span><div><h4>Something for Every Golfer</h4><p>On Tour is golf made more accessible — for groups, events, and anyone who wants to play. The Studio is golf made more private — for members who want 24/7 access, better tools, and fewer distractions.</p></div></div>
-          <div class="value-item"><span class="value-icon">🏆</span><div><h4>Worth the Drive</h4><p>Every event and every visit should feel like it was genuinely worth it — close to home, well run, and better than expected.</p></div></div>
-        </div>
-      </div>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        
+        <li><a href="studio.html">The Studio</a></li>
+        
+        <li><a href="membership.html">Membership</a></li>
+        
+        <li><a href="on-tour.html">On Tour</a></li>
+        
+        <li><a href="about.html">About</a></li>
+        
+        <li><a href="contact.html">Contact</a></li>
+        
+      </ul>
+    </nav>
+
+    <a class="header-phone" href="tel:8444653983">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      (844) GOLF-WTD
+    </a>
+
+    <div class="header-actions">
+      <!-- Event booking is never buried in the menu, at any width. -->
+      <a class="btn btn-sm btn-ghost" href="https://book.worththedrivegolf.com">
+        <span class="on-desktop-inline">Book an Event</span>
+      </a>
+      <a class="btn btn-sm btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+      <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
     </div>
   </div>
-</section>
+</header>
 
-<section class="mission-strip">
-  <div class="section-inner">
-    <blockquote class="reveal">"We believe golf should be <span>accessible, memorable, and worth every mile</span> — whether we bring it to your backyard or you walk through our studio doors."</blockquote>
+<div class="mobile-menu" id="mobileMenu" data-open="false">
+  <div class="mobile-menu-head">
+    <a class="brand-link" href="index.html" aria-label="Worth the Drive Golf Studio — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+    </a>
+    <button class="hamburger" id="menuClose" aria-label="Close menu">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
   </div>
-</section>
-
-<section class="section bg-off">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">By the Numbers</span>
-      <h2 class="section-title">Worth the Drive <span>At a Glance</span></h2>
-    </div>
-    <div class="stats-row reveal">
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Counties Served</div></div>
-      <div class="stat"><div class="stat-num">2,000+</div><div class="stat-label">Courses Available in Studio</div></div>
-      <div class="stat"><div class="stat-num">40</div><div class="stat-label">Founders Club Spots Available</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-strip">
-  <span class="eyebrow" style="color:rgba(255,255,255,0.65);">Get Involved</span>
-  <h2 class="section-title" style="color:var(--white);margin-bottom:8px;">Be Part of <span style="color:var(--gold);">Something New</span></h2>
-  <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:28px;">Book a mobile event or join the Founders Club waitlist.</p>
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://book.worththedrivegolf.com" class="btn btn-white" target="_blank">Book Mobile Event →</a>
-    <a href="memberships.html#studio-waitlist" class="btn btn-outline-w">Join Studio Waitlist</a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img src="images/wtd-logo.png" alt="Worth the Drive Golf Studio" class="footer-logo"/>
-      <p>Worth the Drive Golf Studio<br/>7032 N Main St · Wawaka, IN 46794<br/><a href="tel:8444653983">(844) GOLF-WTD · (844) 465-3983</a></p>
-    </div>
-    <div class="footer-col"><h4>Navigate</h4><ul>
-      <li><a href="on-tour.html">On Tour — Mobile</a></li>
+  <nav aria-label="Mobile">
+    <ul>
+      
       <li><a href="studio.html">The Studio</a></li>
-      <li><a href="memberships.html">Memberships</a></li>
-      <li><a href="about.html">About Us</a></li>
+      
+      <li><a href="membership.html">Membership</a></li>
+      
+      <li><a href="on-tour.html">On Tour</a></li>
+      
+      <li><a href="about.html">About</a></li>
+      
       <li><a href="contact.html">Contact</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>FAQ &amp; Policies</h4><ul>
-      <li><a href="on-tour.html#on-tour-faq">On Tour FAQ</a></li>
-      <li><a href="studio.html#studio-faq">Studio FAQ</a></li>
-      <li><a href="memberships.html#membership-faq">Membership FAQ</a></li>
-      <li><a href="rental-terms.html">Rental Terms</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Book & Connect</h4><ul>
-      <li><a href="https://book.worththedrivegolf.com" target="_blank">Book Mobile Event</a></li>
-      <li><a href="memberships.html#studio-waitlist">Join Studio Waitlist</a></li>
-      <li><a href="memberships.html#founders">Reserve Founders Spot</a></li>
-      <li><a href="mailto:info@worththedrivegolf.com">info@worththedrivegolf.com</a></li>
-      <li class="footer-social-li"><div class="footer-social"><a href="https://www.facebook.com/worththedrivegolf" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a><a href="https://www.instagram.com/worththedrivegolf/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></div></li>
-    </ul></div>
+      
+    </ul>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+    <a class="btn btn-ghost" href="https://book.worththedrivegolf.com">Book an Event</a>
+    <a class="btn btn-ghost" href="tel:8444653983">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      (844) GOLF-WTD
+    </a>
   </div>
-  <div class="footer-bottom"><span>© 2026 Worth the Drive Golf Studio · Wawaka, Indiana</span><span>worththedrivegolf.com</span></div>
+</div>
+
+
+<main id="main">
+<section class="band band-navy page-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Our Story</span>
+      <h1 class="h1">Built for golfers,<br/><span class="accent">by golfers.</span></h1>
+      <p class="lead" style="margin-top:var(--s3)">Worth the Drive started with a straightforward idea — bring a premium golf experience to the people of Northeast Indiana, right where they live.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE STORY ============================================================ -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">The Story</span>
+        <h2 class="h2">Where it all started</h2>
+      </div>
+      <div class="reveal" data-delay="1">
+        <p class="lead">It started with a small winter league, a group of friends, and a simple realization — indoor golf can be a lot more than something to do when the weather turns.</p>
+        <p style="margin-top:var(--s3)">It can be social. It can be competitive. It can be convenient. And for some golfers, it can also be private, focused, and available on their own schedule. That is exactly what Worth the Drive is being built to deliver.</p>
+        <p style="margin-top:var(--s3)"><strong>Worth the Drive On Tour</strong> brings the simulator experience to birthdays, company events, fundraisers, private parties and local gatherings across Northeast Indiana. It is golf made more accessible — built for groups, events, and anyone who wants a fun way to play without needing a country club connection or a long drive to a big-city facility.</p>
+        <p style="margin-top:var(--s3)"><strong>The Studio</strong> is the private side of that same vision. It is being built for golfers who want 24/7 member access, better practice tools, league opportunities, and a place to play without the pressure, noise or distractions of a crowded bar.</p>
+        <p style="margin-top:var(--s3)">Some golfers want the social side. Some want a quiet place to work on their game. Some want both. Worth the Drive is being built for all of it — local golf, Midwest hospitality, and a better way to play close to home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES =============================================================== -->
+<section class="band band-deep">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">What We Stand For</span>
+      <h2 class="h2">Our values</h2>
+    </div>
+    <div class="grid grid-2 reveal">
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg>
+        <h3>Midwest hospitality</h3>
+        <p>We treat every customer like a neighbor — because most of the time, you are. No pretension, no attitude, just genuine service.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+        <h3>Community first</h3>
+        <p>Based in Wawaka, serving Noble, LaGrange, Steuben &amp; DeKalb Counties. We're invested in the communities we serve.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
+        <h3>Something for every golfer</h3>
+        <p>On Tour is golf made more accessible — for groups, events and anyone who wants to play. The Studio is golf made more private — for members who want 24/7 access, better tools and fewer distractions.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-target"></use></svg>
+        <h3>Worth the drive</h3>
+        <p>Every event and every visit should feel like it was genuinely worth it — close to home, well run, and better than expected.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL PROOF ========================================================== -->
+<section class="band band-navy">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Built in Northeast Indiana</span>
+      <blockquote class="pullquote">"We believe golf should be accessible, memorable, and worth every mile — whether we bring it to your backyard or you walk through our studio doors."</blockquote>
+      <span class="quote-attrib">— The Worth the Drive story</span>
+    </div>
+    <div class="stat-row reveal">
+      <div class="stat"><b>4</b><span>Counties served</span></div>
+      <div class="stat"><b>2,500+</b><span>Courses in the library</span></div>
+      <div class="stat"><b>40</b><span>Founders Club spots</span></div>
+      <div class="stat"><b>2026</b><span>Est. Wawaka, Indiana</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING ============================================================== -->
+<section class="band band-deep center">
+  <div class="container">
+    <div class="reveal stack">
+      <span class="eyebrow">Get Involved</span>
+      <h2 class="h2">Be part of<br/><span class="accent-dark">something new.</span></h2>
+      <p class="lead">Book a mobile event today, or join the waitlist for the Studio opening in 2026.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+        <a class="btn btn-ghost" href="https://book.worththedrivegolf.com">Book a Mobile Event</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer band-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+        <p>A members-only indoor golf club in Wawaka, Indiana — open 24/7 for members, and on the road for events across Northeast Indiana.</p>
+        <p style="margin-top:14px">
+          7032 N Main St · Wawaka, IN 46794<br/>
+          <a href="tel:8444653983">(844) GOLF-WTD · (844) 465-3983</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          
+          <li><a href="studio.html">The Studio</a></li>
+          
+          <li><a href="membership.html">Membership</a></li>
+          
+          <li><a href="on-tour.html">On Tour</a></li>
+          
+          <li><a href="about.html">About</a></li>
+          
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>FAQ &amp; Policies</h4>
+        <ul>
+          <li><a href="studio.html#faq">Studio FAQ</a></li>
+          <li><a href="membership.html#faq">Membership FAQ</a></li>
+          <li><a href="on-tour.html#faq">On Tour FAQ</a></li>
+          <li><a href="rental-terms.html">Rental Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Join &amp; Connect</h4>
+        <ul>
+          <li><a href="membership.html#waitlist">Join the Waitlist</a></li>
+          <li><a href="membership.html#founders">Reserve a Founders Spot</a></li>
+          <li><a href="https://book.worththedrivegolf.com">Book a Mobile Event</a></li>
+          <li><a href="mailto:info@worththedrivegolf.com">info@worththedrivegolf.com</a></li>
+        </ul>
+        <!-- Social URLs are the live main-site values — HANDOFF rule 9. -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/worththedrivegolf" target="_blank" rel="noopener" aria-label="Worth the Drive on Facebook">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a href="https://www.instagram.com/worththedrivegolf/" target="_blank" rel="noopener" aria-label="Worth the Drive on Instagram">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Worth the Drive Golf Studio · Wawaka, Indiana</p>
+      <p>worththedrivegolf.com</p>
+    </div>
+  </div>
 </footer>
 
-<div class="modal-overlay" id="bookingModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeBookingModal()">✕</button>
-    <span class="modal-eyebrow">Worth the Drive Golf Studio</span>
-    <h2 class="modal-title">How Can We Help?</h2>
-    <p class="modal-sub">Select an experience to get started.</p>
-    <div class="modal-options">
-      <a href="https://book.worththedrivegolf.com" class="modal-option green" target="_blank" onclick="closeBookingModal()">
-        <span class="modal-option-icon">🚐</span>
-        <span class="modal-option-label green">● Available Now</span>
-        <span class="modal-option-title">Mobile Event</span>
-        <span class="modal-option-desc">Book the On Tour simulator for your event. Fri–Sun, Northeast Indiana.</span>
-        <span class="modal-option-cta green">Book Now →</span>
-      </a>
-      <a href="memberships.html#studio-waitlist" class="modal-option gold" onclick="closeBookingModal()">
-        <span class="modal-option-icon">🏌️</span>
-        <span class="modal-option-label gold">🚧 Coming Soon</span>
-        <span class="modal-option-title">Studio Access</span>
-        <span class="modal-option-desc">Private indoor studio coming soon. Join the general waitlist for opening updates, membership details, and launch information.</span>
-        <span class="modal-option-cta gold">Join Studio Waitlist →</span>
-      </a>
-    </div>
-    <p style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.3);text-align:center;">Interested in lifetime rate-lock? <a href="memberships.html#founders" style="color:var(--gold);" onclick="closeBookingModal()">Reserve a Founders Spot →</a></p>
-  </div>
-</div>
 
-<script>
-  function openBookingModal(){var m=document.getElementById('bookingModal');if(m)m.classList.add('open');}
-  function closeBookingModal(){var m=document.getElementById('bookingModal');if(m)m.classList.remove('open');}
-  var bm=document.getElementById('bookingModal');if(bm)bm.addEventListener('click',function(e){if(e.target===this)closeBookingModal();});
-  var hb=document.getElementById('hamburger');if(hb)hb.addEventListener('click',function(){document.getElementById('mobileMenu').classList.toggle('open');});
-  function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
-  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-</script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

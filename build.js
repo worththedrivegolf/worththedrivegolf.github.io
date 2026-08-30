@@ -1,0 +1,238 @@
+#!/usr/bin/env node
+/* ==========================================================================
+   Worth the Drive — static site build
+   No framework, no dependencies. Assembles src/ into static .html at the repo
+   root, which is what GitHub Pages serves. Run: node build.js
+   ========================================================================== */
+
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = __dirname;
+const SRC = path.join(ROOT, 'src');
+const OUT = ROOT;
+
+const read = (p) => fs.readFileSync(p, 'utf8');
+const exists = (p) => fs.existsSync(p);
+
+/* --- tiny template engine ------------------------------------------------
+   {{> partial }}        include a partial
+   {{ a.b.c }}           escaped interpolation
+   {{{ a.b.c }}}         raw interpolation
+   {{#if a.b }}…{{/if}}  truthy block (supports {{else}})
+   {{#each a.b }}…{{/each}}  iteration; inside: {{ this.x }}, {{@index}}, {{@num}}
+   -------------------------------------------------------------------------- */
+
+const partials = {};
+function loadPartials() {
+  const dir = path.join(SRC, 'partials');
+  if (!exists(dir)) return;
+  for (const f of fs.readdirSync(dir)) {
+    if (f.endsWith('.html')) partials[path.basename(f, '.html')] = read(path.join(dir, f));
+  }
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function resolve(ctx, key) {
+  key = key.trim();
+  if (key === 'this') return ctx.__this !== undefined ? ctx.__this : ctx;
+  if (key === '@index') return ctx.__index;
+  if (key === '@num') return (ctx.__index ?? 0) + 1;
+  let cur = key.startsWith('this.')
+    ? (ctx.__this !== undefined ? ctx.__this : ctx)
+    : ctx;
+  const parts = key.replace(/^this\./, '').split('.');
+  for (const p of parts) {
+    if (cur == null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+/* Find the index just past the {{/tag}} that balances an opener at `from`,
+   counting nested {{#tag …}} of the same kind. Returns { body, end }. */
+function matchBlock(tpl, tag, from) {
+  const open = new RegExp('\\{\\{#' + tag + '\\s+[\\w.@]+\\s*\\}\\}', 'g');
+  const close = new RegExp('\\{\\{\\/' + tag + '\\}\\}', 'g');
+  let depth = 1;
+  let i = from;
+  while (i < tpl.length) {
+    open.lastIndex = i;
+    close.lastIndex = i;
+    const o = open.exec(tpl);
+    const c = close.exec(tpl);
+    if (!c) throw new Error(`unclosed {{#${tag}}} block`);
+    if (o && o.index < c.index) { depth++; i = o.index + o[0].length; continue; }
+    depth--;
+    if (depth === 0) return { body: tpl.slice(from, c.index), end: c.index + c[0].length };
+    i = c.index + c[0].length;
+  }
+  throw new Error(`unclosed {{#${tag}}} block`);
+}
+
+/* Split a block body on its top-level {{else}} (ignoring nested blocks). */
+function splitElse(body) {
+  const re = /\{\{#(each|if)\s+[\w.@]+\s*\}\}|\{\{\/(each|if)\}\}|\{\{else\}\}/g;
+  let depth = 0, m;
+  while ((m = re.exec(body))) {
+    if (m[0] === '{{else}}') { if (depth === 0) return [body.slice(0, m.index), body.slice(m.index + 8)]; }
+    else if (m[1]) depth++;
+    else depth--;
+  }
+  return [body, ''];
+}
+
+function renderBlocks(tpl, ctx, depth) {
+  const opener = /\{\{#(each|if)\s+([\w.@]+)\s*\}\}/;
+  let out = '';
+  let rest = tpl;
+
+  for (;;) {
+    const m = opener.exec(rest);
+    if (!m) return out + rest;
+
+    out += rest.slice(0, m.index);
+    const tag = m[1];
+    const key = m[2];
+    const bodyStart = m.index + m[0].length;
+    const { body, end } = matchBlock(rest, tag, bodyStart);
+
+    if (tag === 'each') {
+      const list = resolve(ctx, key);
+      if (Array.isArray(list)) {
+        out += list.map((item, i) => {
+          const child = Object.create(ctx);
+          child.__this = item;
+          child.__index = i;
+          return render(body, child, depth + 1);
+        }).join('');
+      }
+    } else {
+      const v = resolve(ctx, key);
+      const truthy = Array.isArray(v) ? v.length > 0 : Boolean(v);
+      const [ifBody, elseBody] = splitElse(body);
+      out += render(truthy ? ifBody : elseBody, ctx, depth + 1);
+    }
+
+    rest = rest.slice(end);
+  }
+}
+
+function render(tpl, ctx, depth) {
+  depth = depth || 0;
+  if (depth > 12) throw new Error('template recursion too deep');
+
+  // includes first, so partials participate in the same pass
+  tpl = tpl.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, name) => {
+    if (!(name in partials)) throw new Error(`unknown partial: ${name}`);
+    return partials[name];
+  });
+  if (/\{\{>\s*[\w-]+\s*\}\}/.test(tpl)) return render(tpl, ctx, depth + 1);
+
+  // Blocks ({{#each}} / {{#if}}) are matched by scanning for the *balanced*
+  // closing tag, so nested loops work. A non-greedy regex would close an outer
+  // {{#each}} at an inner {{/each}} and silently emit unclosed markup.
+  tpl = renderBlocks(tpl, ctx, depth);
+
+  // raw then escaped
+  tpl = tpl.replace(/\{\{\{\s*([\w.@]+)\s*\}\}\}/g, (_, k) => {
+    const v = resolve(ctx, k);
+    return v == null ? '' : String(v);
+  });
+  tpl = tpl.replace(/\{\{\s*([\w.@]+)\s*\}\}/g, (_, k) => {
+    const v = resolve(ctx, k);
+    return v == null ? '' : esc(v);
+  });
+
+  return tpl;
+}
+
+/* --- page metadata -------------------------------------------------------
+   Each page begins with an HTML comment holding JSON:
+     <!--meta { "slug": "index", "title": "…" } -->
+   -------------------------------------------------------------------------- */
+
+function parsePage(raw, file) {
+  const m = raw.match(/^\s*<!--meta([\s\S]*?)-->/);
+  if (!m) throw new Error(`${file}: missing <!--meta … --> block`);
+  let meta;
+  try { meta = JSON.parse(m[1]); }
+  catch (e) { throw new Error(`${file}: bad meta JSON — ${e.message}`); }
+  return { meta, body: raw.slice(m[0].length).trim() };
+}
+
+/* --- CSS bundle ----------------------------------------------------------
+   Source is split for maintainability; exactly one stylesheet is served.
+   -------------------------------------------------------------------------- */
+
+function buildCss() {
+  const dir = path.join(ROOT, 'assets', 'css');
+  const order = ['site.css', 'components.css'];
+  const parts = order
+    .filter((f) => exists(path.join(dir, f)))
+    .map((f) => `/* ===== ${f} ===== */\n` + read(path.join(dir, f)));
+  const bundle = parts.join('\n\n');
+  fs.writeFileSync(path.join(dir, 'wtd.css'), bundle);
+  return bundle.length;
+}
+
+/* --- build ---------------------------------------------------------------- */
+
+function build() {
+  loadPartials();
+
+  const site = JSON.parse(read(path.join(SRC, 'data', 'site.json')));
+  // CTA config resolves once, here — flipping site.cta.state swaps every
+  // surface with no layout change (HANDOFF rule 3).
+  site.ctas = site.cta.state === 'open' ? site.cta.open : site.cta.preOpening;
+
+  const cssBytes = buildCss();
+  const layout = read(path.join(SRC, 'layouts', 'base.html'));
+
+  const pagesDir = path.join(SRC, 'pages');
+  const files = fs.readdirSync(pagesDir).filter((f) => f.endsWith('.html'));
+  const built = [];
+
+  for (const file of files) {
+    const { meta, body } = parsePage(read(path.join(pagesDir, file)), file);
+    const slug = meta.slug || path.basename(file, '.html');
+    const ctx = Object.assign(Object.create(null), site, {
+      page: meta,
+      site,
+      slug,
+      year: meta.year || 2026,
+    });
+
+    const content = render(body, ctx);
+    const html = render(layout, Object.assign(Object.create(null), ctx, { content }));
+
+    const outFile = path.join(OUT, `${slug}.html`);
+    fs.writeFileSync(outFile, html);
+    built.push({ slug, bytes: html.length });
+  }
+
+  return { built, cssBytes };
+}
+
+if (require.main === module) {
+  try {
+    const { built, cssBytes } = build();
+    console.log(`css bundle  assets/css/wtd.css  ${(cssBytes / 1024).toFixed(1)} KB`);
+    for (const b of built.sort((a, z) => a.slug.localeCompare(z.slug))) {
+      console.log(`page        ${b.slug}.html`.padEnd(34) + `${(b.bytes / 1024).toFixed(1)} KB`);
+    }
+    console.log(`\n${built.length} page(s) built.`);
+  } catch (e) {
+    console.error('BUILD FAILED: ' + e.message);
+    process.exit(1);
+  }
+}
+
+module.exports = { build, render };

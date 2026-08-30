@@ -1,461 +1,721 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
+<script>document.documentElement.classList.remove('no-js');</script>
+
+<!-- Google tag (gtag.js) — measurement ID unchanged from the live site -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJWD298VFD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-BJWD298VFD');
+  gtag('config', 'G-BJWD298VFD', {
+    // Cross-domain measurement: the booking app is a separate host on the same
+    // GA4 property, so the client id must survive the hop or conversions get
+    // attributed to a self-referral.
+    linker: { domains: ['worththedrivegolf.com', 'book.worththedrivegolf.com'] }
+  });
 </script>
 
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Worth the Drive Golf Studio — A private, members-only indoor golf studio coming soon to Wawaka, Indiana. 24/7 access, league play, and guest privileges."/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The Studio | Worth the Drive Golf Studio — Wawaka, Indiana</title>
+<meta name="description" content="A members-only, 24/7 indoor golf studio under construction in Wawaka, Indiana. Three dedicated bays, ProTee VX and GSPro, opening 2026."/>
 <link rel="canonical" href="https://worththedrivegolf.com/studio.html"/>
 
-<!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Worth the Drive Golf Studio"/>
-<meta property="og:title" content="The Studio — Private Indoor Golf Club | Worth the Drive Golf Studio"/>
-<meta property="og:description" content="A private, members-only indoor golf studio coming soon to Wawaka, Indiana. 24/7 member access, league play, and a quiet place to practice your game."/>
+<meta property="og:title" content="The Studio | Worth the Drive Golf Studio — Wawaka, Indiana"/>
+<meta property="og:description" content="A members-only, 24/7 indoor golf studio under construction in Wawaka, Indiana. Three dedicated bays, ProTee VX and GSPro, opening 2026."/>
 <meta property="og:url" content="https://worththedrivegolf.com/studio.html"/>
-<meta property="og:image" content="https://worththedrivegolf.com/images/studio-coming-soon.jpg"/>
+<meta property="og:image" content="https://worththedrivegolf.com/images/og-share.jpg"/>
 <meta property="og:locale" content="en_US"/>
-
-<!-- Twitter / X card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="The Studio — Private Indoor Golf, Coming Soon to Wawaka, IN"/>
-<meta name="twitter:description" content="Private 24/7 member-access indoor golf studio coming soon to Wawaka, Indiana."/>
-<meta name="twitter:image" content="https://worththedrivegolf.com/images/studio-coming-soon.jpg"/>
-  <title>The Studio — Indoor Golf Club | Worth the Drive Golf Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--navy:#1a2744;--navy-dk:#0e1a2e;--green:#5da83a;--green-lt:#7ed957;--gold:#f5c518;--white:#fff;--off:#f4f6f9;--muted:#5a6a8a;--border:#d0d8e8;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Open Sans',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(14,26,46,0.97);backdrop-filter:blur(12px);border-bottom:2px solid rgba(93,168,58,0.25);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
-    .nav-logo{height:44px;width:auto;}
-    .nav-links{display:flex;gap:22px;align-items:center;list-style:none;}
-    .nav-links a{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
-    .nav-book{background:linear-gradient(135deg,var(--green),var(--green-lt));color:var(--white)!important;padding:9px 20px;border-radius:50px;font-weight:700!important;letter-spacing:1.5px;}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;}
-    .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--navy-dk);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu a{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
-    .mob-book{background:linear-gradient(135deg,var(--green),var(--green-lt));padding:14px 40px;border-radius:50px;}
+<meta name="twitter:title" content="The Studio | Worth the Drive Golf Studio — Wawaka, Indiana"/>
+<meta name="twitter:description" content="A members-only, 24/7 indoor golf studio under construction in Wawaka, Indiana. Three dedicated bays, ProTee VX and GSPro, opening 2026."/>
+<meta name="twitter:image" content="https://worththedrivegolf.com/images/og-share.jpg"/>
 
-    .page-hero{background:linear-gradient(160deg,rgba(8,15,30,0.96) 0%,rgba(20,16,6,0.92) 100%),url('/images/studio-coming-soon.jpg') center/cover no-repeat;padding:130px 24px 72px;text-align:center;position:relative;}
-    .page-hero-inner{max-width:740px;margin:0 auto;animation:fadeUp 0.6s ease 0.1s both;}
-    .coming-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;}
-    .coming-badge-icon{font-size:24px;}
-    .coming-badge-text{font-family:'Oswald',sans-serif;font-size:clamp(16px,4vw,26px);font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);}
-    .coming-badge-sub{font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px;display:block;}
-    .page-hero h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,9vw,66px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
-    .page-hero h1 span{color:var(--gold);}
-    .page-hero p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto;}
-    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 30px;border-radius:50px;text-decoration:none;transition:transform 0.2s,opacity 0.2s;cursor:pointer;border:none;min-height:48px;}
-    .btn:hover{transform:translateY(-2px);opacity:0.9;}
-    .btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 4px 16px rgba(245,197,24,0.3);}
-    .btn-outline-w{background:rgba(255,255,255,0.07);color:var(--white);border:1.5px solid rgba(255,255,255,0.3);}
-    .btn-outline-w:hover{border-color:var(--gold);color:var(--gold);}
-
-    .section{padding:72px 24px;}
-    .section-inner{max-width:1000px;margin:0 auto;}
-    .eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:700;display:block;margin-bottom:8px;}
-    .eyebrow.gold{color:var(--gold);}
-    .section-title{font-family:'Oswald',sans-serif;font-size:clamp(24px,5vw,40px);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-    .section-title span{color:var(--green);}
-    .section-sub{font-size:15px;color:var(--muted);line-height:1.8;max-width:580px;}
-    .bg-off{background:var(--off);}
-    .bg-navy{background:var(--navy);}
-
-    .construction-card{background:var(--navy);border:1.5px solid rgba(245,197,24,0.2);border-radius:12px;padding:30px;margin-top:40px;}
-    .construction-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-    .construction-label::after{content:'';flex:1;height:1px;background:rgba(245,197,24,0.15);}
-    .construction-card h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:9px;}
-    .construction-card p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:18px;}
-    .progress-bar{background:rgba(255,255,255,0.07);border-radius:4px;height:5px;overflow:hidden;margin-bottom:7px;}
-    .progress-fill{height:100%;background:linear-gradient(to right,var(--green),var(--gold));border-radius:4px;width:35%;animation:progressAnim 2s ease 0.5s both;}
-    .progress-labels{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:1px;text-transform:uppercase;}
-    .status-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
-    .status-tag{font-size:11px;padding:4px 12px;border-radius:4px;font-weight:700;}
-    .status-tag.done{background:rgba(93,168,58,0.15);border:1px solid rgba(93,168,58,0.3);color:var(--green);}
-    .status-tag.progress{background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.28);color:var(--gold);}
-    .status-tag.pending{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--muted);}
-
-    .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px;}
-    .feature-card{background:var(--white);border:1.5px solid var(--border);border-top:3px solid var(--gold);border-radius:8px;padding:22px;}
-    .feature-icon{font-size:26px;margin-bottom:10px;display:block;}
-    .feature-card h3{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:7px;}
-    .feature-card p{font-size:13px;color:var(--muted);line-height:1.7;}
-    .members-only-note{background:rgba(245,197,24,0.06);border:1px solid rgba(245,197,24,0.18);border-radius:8px;padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-top:28px;}
-    .members-only-note p{font-size:13px;color:var(--navy);font-weight:500;line-height:1.6;}
-
-    .mem-preview{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px;}
-    .mem-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:22px;}
-    .mem-card.featured{border-color:var(--gold);background:rgba(245,197,24,0.04);}
-    .mem-price{font-family:'Oswald',sans-serif;font-size:30px;font-weight:700;color:var(--gold);}
-    .mem-price span{font-size:13px;color:rgba(255,255,255,0.38);}
-    .mem-name{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin:7px 0;}
-    .mem-features{list-style:none;margin-top:10px;}
-    .mem-features li{font-size:12px;color:rgba(255,255,255,0.48);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;}
-    .mem-features li:last-child{border-bottom:none;}
-
-    .founders-section{background:linear-gradient(135deg,var(--navy-dk) 0%,#1a1a06 100%);padding:72px 24px;text-align:center;border-top:1.5px solid rgba(245,197,24,0.15);}
-    .founders-badge{display:inline-block;background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;border-radius:3px;margin-bottom:20px;}
-    .founders-section h2{font-family:'Oswald',sans-serif;font-size:clamp(26px,6vw,48px);font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:10px;}
-    .founders-section p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:520px;margin:0 auto 28px;}
-    .founders-perks{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
-    .founders-perk{background:rgba(245,197,24,0.08);border:1px solid rgba(245,197,24,0.22);border-radius:20px;padding:7px 16px;font-size:12px;color:var(--gold);font-weight:600;}
-
-    .wtd-signup-form{text-align:center;}
-    .wtd-signup-inputs{display:flex;gap:10px;flex-wrap:wrap;max-width:460px;margin:0 auto;}
-    .wtd-email-input,.wtd-name-input{flex:1;min-width:160px;padding:13px 16px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.14);border-radius:8px;font-family:'Open Sans',sans-serif;font-size:14px;color:var(--white);outline:none;}
-    .wtd-email-input::placeholder,.wtd-name-input::placeholder{color:rgba(255,255,255,0.3);}
-    .wtd-email-input:focus,.wtd-name-input:focus{border-color:var(--gold);}
-    .wtd-signup-btn{width:100%;max-width:460px;margin:10px auto 0;display:block;padding:14px;background:var(--gold);border:none;border-radius:8px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);cursor:pointer;transition:opacity 0.2s;}
-    .wtd-signup-btn:hover{opacity:0.88;}
-    .wtd-signup-note{font-size:12px;color:rgba(255,255,255,0.28);margin-top:12px;line-height:1.6;}
-
-    .site-footer{background:var(--navy-dk);border-top:3px solid var(--green);padding:44px 24px 24px;}
-    .footer-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;}
-    .footer-logo{width:120px;height:auto;margin-bottom:12px;}
-    .footer-brand p{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.8;}
-    .footer-brand a{color:rgba(255,255,255,0.38);text-decoration:none;}
-    .footer-col h4{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
-    .footer-col ul{list-style:none;}
-    .footer-col ul li{margin-bottom:9px;}
-    .footer-col ul li a{font-size:13px;color:rgba(255,255,255,0.42);text-decoration:none;transition:color 0.2s;}
-    .footer-col ul li a:hover{color:var(--white);}
-    .footer-bottom{max-width:1000px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:11px;color:rgba(255,255,255,0.18);}.footer-social{display:flex;gap:14px;margin-top:6px;}.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55);transition:all 0.2s;}.footer-social a:hover{background:var(--green);color:var(--white);transform:translateY(-2px);}
-
-    .modal-overlay{position:fixed;inset:0;background:rgba(8,15,30,0.88);backdrop-filter:blur(10px);z-index:500;display:none;align-items:center;justify-content:center;padding:24px;}
-    .modal-overlay.open{display:flex;}
-    .modal-box{background:var(--navy);border:1.5px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px 32px;max-width:460px;width:100%;text-align:center;position:relative;animation:fadeUp 0.3s ease;}
-    .modal-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.07);border:none;color:rgba(255,255,255,0.5);width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-    .modal-eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:8px;}
-    .modal-title{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:6px;}
-    .modal-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:26px;}
-    .modal-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-    .modal-option{border-radius:10px;padding:22px 14px;text-decoration:none;display:flex;flex-direction:column;gap:7px;align-items:center;text-align:center;transition:transform 0.2s;border:1.5px solid transparent;}
-    .modal-option:hover{transform:translateY(-3px);}
-    .modal-option.green{background:rgba(93,168,58,0.1);border-color:rgba(93,168,58,0.35);}
-    .modal-option.green:hover{background:rgba(93,168,58,0.18);border-color:var(--green);}
-    .modal-option.gold{background:rgba(245,197,24,0.07);border-color:rgba(245,197,24,0.28);}
-    .modal-option.gold:hover{background:rgba(245,197,24,0.13);border-color:var(--gold);}
-    .modal-option-icon{font-size:28px;}
-    .modal-option-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
-    .modal-option-label.green{color:var(--green);}
-    .modal-option-label.gold{color:var(--gold);}
-    .modal-option-title{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--white);text-transform:uppercase;}
-    .modal-option-desc{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.5;}
-    .modal-option-cta{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-    .modal-option-cta.green{color:var(--green);}
-    .modal-option-cta.gold{color:var(--gold);}
-
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-    @keyframes progressAnim{from{width:0;}to{width:35%;}}
-
-    @media(max-width:768px){
-      .nav-links{display:none;}.hamburger{display:flex;}
-      .page-hero{padding:100px 20px 56px;}
-      .features-grid,.mem-preview{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr;gap:24px;}.footer-bottom{flex-direction:column;text-align:center;}
-      .modal-options{grid-template-columns:1fr;}
-    }
-
-    /* PROTEE AI SECTION */
-    .protee-section{padding:72px 24px;background:linear-gradient(160deg,var(--navy-dk) 0%,#0a1020 100%);}
-    .protee-inner{max-width:1000px;margin:0 auto;}
-    .protee-eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:8px;}
-    .protee-title{font-family:'Oswald',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
-    .protee-title span{color:var(--gold);}
-    .protee-sub{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:720px;margin-bottom:36px;}
-    .protee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:0;}
-    .protee-card{background:rgba(255,255,255,0.03);border:1.5px solid rgba(245,197,24,0.15);border-left:3px solid var(--gold);border-radius:8px;padding:20px 22px;}
-    .protee-card h4{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
-    .protee-card p{font-size:13px;color:rgba(255,255,255,0.48);line-height:1.7;}
-    .protee-disclaimer{margin-top:20px;padding:14px 18px;background:rgba(255,255,255,0.03);border-radius:6px;border:1px solid rgba(255,255,255,0.06);}
-    .protee-disclaimer p{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.6;font-style:italic;}
-    @media(max-width:768px){.protee-grid{grid-template-columns:1fr;}}
-  </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "The Studio — Private Indoor Golf Club",
-  "serviceType": "Members-only indoor golf studio",
-  "description": "A private indoor golf studio coming soon to Wawaka, Indiana, offering 24/7 member access, practice tools, league play, and a focused environment to work on your game.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Worth the Drive Golf Studio",
-    "telephone": "+1-844-465-3983",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "7032 N Main St",
-      "addressLocality": "Wawaka",
-      "addressRegion": "IN",
-      "postalCode": "46794",
-      "addressCountry": "US"
-    }
-  },
-  "areaServed": [
-    { "@type": "AdministrativeArea", "name": "Noble County, Indiana" },
-    { "@type": "AdministrativeArea", "name": "LaGrange County, Indiana" },
-    { "@type": "AdministrativeArea", "name": "Steuben County, Indiana" },
-    { "@type": "AdministrativeArea", "name": "DeKalb County, Indiana" }
-  ]
-}
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/wtd.css"/>
 </head>
 <body>
-<nav>
-  <a href="index.html"><img src="images/wtd-logo.png" alt="Worth the Drive Golf Studio" class="nav-logo"/></a>
-  <ul class="nav-links">
-    <li><a href="on-tour.html">On Tour</a></li>
-    <li><a href="studio.html" class="active">The Studio</a></li>
-    <li><a href="memberships.html">Memberships</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="#" class="nav-book" onclick="openBookingModal();return false;">Book Now</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="on-tour.html" onclick="closeMenu()">On Tour</a>
-  <a href="studio.html" onclick="closeMenu()">The Studio</a>
-  <a href="memberships.html" onclick="closeMenu()">Memberships</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
-  <a href="#" class="mob-book" onclick="openBookingModal();closeMenu();return false;">Book Now</a>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Stroke icon sprite (Lucide-style, 1.6px, currentColor).
+     Replaces every emoji site-wide. Referenced as:
+     <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2.5 6 12 13 21.5 6"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M21 20v-1.5a4 4 0 0 0-3-3.8"/><path d="M16.5 4.2a3.5 3.5 0 0 1 0 6.6"/></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v3h12v-3a2 2 0 0 1 4 0v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 14.8V4.5a2.5 2.5 0 0 0-5 0v10.3a4.5 4.5 0 1 0 5 0z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><line x1="3" y1="21" x2="21" y2="21"/><circle cx="13" cy="12" r="1"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="21" x2="6" y2="3"/><path d="M6 4h11l-2.5 3.5L17 11H6z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 7.5A1.5 1.5 0 0 1 3.5 6h9A1.5 1.5 0 0 1 14 7.5V17H2z"/><path d="M14 10h3.6a2 2 0 0 1 1.7 1l1.7 2.7V17h-7z"/><circle cx="6" cy="18.5" r="2"/><circle cx="17" cy="18.5" r="2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><polyline points="21 16 15.5 11 5 20"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 20 6v6c0 4.6-3.3 8.4-8 9.5-4.7-1.1-8-4.9-8-9.5V6z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<!-- Announcement bar — static, never a marquee. Founders phrase is the only
+     gold outside the founders band (HANDOFF rule 4). -->
+<div class="announce">
+  <span class="on-desktop">The Studio is under construction in Wawaka — opening 2026</span>
+  <span class="on-mobile">Opening 2026</span>
+  <span class="sep">·</span>
+  <b class="on-desktop">Founders Club now forming · 40 spots</b>
+  <b class="on-mobile">Founders Club forming</b>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="coming-badge"><span class="coming-badge-icon">🚧</span><span class="coming-badge-text">Coming Soon</span></div>
-    <span class="coming-badge-sub">Members Only · Wawaka, IN · 7032 N Main St</span>
-    <h1>The <span>Studio</span></h1>
-    <p>A private, 24/7 member-access indoor golf studio unlike anything else in Northeast Indiana. Built for those who are serious about their game and their experience.</p>
-    <div class="hero-btns">
-      <a href="memberships.html#studio-waitlist" class="btn btn-gold">Join Studio Waitlist →</a>
-      <a href="memberships.html" class="btn btn-outline-w">View Memberships</a>
-      <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.35);">Want lifetime rate-lock? <a href="memberships.html#founders" style="color:var(--gold);">Reserve a Founders Spot →</a></p>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="index.html" aria-label="Worth the Drive Golf Studio — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        
+        <li><a href="studio.html">The Studio</a></li>
+        
+        <li><a href="membership.html">Membership</a></li>
+        
+        <li><a href="on-tour.html">On Tour</a></li>
+        
+        <li><a href="about.html">About</a></li>
+        
+        <li><a href="contact.html">Contact</a></li>
+        
+      </ul>
+    </nav>
+
+    <a class="header-phone" href="tel:8444653983">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      (844) GOLF-WTD
+    </a>
+
+    <div class="header-actions">
+      <!-- Event booking is never buried in the menu, at any width. -->
+      <a class="btn btn-sm btn-ghost" href="https://book.worththedrivegolf.com">
+        <span class="on-desktop-inline">Book an Event</span>
+      </a>
+      <a class="btn btn-sm btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+      <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
     </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" data-open="false">
+  <div class="mobile-menu-head">
+    <a class="brand-link" href="index.html" aria-label="Worth the Drive Golf Studio — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+    </a>
+    <button class="hamburger" id="menuClose" aria-label="Close menu">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      
+      <li><a href="studio.html">The Studio</a></li>
+      
+      <li><a href="membership.html">Membership</a></li>
+      
+      <li><a href="on-tour.html">On Tour</a></li>
+      
+      <li><a href="about.html">About</a></li>
+      
+      <li><a href="contact.html">Contact</a></li>
+      
+    </ul>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+    <a class="btn btn-ghost" href="https://book.worththedrivegolf.com">Book an Event</a>
+    <a class="btn btn-ghost" href="tel:8444653983">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      (844) GOLF-WTD
+    </a>
   </div>
 </div>
 
-<section class="section bg-off">
-  <div class="section-inner">
+
+<main id="main">
+<section class="band band-navy page-hero">
+  <div class="container">
     <div class="reveal">
-      <span class="eyebrow gold">Under Construction</span>
-      <h2 class="section-title">A Private Club <span>Taking Shape</span></h2>
-      <p class="section-sub">7032 N Main St, Wawaka, IN — our permanent home for serious golfers is under construction.</p>
-    </div>
-    <div class="construction-card reveal">
-      <div class="construction-label">🚧 Build Progress</div>
-      <h3>Worth the Drive Golf Studio</h3>
-      <p>A members-only indoor golf destination. No public walk-ins. No crowded ranges. Just a private club experience — available exclusively to members and their guests.</p>
-      <div class="progress-bar"><div class="progress-fill"></div></div>
-      <div class="progress-labels"><span>Planning</span><span>In Progress</span><span>Opening Soon</span></div>
-      <div class="status-tags">
-        <span class="status-tag done">✓ Location Secured</span>
-        <span class="status-tag done">✓ Equipment Selected</span>
-        <span class="status-tag progress">⚙ Build-Out In Progress</span>
-        <span class="status-tag pending">○ Member Opening</span>
+      <span class="eyebrow">The Studio</span>
+      <h1 class="h1">A private club,<br/><span class="accent">not a crowded range.</span></h1>
+      <p class="lead" style="margin-top:var(--s3)">A members-only indoor golf club under construction at 7032 N Main St, Wawaka — open around the clock to members, built for golfers who are serious about their game and their time.</p>
+      <div class="actions" style="margin-top:var(--s4)">
+        <a class="btn btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+        <a class="btn btn-ghost" href="membership.html">View Membership</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="eyebrow">Studio Features</span>
-      <h2 class="section-title">Exclusive to <span>Members</span></h2>
-      <p class="section-sub">Every feature inside The Studio is designed around the member experience. This is your club.</p>
-    </div>
-    <div class="features-grid reveal">
-      <div class="feature-card"><span class="feature-icon">🔐</span><h3>24/7 Member Access</h3><p>Secure keycard entry for all members. Play before sunrise or after midnight. The studio is always open — on your schedule.</p></div>
-      <div class="feature-card"><span class="feature-icon">🤖</span><h3>AI Swing Analysis</h3><p>Powered by ProTee VX™ — AI-assisted club tracking, swing video, and performance data. Available exclusively to studio members.</p></div>
-      <div class="feature-card"><span class="feature-icon">⛳</span><h3>2,000+ Courses</h3><p>Play world-famous courses and select local favorites — all from Wawaka, Indiana.</p></div>
-      <div class="feature-card"><span class="feature-icon">🏆</span><h3>League Play</h3><p>League play and select events are available at The Studio. Members receive priority registration and preferred pricing on all league activity.</p></div>
-      <div class="feature-card"><span class="feature-icon">👥</span><h3>Guest Privileges</h3><p>Bring guests based on your membership tier. Access is by invitation — keeping the experience private and the bays available.</p></div>
-      <div class="feature-card"><span class="feature-icon">❄️</span><h3>Year-Round Golf</h3><p>Climate-controlled, open 365 days a year. Indiana winters don't stop your game anymore.</p></div>
-    </div>
-    <div class="members-only-note reveal">
-      <span style="font-size:22px;">🔒</span>
-      <p>The Studio is members-only. No public walk-ins. No drop-in tee times. Membership is required for all access — protecting your experience and guaranteeing availability.</p>
+<nav class="subnav" data-scrollspy aria-label="On this page">
+  <div class="subnav-inner">
+    <a href="#inside">Inside</a>
+    <a href="#access">Access</a>
+    <a href="#technology">Technology</a>
+    <a href="#courses">Courses</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<!-- INSIDE =============================================================== -->
+<section class="band band-deep" id="inside">
+  <div class="container container-bleed-end">
+    <div class="feature-split">
+      <div class="reveal">
+        <span class="eyebrow">Inside</span>
+        <h2 class="h2">Your bay. Your pace.</h2>
+        <p class="lead" style="margin-block:var(--s3) var(--s4)">When it's your tee time, your bay is yours — no waiting on strangers, no crowds, no closing time to beat. Just your game, your people, and a club built around both.</p>
+        <ul class="checks">
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Three dedicated hitting bays — book your time and the bay is all yours, never shared</span></li>
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>A lounge built for staying — comfortable between rounds, not a waiting room</span></li>
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Members, guests &amp; hosted open nights — always club-run, never a walk-in crowd</span></li>
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Climate-controlled, 365 days a year — Indiana winters don't stop your game</span></li>
+        </ul>
+      </div>
+      <div class="media bleed-end reveal" data-delay="1">
+        <div class="slot slot-4x3">
+          <img src="images/studio-inside.jpg"
+               srcset="images/studio-inside-800.jpg 800w, images/studio-inside.jpg 1255w"
+               sizes="(min-width: 1025px) 55vw, 100vw"
+               alt="Inside the Worth the Drive studio — hitting bay and lounge"
+               loading="lazy" width="1255" height="941"/>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROTEE VX AI SECTION -->
-<section class="protee-section">
-  <div class="protee-inner">
-    <div class="reveal">
-      <span class="protee-eyebrow">🤖 Studio Technology</span>
-      <h2 class="protee-title">AI Swing Trainer Powered by <span>ProTee VX</span></h2>
-      <p class="protee-sub">The Studio is being built around ProTee VX launch monitor technology — a ceiling-mounted, camera-based system designed to keep the hitting area clean while delivering detailed ball and club data. Members will be able to use real-time feedback, AI-assisted club tracking, swing video, shot recording, and performance data to practice with a purpose.</p>
+<!-- BUILD PROGRESS ======================================================= -->
+<section class="band band-navy">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">Under Construction</span>
+      <h2 class="h2">A private club taking shape</h2>
+      <p class="lead" style="margin-top:var(--s3)">7032 N Main St, Wawaka, IN — our permanent home for serious golfers is being built now, opening 2026.</p>
     </div>
-    <div class="protee-grid reveal">
-      <div class="protee-card">
-        <h4>🏗️ Clean Overhead Setup</h4>
+    <div class="progress reveal">
+      <div class="progress-step" data-state="done">
+        <span class="progress-state"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-check"></use></svg> Complete</span>
+        <h3>Location secured</h3>
+        <p>The building at 7032 N Main St is ours.</p>
+      </div>
+      <div class="progress-step" data-state="done">
+        <span class="progress-state"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-check"></use></svg> Complete</span>
+        <h3>Equipment selected</h3>
+        <p>ProTee VX launch monitors and the GSPro course library.</p>
+      </div>
+      <div class="progress-step" data-state="active">
+        <span class="progress-state"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-target"></use></svg> In progress</span>
+        <h3>Build-out</h3>
+        <p>Bays, lounge and member access are being built now.</p>
+      </div>
+      <div class="progress-step">
+        <span class="progress-state"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-flag"></use></svg> Next</span>
+        <h3>Member opening</h3>
+        <p>Waitlist members hear first, ahead of opening in 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES ============================================================= -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">Studio Features</span>
+      <h2 class="h2">Exclusive to members</h2>
+      <p class="lead" style="margin-top:var(--s3)">Every feature inside The Studio is designed around the member experience. This is your club.</p>
+    </div>
+    <div class="grid grid-3 reveal">
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-clock"></use></svg>
+        <h3>24/7 member access</h3>
+        <p>Play before sunrise or after midnight. The Studio is always open — on your schedule, not ours.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-radar"></use></svg>
+        <h3>AI swing analysis</h3>
+        <p>Powered by ProTee VX™ — AI-assisted club tracking, swing video and performance data, included with every tier.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-globe"></use></svg>
+        <h3>2,500+ courses</h3>
+        <p>Play world-famous layouts and select local favorites — all from Wawaka, Indiana.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
+        <h3>League play</h3>
+        <p>League play and select events run on the Studio calendar. Members get priority registration and preferred pricing.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg>
+        <h3>Guest privileges</h3>
+        <p>Bring guests based on your tier. Access is by invitation — keeping the club private and the bays available.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-thermometer"></use></svg>
+        <h3>Year-round golf</h3>
+        <p>Climate-controlled and open 365 days a year. Indiana winters don't stop your game anymore.</p>
+      </div>
+    </div>
+
+    <div class="notice reveal" style="margin-top:clamp(36px,4vw,56px)">
+      <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-lock"></use></svg>
+      <p>The Studio is members-only. No walk-ins and no drop-in tee times — day-to-day access is reserved for members and invited guests, which protects your experience and keeps bays available. Watch for advertised open nights to experience the Studio before joining.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS =============================================================== -->
+<section class="band band-navy" id="access">
+  <div class="container">
+    <div class="split reveal" style="align-items:end;margin-bottom:clamp(36px,4vw,60px)">
+      <div>
+        <span class="eyebrow">Access</span>
+        <h2 class="h2">How 24/7 access works</h2>
+      </div>
+      <p class="lead">No front desk. No phone calls. The Studio is yours around the clock — here's the whole routine.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step" data-step="1"><span class="step-num">01</span><h3>Join</h3><p>Pick the tier that fits your game — simple monthly tiers, with annual savings if you want them.</p></div>
+      <div class="step" data-step="2"><span class="step-num">02</span><h3>Reserve</h3><p>Reserve your tee time online in seconds — tonight, tomorrow, whenever.</p></div>
+      <div class="step" data-step="3"><span class="step-num">03</span><h3>Secure member access</h3><p>The door opens for members at any hour — 5 AM before work or midnight after the kids are down.</p></div>
+      <div class="step" data-step="4"><span class="step-num">04</span><h3>Play</h3><p>Your bay, your pace — practice with purpose, play a round, or host league night.</p></div>
+    </div>
+    <p class="fine" style="margin-top:var(--s5)">Access details are finalized before opening — every member gets a full walkthrough.</p>
+  </div>
+</section>
+
+<!-- TECHNOLOGY =========================================================== -->
+<section class="band band-deep" id="technology">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(36px,4vw,60px)">
+      <span class="eyebrow">The Technology</span>
+      <h2 class="h2">Practice with proof.<br/><span class="accent-dark">Play the world.</span></h2>
+      <p class="lead" style="margin-top:var(--s3)">Every bay pairs the ProTee VX launch monitor with the GSPro course library — real numbers on every swing, and more golf than you could play in a lifetime.</p>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-col reveal">
+        <div class="slot slot-16x9">
+          <img src="images/sim-screen.png" alt="A simulator display showing a course view with ball speed, carry, launch angle and club path" loading="lazy" width="1600" height="900"/>
+        </div>
+        <p class="slot-caption">Illustration with sample data — in-bay display varies by session and settings.</p>
+      </div>
+      <div class="tech-col reveal" data-delay="1">
+        <h3 class="tech-sub">ProTee VX™ — the practice engine</h3>
+        <ul class="checks">
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Ceiling-mounted launch monitor</span></li>
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Dual high-speed camera tracking</span></li>
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>AI-assisted club and ball data</span></li>
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>No club stickers or special golf balls required</span></li>
+          
+        </ul>
+        <hr class="tech-divider"/>
+        <h3 class="tech-sub">GSPro — the course library</h3>
+        <ul class="checks">
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>2,500+ community-built courses — famous layouts to local favorites</span></li>
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>League play and member events on the Studio calendar</span></li>
+          
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>The same library that powers On Tour events today</span></li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid-3 reveal" style="margin-top:clamp(40px,4.5vw,64px)">
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-target"></use></svg>
+        <h3>Clean overhead setup</h3>
         <p>Ceiling-mounted tracking keeps the bay open with no floor unit in the hitting area — a cleaner, more natural experience at impact.</p>
       </div>
-      <div class="protee-card">
-        <h4>📊 AI-Assisted Club Data</h4>
-        <p>Club path, face angle, club speed, impact location, and more help golfers understand what actually happened at impact — not just where the ball went.</p>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-radar"></use></svg>
+        <h3>AI-assisted club data</h3>
+        <p>Club path, face angle, club speed and impact location help you understand what actually happened at impact — not just where the ball went.</p>
       </div>
-      <div class="protee-card">
-        <h4>🎥 Ball + Club Feedback</h4>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-image"></use></svg>
+        <h3>Ball + club feedback</h3>
         <p>Dual high-speed cameras capture real-time ball and club data for more purposeful, informed practice sessions.</p>
       </div>
-      <div class="protee-card">
-        <h4>🔄 Lefty + Righty Friendly</h4>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg>
+        <h3>Lefty + righty friendly</h3>
         <p>Designed to support both right- and left-handed golfers without constantly reworking the bay setup.</p>
       </div>
-      <div class="protee-card">
-        <h4>📈 Practice With Proof</h4>
-        <p>Swing camera support, shot recording, statistics, and visual feedback help turn practice into measurable progress over time.</p>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
+        <h3>Practice with proof</h3>
+        <p>Swing camera support, shot recording, statistics and visual feedback turn practice into measurable progress over time.</p>
       </div>
-      <div class="protee-card">
-        <h4>🚫 No Special Equipment</h4>
-        <p>No club stickers. No special golf balls. Bring your own clubs and balls — the system works with your existing gear.</p>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-check"></use></svg>
+        <h3>No special equipment</h3>
+        <p>No club stickers. No special golf balls. Bring your own clubs and the system works with your existing gear.</p>
       </div>
     </div>
-    <div class="protee-disclaimer reveal">
-      <p>Technology specifications are based on planned equipment and are subject to change prior to opening. The ProTee VX system is designed to support better practice — individual results will vary based on frequency and quality of use.</p>
+
+    <p class="fine" style="margin-top:var(--s4)">Planned equipment — specifications subject to change before opening. The ProTee VX system is designed to support better practice — individual results will vary based on frequency and quality of use.</p>
+  </div>
+</section>
+
+<!-- COURSES ============================================================== -->
+<section class="band band-navy" id="courses">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(28px,3vw,44px)">
+      <span class="eyebrow">The Course Library</span>
+      <h2 class="h2">From bucket list to backyard.</h2>
+      <p class="lead" style="margin-top:var(--s2)">Play the courses you dream about — and a few you drive past. 2,500+ community-built courses, from famous coastlines to Midwest favorites.</p>
+    </div>
+    <div class="course-grid reveal">
+      
+      <article class="card card-dark course-card">
+        <span class="course-tag">Bucket list</span>
+        <h4>Pebble Beach</h4>
+        <p>Oceanside icon · California</p>
+      </article>
+      
+      <article class="card card-dark course-card">
+        <span class="course-tag">Bucket list</span>
+        <h4>Tobacco Road</h4>
+        <p>Cult classic · North Carolina</p>
+      </article>
+      
+      <article class="card card-dark course-card">
+        <span class="course-tag">Regional favorite</span>
+        <h4>Whistling Straits</h4>
+        <p>Major-championship host · Wisconsin</p>
+      </article>
+      
+      <article class="card card-dark course-card">
+        <span class="course-tag">Regional favorite</span>
+        <h4>Conway Farms</h4>
+        <p>Championship host · Chicago, Illinois</p>
+      </article>
+      
+      <article class="card card-dark course-card">
+        <span class="course-tag">Close to home</span>
+        <h4>Noble Hawk Golf Links</h4>
+        <p>Kendallville, Indiana</p>
+      </article>
+      
+      <article class="card card-dark course-card">
+        <span class="course-tag">Close to home</span>
+        <h4>Cobblestone Golf Course</h4>
+        <p>Kendallville, Indiana</p>
+      </article>
+      
+    </div>
+    <p class="fine" style="margin-top:var(--s3)">Simulated recreations from the GSPro community library. Not affiliated with or endorsed by the real-world clubs; availability varies.</p>
+  </div>
+</section>
+
+<!-- MEMBERSHIP SUMMARY =================================================== -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">Membership</span>
+      <h2 class="h2">Choose your tier</h2>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and AI swing analysis. Four simple tiers, from $100 a month.</p>
+    </div>
+    <div class="tier-grid reveal" data-swipe="tiers">
+      
+      <article class="tier">
+        <div class="tier-head">
+          <div class="tier-name">Weekday Member</div>
+          <p class="tier-persona">Daytime flexibility, serious value</p>
+          <div class="tier-price"><sup>$</sup>100<span>/mo</span></div>
+        </div>
+        <div class="tier-body">
+          <ul class="checks">
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Weekday access (no 5–9 PM or weekends)</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>1-hour tee times</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Up to 3 guests at $10 each</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>1 active booking at a time</span></li>
+            
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="link-arrow" href="membership.html#weekday">Full benefits <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+        </div>
+      </article>
+      
+      <article class="tier is-featured">
+        <div class="tier-head">
+          <div class="tier-name">Full Member</div>
+          <p class="tier-persona">The club, any hour</p>
+          <div class="tier-price"><sup>$</sup>150<span>/mo</span></div>
+        </div>
+        <div class="tier-body">
+          <ul class="checks">
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>24/7 access — any time, any day</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>2-hour tee times</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>1 guest included; additional guests $10 each</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>1 active booking at a time</span></li>
+            
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="link-arrow" href="membership.html#full">Full benefits <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+        </div>
+      </article>
+      
+      <article class="tier">
+        <div class="tier-head">
+          <div class="tier-name">Premier Member</div>
+          <p class="tier-persona">Bring your foursome</p>
+          <div class="tier-price"><sup>$</sup>200<span>/mo</span></div>
+        </div>
+        <div class="tier-body">
+          <ul class="checks">
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>24/7 access — any time, any day</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>3-hour tee times</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Up to 3 guests included</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>2 active bookings at a time</span></li>
+            
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="link-arrow" href="membership.html#premier">Full benefits <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+        </div>
+      </article>
+      
+      <article class="tier">
+        <div class="tier-head">
+          <div class="tier-name">Corporate Club</div>
+          <p class="tier-persona">Your team&#39;s fourth place</p>
+          <div class="tier-price"><sup>$</sup>400<span>/mo</span></div>
+        </div>
+        <div class="tier-body">
+          <ul class="checks">
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>24/7 access for your team</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>2–3 named users on the account</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Up to 4 guests per visit</span></li>
+            
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>1 private event per year included</span></li>
+            
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="link-arrow" href="membership.html#corporate">Full benefits <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+        </div>
+      </article>
+      
+    </div>
+    <div class="swipe-dots" data-swipe-dots="tiers"><span></span><span></span><span></span><span></span></div>
+    <p class="fine" style="margin-top:var(--s4)">Every tier: priority registration &amp; preferred pricing on league play · Annual plans: 1 month free — or 2 months free paid in full · Booking limits protect availability for all members.</p>
+  </div>
+</section>
+
+<!-- FOUNDERS ============================================================= -->
+<section class="band band-footer">
+  <div class="container">
+    <div class="founders-grid">
+      <div class="reveal">
+        <span class="founders-pill">Limited · 40 spots only</span>
+        <h2 class="h2">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h2>
+        <p class="lead" style="margin-top:var(--s3)">Be one of the first 40 founding members: a one-time $500 fee locks your monthly rate for life, whatever pricing looks like after opening. No payment required now — we'll contact you when memberships open.</p>
+      </div>
+      <div class="founders-card reveal" data-delay="1">
+        <ul class="checks">
+          
+          <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>Rate locked for life</span></li>
+          
+          <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>Founding member status</span></li>
+          
+          <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>Priority booking access</span></li>
+          
+          <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>Founding member events</span></li>
+          
+        </ul>
+        <a class="btn btn-gold" href="membership.html#founders">Reserve a Founders Spot</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section bg-navy">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow gold">Membership Overview</span>
-      <h2 class="section-title" style="color:var(--white);">Choose Your <span style="color:var(--gold);">Tier</span></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.48);margin:0 auto;">All tiers include 24/7 studio access, a deep simulator course library, and access to AI-assisted swing feedback tools. <a href="memberships.html" style="color:var(--gold);">Full details →</a></p>
+<!-- FAQ ================================================================== -->
+<section class="band band-paper" id="faq">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">The Studio</span>
+      <h2 class="h2">Questions, answered</h2>
     </div>
-    <div class="mem-preview reveal">
-      <div class="mem-card"><div class="mem-price">$100<span>/mo</span></div><div class="mem-name">Weekday Member</div><ul class="mem-features"><li><span>📅</span>Weekday access (no 5–9pm or weekends)</li><li><span>⏰</span>1-hour tee times</li><li><span>🏆</span>Priority league registration</li></ul></div>
-      <div class="mem-card featured"><div class="mem-price">$150<span>/mo</span></div><div class="mem-name">Full Member</div><ul class="mem-features"><li><span>🔑</span>24/7 access</li><li><span>⏰</span>2-hour tee times</li><li><span>🏆</span>Priority league registration + preferred pricing</li></ul></div>
-      <div class="mem-card"><div class="mem-price">$200<span>/mo</span></div><div class="mem-name">Premier Member</div><ul class="mem-features"><li><span>🔑</span>24/7 access</li><li><span>⏰</span>3-hour tee times</li><li><span>👥</span>Up to 3 guests included</li></ul></div>
-      <div class="mem-card"><div class="mem-price">$400<span>/mo</span></div><div class="mem-name">Corporate Club</div><ul class="mem-features"><li><span>🏢</span>24/7 access for your team</li><li><span>👔</span>2–3 named users</li><li><span>🎉</span>1 private event per year</li></ul></div>
+    <div class="faq-grid reveal">
+      <details class="faq-item" open>
+        <summary>Is the Studio members-only?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Yes. No walk-ins and no drop-in tee times — day-to-day access is reserved for members and invited guests. Watch for advertised open nights to experience the Studio before joining.</p></div>
+      </details>
+      <details class="faq-item" open>
+        <summary>How does access work at 2 AM?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>You reserve your tee time online, then let yourself in with secure member access — no front desk, no staff to meet, no phone calls. Access details are finalized before opening — every member gets a full walkthrough.</p></div>
+      </details>
+      <details class="faq-item" open>
+        <summary>How many bays are there?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Three dedicated hitting bays, separated by half walls. Your reservation gives you your bay for your tee time — it is never shared — and other members may be playing in the other bays at the same time.</p></div>
+      </details>
+      <details class="faq-item" open>
+        <summary>Can I bring guests?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Yes, and your tier sets how many. Weekday Members bring up to 3 guests at $10 each; Full Members get 1 guest included with additional guests at $10; Premier Members bring up to 3 guests included; the Corporate Club covers up to 4 guests per visit.</p></div>
+      </details>
+      <details class="faq-item" open>
+        <summary>What about league play?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>League play and select events run on the Studio calendar. Every tier includes priority registration and preferred pricing on league play, and non-members may join select open events.</p></div>
+      </details>
+      <details class="faq-item" open>
+        <summary>When does it open?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>The Studio opens in 2026 at 7032 N Main St · Wawaka, IN 46794. Joining the waitlist costs nothing and puts you first in line for opening dates and Founders Club spots.</p></div>
+      </details>
     </div>
-    <div style="text-align:center;margin-top:28px;">
-      <a href="memberships.html#studio-waitlist" class="btn btn-gold">Join Studio Waitlist →</a>
-    <p style="margin-top:12px;text-align:center;font-size:12px;color:rgba(255,255,255,0.35);">Or <a href="memberships.html" style="color:var(--gold);">view full membership details</a> · <a href="memberships.html#founders" style="color:var(--gold);">Reserve Founders Spot</a></p>
+    <a class="link-arrow" href="membership.html#faq" style="margin-top:var(--s4)">Membership FAQs <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+  </div>
+</section>
+
+<!-- CROSS-SELL + CLOSING ================================================= -->
+<section class="band band-paper-alt">
+  <div class="container center">
+    <div class="reveal stack">
+      <span class="badge-chip"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-truck"></use></svg> On Tour</span>
+      <h2 class="h3">Need golf at your event instead?</h2>
+      <p class="lead">Our mobile simulator travels to birthdays, corporate events and fundraisers across four counties — Friday to Sunday.</p>
+      <div class="actions"><a class="btn btn-ghost-dark" href="on-tour.html">See On Tour</a></div>
     </div>
   </div>
 </section>
 
-<section class="founders-section" id="founders">
-  <div class="founders-badge">⭐ Limited · 40 Spots Only</div>
-  <h2>Founders Club — Lock In Your Rate. Forever.</h2>
-  <p>Be one of the first 40 Founding Members. Pay a one-time $500 fee and lock in your membership rate for life — no matter how pricing changes when we open.</p>
-  <div class="founders-perks">
-    <span class="founders-perk">🔒 Rate locked for life</span>
-    <span class="founders-perk">⭐ Founding member status</span>
-    <span class="founders-perk">🎯 Priority booking access</span>
-    <span class="founders-perk">👥 Limited to 40 members</span>
-  </div>
-  <form action="https://worththedrivegolf.us8.list-manage.com/subscribe/post?u=2ad78f48f86871ac18f97925c&id=ff60f6c0a0&f_id=005a6ee1f0" method="post" target="_blank" class="wtd-signup-form">
-    <div class="wtd-signup-inputs">
-      <input type="text" name="FNAME" placeholder="First name" class="wtd-name-input"/>
-      <input type="text" name="LNAME" placeholder="Last name" class="wtd-name-input"/>
-      <input type="email" name="EMAIL" placeholder="your@email.com" required class="wtd-email-input"/>
-    </div>
-    <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_2ad78f48f86871ac18f97925c_ff60f6c0a0" tabindex="-1" value=""></div>
-    <button type="submit" class="wtd-signup-btn">Reserve My Founders Spot →</button>
-    <p class="wtd-signup-note">No payment required now · We'll contact you when memberships open · Limited to 40 founding members</p>
-  </form>
-</section>
-
-<section class="section bg-off" id="studio-faq">
-  <div class="section-inner" style="text-align:center;">
-    <span class="eyebrow">The Studio</span>
-    <h2 class="section-title">FAQ &amp; <span>Policies</span></h2>
-    <p class="section-sub" style="margin:0 auto;">Studio membership and access FAQs are on the way. In the meantime, reach out and we'll answer any questions about the indoor studio.</p>
-    <div style="margin-top:24px;">
-      <a href="contact.html" class="btn btn-gold" style="margin:0 auto;">Contact Us →</a>
+<section class="band band-deep center">
+  <div class="container">
+    <div class="reveal stack">
+      <h2 class="h2">The club is coming.<br/><span class="accent-dark">The founding class is forming.</span></h2>
+      <p class="lead">Join the waitlist to hear first about opening dates, membership availability and Founders Club spots — no payment required.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+        <a class="btn btn-ghost" href="tel:8444653983"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg> (844) GOLF-WTD</a>
+      </div>
     </div>
   </div>
 </section>
+</main>
 
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img src="images/wtd-logo.png" alt="Worth the Drive Golf Studio" class="footer-logo"/>
-      <p>Worth the Drive Golf Studio<br/>7032 N Main St · Wawaka, IN 46794<br/><a href="tel:8444653983">(844) GOLF-WTD · (844) 465-3983</a></p>
+<footer class="site-footer band-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+        <p>A members-only indoor golf club in Wawaka, Indiana — open 24/7 for members, and on the road for events across Northeast Indiana.</p>
+        <p style="margin-top:14px">
+          7032 N Main St · Wawaka, IN 46794<br/>
+          <a href="tel:8444653983">(844) GOLF-WTD · (844) 465-3983</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          
+          <li><a href="studio.html">The Studio</a></li>
+          
+          <li><a href="membership.html">Membership</a></li>
+          
+          <li><a href="on-tour.html">On Tour</a></li>
+          
+          <li><a href="about.html">About</a></li>
+          
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>FAQ &amp; Policies</h4>
+        <ul>
+          <li><a href="studio.html#faq">Studio FAQ</a></li>
+          <li><a href="membership.html#faq">Membership FAQ</a></li>
+          <li><a href="on-tour.html#faq">On Tour FAQ</a></li>
+          <li><a href="rental-terms.html">Rental Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Join &amp; Connect</h4>
+        <ul>
+          <li><a href="membership.html#waitlist">Join the Waitlist</a></li>
+          <li><a href="membership.html#founders">Reserve a Founders Spot</a></li>
+          <li><a href="https://book.worththedrivegolf.com">Book a Mobile Event</a></li>
+          <li><a href="mailto:info@worththedrivegolf.com">info@worththedrivegolf.com</a></li>
+        </ul>
+        <!-- Social URLs are the live main-site values — HANDOFF rule 9. -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/worththedrivegolf" target="_blank" rel="noopener" aria-label="Worth the Drive on Facebook">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a href="https://www.instagram.com/worththedrivegolf/" target="_blank" rel="noopener" aria-label="Worth the Drive on Instagram">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul>
-      <li><a href="on-tour.html">On Tour — Mobile</a></li>
-      <li><a href="studio.html">The Studio</a></li>
-      <li><a href="memberships.html">Memberships</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>FAQ &amp; Policies</h4><ul>
-      <li><a href="on-tour.html#on-tour-faq">On Tour FAQ</a></li>
-      <li><a href="studio.html#studio-faq">Studio FAQ</a></li>
-      <li><a href="memberships.html#membership-faq">Membership FAQ</a></li>
-      <li><a href="rental-terms.html">Rental Terms</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Book & Connect</h4><ul>
-      <li><a href="https://book.worththedrivegolf.com" target="_blank">Book Mobile Event</a></li>
-      <li><a href="memberships.html#studio-waitlist">Join Studio Waitlist</a></li>
-      <li><a href="memberships.html#founders">Reserve Founders Spot</a></li>
-      <li><a href="mailto:info@worththedrivegolf.com">info@worththedrivegolf.com</a></li>
-      <li class="footer-social-li"><div class="footer-social"><a href="https://www.facebook.com/worththedrivegolf" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a><a href="https://www.instagram.com/worththedrivegolf/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></div></li>
-    </ul></div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Worth the Drive Golf Studio · Wawaka, Indiana</p>
+      <p>worththedrivegolf.com</p>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Worth the Drive Golf Studio · Wawaka, Indiana</span><span>worththedrivegolf.com</span></div>
 </footer>
 
-<div class="modal-overlay" id="bookingModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeBookingModal()">✕</button>
-    <span class="modal-eyebrow">Worth the Drive Golf Studio</span>
-    <h2 class="modal-title">How Can We Help?</h2>
-    <p class="modal-sub">Select an experience to get started.</p>
-    <div class="modal-options">
-      <a href="https://book.worththedrivegolf.com" class="modal-option green" target="_blank" onclick="closeBookingModal()">
-        <span class="modal-option-icon">🚐</span>
-        <span class="modal-option-label green">● Available Now</span>
-        <span class="modal-option-title">Mobile Event</span>
-        <span class="modal-option-desc">Book the On Tour simulator for your event. Fri–Sun, Northeast Indiana.</span>
-        <span class="modal-option-cta green">Book Now →</span>
-      </a>
-      <a href="memberships.html#studio-waitlist" class="modal-option gold" onclick="closeBookingModal()">
-        <span class="modal-option-icon">🏌️</span>
-        <span class="modal-option-label gold">🚧 Coming Soon</span>
-        <span class="modal-option-title">Studio Access</span>
-        <span class="modal-option-desc">Private indoor studio coming soon. Join the general waitlist for opening updates, membership details, and launch information.</span>
-        <span class="modal-option-cta gold">Join Studio Waitlist →</span>
-      </a>
-    </div>
-    <p style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.3);text-align:center;">Interested in lifetime rate-lock? <a href="memberships.html#founders" style="color:var(--gold);" onclick="closeBookingModal()">Reserve a Founders Spot →</a></p>
-  </div>
-</div>
 
-<script>
-  function openBookingModal(){var m=document.getElementById('bookingModal');if(m)m.classList.add('open');}
-  function closeBookingModal(){var m=document.getElementById('bookingModal');if(m)m.classList.remove('open');}
-  var bm=document.getElementById('bookingModal');if(bm)bm.addEventListener('click',function(e){if(e.target===this)closeBookingModal();});
-  var hb=document.getElementById('hamburger');if(hb)hb.addEventListener('click',function(){document.getElementById('mobileMenu').classList.toggle('open');});
-  function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
-  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-</script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,59 @@
+<footer class="site-footer band-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="{{ brand.name }}" width="206" height="113"/>
+        <p>A members-only indoor golf club in Wawaka, Indiana — open 24/7 for members, and on the road for events across Northeast Indiana.</p>
+        <p style="margin-top:14px">
+          {{ brand.address.oneLine }}<br/>
+          <a href="{{ brand.phone.href }}">{{ brand.phone.display }} · {{ brand.phone.numeric }}</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          {{#each nav}}
+          <li><a href="{{ this.href }}">{{ this.label }}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>FAQ &amp; Policies</h4>
+        <ul>
+          <li><a href="studio.html#faq">Studio FAQ</a></li>
+          <li><a href="membership.html#faq">Membership FAQ</a></li>
+          <li><a href="on-tour.html#faq">On Tour FAQ</a></li>
+          <li><a href="rental-terms.html">Rental Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Join &amp; Connect</h4>
+        <ul>
+          <li><a href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a></li>
+          <li><a href="{{ ctas.founders.href }}">{{ ctas.founders.label }}</a></li>
+          <li><a href="{{ ctas.booking.href }}">{{ ctas.booking.label }}</a></li>
+          <li><a href="mailto:{{ brand.email }}">{{ brand.email }}</a></li>
+        </ul>
+        <!-- Social URLs are the live main-site values — HANDOFF rule 9. -->
+        <div class="footer-social">
+          <a href="{{ social.facebook }}" target="_blank" rel="noopener" aria-label="Worth the Drive on Facebook">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a href="{{ social.instagram }}" target="_blank" rel="noopener" aria-label="Worth the Drive on Instagram">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {{ year }} {{ brand.name }} · Wawaka, Indiana</p>
+      <p>worththedrivegolf.com</p>
+    </div>
+  </div>
+</footer>
