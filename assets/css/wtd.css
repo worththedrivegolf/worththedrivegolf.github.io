@@ -1105,3 +1105,21 @@ body[data-menu-open="true"] { overflow: hidden; }
 
 .band-paper .form-status.is-ok    { background: rgba(93,168,58,0.10); color: var(--green-deep); }
 .band-paper .form-status.is-error { background: rgba(203,60,46,0.08); color: #A03A2E; }
+
+/* --- Founders spots counter --------------------------------------------- */
+/* Hidden until /founders.json supplies a real number — see site.js. */
+
+.founders-count{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  margin-top:var(--s2);
+  font-family:var(--font-display);
+  font-size:.8125rem; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold);
+  text-align:center;
+}
+.founders-count[hidden]{display:none}
+.founders-count::before{
+  content:""; width:7px; height:7px; border-radius:50%;
+  background:var(--gold); flex:none;
+}

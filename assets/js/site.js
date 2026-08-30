@@ -175,6 +175,34 @@
     });
   }
 
+  /* --- Founders spots remaining -----------------------------------------
+     Driven by /founders.json so the number can be updated by editing one file
+     on github.com — no rebuild. The counter stays hidden unless that file
+     holds a real whole number within range, so a missing, malformed or stale
+     file shows nothing rather than something wrong. */
+
+  var counters = document.querySelectorAll('[data-founders-count]');
+  if (counters.length) {
+    fetch('founders.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        var left = data.remaining;
+        // Reject anything that is not a plain whole number.
+        if (typeof left !== 'number' || !isFinite(left) || Math.floor(left) !== left) return;
+
+        counters.forEach(function (el) {
+          var total = parseInt(el.getAttribute('data-founders-total'), 10);
+          if (!total || left < 0 || left > total) return;   // out of range: stay hidden
+          el.textContent = left === 0
+            ? 'All ' + total + ' founding spots are claimed'
+            : left + ' of ' + total + ' spots remaining';
+          el.hidden = false;
+        });
+      })
+      .catch(function () { /* offline or missing: the counter simply never appears */ });
+  }
+
   /* --- Swipe dots for the mobile tier row ------------------------------- */
 
   document.querySelectorAll('[data-swipe]').forEach(function (row) {

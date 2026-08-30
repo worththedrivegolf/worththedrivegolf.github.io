@@ -528,7 +528,9 @@
           
         </ul>
         <a class="btn btn-gold" href="membership.html#founders">Reserve a Founders Spot</a>
-        
+        <!-- Populated at runtime from /founders.json. Stays hidden unless that
+             file holds a real whole number, so it can never show a stale count. -->
+        <p class="founders-count" data-founders-count data-founders-total="40" hidden></p>
       </div>
     </div>
   </div>

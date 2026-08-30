@@ -170,7 +170,7 @@
     "pill": "Limited · 40 spots only",
     "spots": 40,
     "fee": 500,
-    "showCounter": false,
+    "_counterNote": "The spots-remaining counter is driven at runtime by /founders.json, not from here. Edit that file to turn it on.",
     "benefits": [
       "Rate locked for life",
       "Founding member status",
