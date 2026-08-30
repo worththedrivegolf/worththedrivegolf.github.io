@@ -885,11 +885,11 @@ body[data-menu-open="true"] { overflow: hidden; }
   background:var(--gold); flex:none;
 }
 
-/* ── ProTee VX rotator ────────────────────────────────────────────────────
-   Coverflow-style rotation of the data points the VX measures. Cards are a
-   type treatment by default; give a card an `image` in site.json and the same
-   frame renders a screenshot instead, so real captures drop in with no markup
-   change. Sits inside the dark technology band on the homepage and Studio. */
+/* ── Simulator / data rotator ────────────────────────────────────────────
+   Coverflow rotation over one mixed list: GSPro and ProTee screenshots plus
+   data-point cards. Every card is 16:9 so a screenshot fills its frame without
+   being cropped, and a type card reads as a title card in the same shape.
+   Adding a card is a site.json edit — nothing here changes. */
 .vx-rotator {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -907,16 +907,13 @@ body[data-menu-open="true"] { overflow: hidden; }
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 84%;
-  aspect-ratio: 3 / 4;
+  width: 74%;
+  aspect-ratio: 16 / 9;
   margin: 0;
+  overflow: hidden;
   display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 8px;
-  /* Not percentages: percentage padding resolves against the STAGE width, not
-     the card, which left a 230px card carrying 45px of padding per side. */
-  padding: clamp(12px, 3cqi, 24px);
-  border-radius: 14px;
+  padding: 0;
+  border-radius: 12px;
   background: linear-gradient(170deg, #16233d, #0d1526);
   border: 1px solid var(--line-dark);
   box-shadow: 0 18px 40px rgba(0,0,0,0.45);
@@ -926,27 +923,45 @@ body[data-menu-open="true"] { overflow: hidden; }
   transition: transform 0.55s var(--ease), opacity 0.55s var(--ease);
   will-change: transform, opacity;
 }
-/* Positions are set by data-pos, so the JS never writes inline transforms. */
-.vx-slide[data-pos="0"]  { transform: translate(-50%, -50%) scale(1);    opacity: 1; z-index: 5; }
-.vx-slide[data-pos="-1"] { transform: translate(-108%, -50%) scale(0.82); opacity: 0.5; z-index: 4; }
-.vx-slide[data-pos="1"]  { transform: translate(8%,   -50%) scale(0.82); opacity: 0.5; z-index: 4; }
-.vx-slide[data-pos="-2"] { transform: translate(-155%, -50%) scale(0.66); opacity: 0.22; z-index: 3; }
-.vx-slide[data-pos="2"]  { transform: translate(55%,  -50%) scale(0.66); opacity: 0.22; z-index: 3; }
-.vx-slide[data-pos="0"]  { border-color: rgba(123,198,91,0.5); box-shadow: 0 22px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(123,198,91,0.18); }
+/* Positions come from data-pos, so the JS never writes inline transforms. */
+.vx-slide[data-pos="0"]  { transform: translate(-50%, -50%) scale(1);     opacity: 1;    z-index: 5;
+                           border-color: rgba(123,198,91,0.55);
+                           box-shadow: 0 22px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(123,198,91,0.18); }
+.vx-slide[data-pos="-1"] { transform: translate(-104%, -50%) scale(0.8);  opacity: 0.45; z-index: 4; }
+.vx-slide[data-pos="1"]  { transform: translate(4%,    -50%) scale(0.8);  opacity: 0.45; z-index: 4; }
+.vx-slide[data-pos="-2"] { transform: translate(-140%, -50%) scale(0.66); opacity: 0.18; z-index: 3; }
+.vx-slide[data-pos="2"]  { transform: translate(40%,   -50%) scale(0.66); opacity: 0.18; z-index: 3; }
 
-.vx-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
-.vx-slide[data-has-image="true"] .vx-slide-body { position: relative; align-self: end; }
-.vx-slide[data-has-image="true"]::after {
-  content: ""; position: absolute; inset: 0; border-radius: 14px;
-  background: linear-gradient(to top, rgba(9,14,25,0.92) 15%, rgba(9,14,25,0.15) 65%);
+/* Screenshot cards: image fills, caption sits on a scrim at the bottom. */
+.vx-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.vx-slide[data-kind="shot"]::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(7,12,22,0.93) 12%, rgba(7,12,22,0.35) 45%, transparent 70%);
 }
-.vx-slide[data-has-image="true"] .vx-slide-body,
-.vx-slide[data-has-image="true"] .vx-slide-mark { z-index: 1; }
+.vx-slide[data-kind="shot"] .vx-slide-body {
+  position: relative;
+  z-index: 1;
+  align-content: end;
+  justify-items: start;
+  text-align: start;
+}
+.vx-slide[data-kind="shot"] .vx-slide-name { font-size: clamp(0.95rem, 3cqi, 1.6rem); }
+.vx-slide[data-kind="shot"] .vx-slide-blurb { max-width: 46ch; }
 
-.vx-slide-body { display: grid; gap: 8px; align-content: center; justify-items: center; text-align: center; }
+/* Type cards: centred, no image. */
+.vx-slide-body {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: clamp(12px, 3.2cqi, 26px);
+}
 .vx-slide-group {
   font-family: var(--font-display);
-  font-size: 10px;
+  font-size: clamp(9px, 1.3cqi, 11px);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -954,27 +969,18 @@ body[data-menu-open="true"] { overflow: hidden; }
 }
 .vx-slide-name {
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 3.4cqi, 1.9rem);
+  font-size: clamp(1.05rem, 3.6cqi, 2.1rem);
   font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: 0.01em;
+  line-height: 1.05;
   text-transform: uppercase;
   color: #fff;
   margin: 0;
 }
 .vx-slide-blurb {
-  font-size: clamp(0.6875rem, 1.5cqi, 0.875rem);
+  font-size: clamp(0.6875rem, 1.6cqi, 0.9375rem);
   line-height: 1.5;
   color: var(--body-dark-2);
   margin: 0;
-}
-.vx-slide-mark {
-  font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--muted-dark);
 }
 
 .vx-arrow {
@@ -985,7 +991,7 @@ body[data-menu-open="true"] { overflow: hidden; }
   width: 40px; height: 40px;
   display: grid; place-items: center;
   border-radius: 50%;
-  background: rgba(9,14,25,0.7);
+  background: rgba(9,14,25,0.72);
   border: 1px solid var(--line-dark);
   color: #fff;
   cursor: pointer;
@@ -1003,29 +1009,32 @@ body[data-menu-open="true"] { overflow: hidden; }
 .vx-dots {
   position: absolute;
   inset-inline: 0;
-  bottom: 10px;
+  bottom: 9px;
   z-index: 10;
   display: flex;
-  gap: 6px;
+  gap: 5px;
   justify-content: center;
+  flex-wrap: wrap;
+  padding-inline: 56px;
 }
 .vx-dots button {
   width: 6px; height: 6px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.28);
   cursor: pointer;
   transition: background-color 0.2s var(--ease), width 0.2s var(--ease);
 }
 .vx-dots button.is-active { background: var(--green-bright); width: 16px; border-radius: 3px; }
 
 @container (max-width: 460px) {
-  .vx-slide { height: 80%; }
-  .vx-slide[data-pos="-1"] { transform: translate(-118%, -50%) scale(0.78); opacity: 0.35; }
-  .vx-slide[data-pos="1"]  { transform: translate(18%,   -50%) scale(0.78); opacity: 0.35; }
+  .vx-slide { width: 84%; }
+  .vx-slide[data-pos="-1"] { transform: translate(-112%, -50%) scale(0.76); opacity: 0.3; }
+  .vx-slide[data-pos="1"]  { transform: translate(12%,   -50%) scale(0.76); opacity: 0.3; }
   .vx-slide[data-pos="-2"], .vx-slide[data-pos="2"] { opacity: 0; }
-  .vx-arrow { width: 34px; height: 34px; }
+  .vx-arrow { width: 32px; height: 32px; }
+  .vx-dots { padding-inline: 40px; }
 }
 
 /* Motion preference: cards still change, they just do not slide. */

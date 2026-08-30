@@ -252,8 +252,7 @@
   "technology": {
     "courseCount": "2,500+",
     "equipmentDisclaimer": "Planned equipment — specifications subject to change before opening.",
-    "simScreenCaption": "Illustration with sample data — in-bay display varies by session and settings.",
-    "rotatorCaption": "The data points ProTee VX measures on every shot. Planned equipment — specifications subject to change before opening.",
+    "rotatorCaption": "Simulator and launch-monitor screens shown from GSPro and ProTee. Planned equipment — specifications subject to change before opening.",
     "protee": [
       "Ceiling-mounted launch monitor",
       "Dual high-speed camera tracking",
@@ -344,55 +343,77 @@
       "handedness": "Right- and left-handed play, switched instantly.",
       "cards": [
         {
-          "group": "Ball",
+          "image": "sim-protee-labs",
+          "alt": "The ProTee Labs session view showing club speed, launch angle, spin axis, smash factor and carry for a single shot",
+          "group": "ProTee VX",
+          "name": "Every number, one screen",
+          "blurb": "Club speed, launch, spin, smash factor, carry — measured and laid out shot by shot."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "group": "Ball data",
           "name": "Ball Speed",
-          "blurb": "How fast the ball leaves the face. The single biggest lever on distance.",
-          "image": ""
+          "blurb": "How fast the ball leaves the face. The single biggest lever on distance."
         },
         {
-          "group": "Club",
+          "image": "sim-gspro-course",
+          "alt": "A GSPro on-course view of a par 4 with live shot data panels on both sides",
+          "group": "GSPro",
+          "name": "Play the course",
+          "blurb": "2,500+ community-built layouts, with your live numbers on screen as you play."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "group": "Club data",
           "name": "Swing Path",
-          "blurb": "The direction the club is travelling through impact — the start of every draw and fade.",
-          "image": ""
+          "blurb": "The direction the club is travelling through impact — the start of every draw and fade."
         },
         {
-          "group": "Ball",
+          "image": "sim-gspro-data",
+          "alt": "A GSPro range view with the full ball, club and flight data panel displayed",
+          "group": "GSPro",
+          "name": "See it as you hit",
+          "blurb": "Ball, club and flight data on screen the moment the shot leaves the face."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "group": "Ball data",
           "name": "Spin Axis",
-          "blurb": "The tilt on the ball that decides whether it holds its line or curves.",
-          "image": ""
+          "blurb": "The tilt on the ball that decides whether it holds its line or curves."
         },
         {
-          "group": "Club",
+          "image": "sim-gspro-range",
+          "alt": "A GSPro driving range view showing carry, ball speed, peak height and total length",
+          "group": "GSPro",
+          "name": "Dial in your yardages",
+          "blurb": "Range sessions with carry, peak height and total length on every swing."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "group": "Club data",
           "name": "Attack Angle",
-          "blurb": "Whether you are striking up or down on the ball at contact.",
-          "image": ""
+          "blurb": "Whether you are striking up or down on the ball at contact."
         },
         {
-          "group": "Flight",
+          "image": "",
+          "alt": "",
+          "group": "Flight data",
           "name": "Carry Distance",
-          "blurb": "How far the ball actually flies before it first touches the ground.",
-          "image": ""
+          "blurb": "How far the ball actually flies before it first touches the ground."
         },
         {
-          "group": "Club",
-          "name": "Impact Point",
-          "blurb": "Where on the face you struck it, vertically and horizontally.",
-          "image": ""
-        },
-        {
-          "group": "Flight",
+          "image": "",
+          "alt": "",
+          "group": "Flight data",
           "name": "Descent Angle",
-          "blurb": "How steeply the ball comes down, and whether it will hold a green.",
-          "image": ""
-        },
-        {
-          "group": "Ball",
-          "name": "Launch Angle",
-          "blurb": "The angle the ball leaves the ground on — the other half of distance.",
-          "image": ""
+          "blurb": "How steeply the ball comes down, and whether it will hold a green."
         }
       ],
-      "cardsNote": "Every card is a parameter the ProTee VX measures. `image` is empty on purpose: drop in a real screenshot filename and that card renders the photo instead of the type treatment."
+      "cardsNote": "TO ADD A CARD: append one entry to this list. Nothing else changes — no rebuild of the component, no CSS, and both the homepage and Studio pick it up because they share one partial. For a SCREENSHOT: save a 16:9 image as images/<name>.jpg plus images/<name>-800.jpg, then set image to <name> (no extension) and write a real alt description. For a DATA POINT: leave image empty and fill group, name and blurb. Order here is the order on screen."
     }
   },
   "_coursesComment": "HANDOFF rule 7 gate: the two `local` cards require SGT course-server verification before launch. If unverified, swap for verified regional courses (owner decides) — never ship unconfirmed claims.",

@@ -1,31 +1,33 @@
-<!-- Rotating ProTee VX data-point cards. Shared by the homepage and Studio
-     technology bands so the two can never drift.
+<!-- Rotating simulator screens and data points. Shared by the homepage and the
+     Studio page so the two can never drift.
 
-     Each card renders a type treatment by default. Give a card an `image` in
-     site.json and it renders that screenshot instead, same frame, same
-     rotation — which is how real GSPro/ProTee captures drop in later without
-     touching this markup. -->
-<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="ProTee VX data points">
+     One list drives it: technology.vx.cards in site.json. A card with an
+     `image` renders that screenshot; a card without renders the type
+     treatment. Adding a card is one entry in that list — nothing here or in
+     the CSS needs to change. See cardsNote in site.json. -->
+<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="Simulator screens and the data the launch monitor measures">
   <div class="vx-stage" data-rotator-stage>
     {{#each technology.vx.cards}}
-    <article class="vx-slide"{{#if this.image}} data-has-image="true"{{/if}}>
+    <article class="vx-slide"{{#if this.image}} data-kind="shot"{{/if}}>
       {{#if this.image}}
-      <img src="images/{{ this.image }}" alt="{{ this.name }} shown on the simulator display" loading="lazy"/>
+      <img src="images/{{ this.image }}.jpg"
+           srcset="images/{{ this.image }}-800.jpg 800w, images/{{ this.image }}.jpg 1200w"
+           sizes="(min-width: 1025px) 40vw, 80vw"
+           alt="{{ this.alt }}" loading="lazy" width="1200" height="675"/>
       {{/if}}
       <div class="vx-slide-body">
-        <span class="vx-slide-group">{{ this.group }} data</span>
+        <span class="vx-slide-group">{{ this.group }}</span>
         <h3 class="vx-slide-name">{{ this.name }}</h3>
         <p class="vx-slide-blurb">{{ this.blurb }}</p>
       </div>
-      <span class="vx-slide-mark">Measured by ProTee VX</span>
     </article>
     {{/each}}
   </div>
 
-  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous data point">
+  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous">
     <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
   </button>
-  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next data point">
+  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next">
     <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
   </button>
 
