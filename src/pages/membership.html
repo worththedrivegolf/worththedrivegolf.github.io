@@ -1,0 +1,196 @@
+<!--meta
+{
+  "slug": "membership",
+  "canonical": "membership.html",
+  "title": "Membership | Worth the Drive Golf Studio — Wawaka, Indiana",
+  "description": "Four simple membership tiers from $100 a month at the Worth the Drive Golf Studio in Wawaka, Indiana. Join the waitlist or reserve a Founders Club spot.",
+  "year": 2026
+}
+-->
+
+<!-- PAGE HERO ============================================================ -->
+<section class="band band-navy page-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Membership</span>
+      <h1 class="h1">Choose your tier.</h1>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and AI swing analysis. Four simple tiers, from $100 a month — with annual savings if you want them.</p>
+      <div class="actions" style="margin-top:var(--s4)">
+        <a class="btn btn-primary" href="#waitlist">{{ ctas.primary.label }}</a>
+        <a class="btn btn-ghost" href="#founders">{{ ctas.founders.label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS — rendered from the single source of truth ===================== -->
+<section class="band band-paper" id="tiers">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">The Tiers</span>
+      <h2 class="h2">Membership, in full</h2>
+      <p class="lead" style="margin-top:var(--s3)">Full benefits for every tier. {{ membershipNotes.limits }}</p>
+    </div>
+
+    <div class="tier-grid reveal" data-swipe="tiers">
+      {{#each tiers}}
+      <article class="tier{{#if this.featured}} is-featured{{/if}}" id="{{ this.id }}">
+        <div class="tier-head">
+          <div class="tier-name">{{ this.name }}</div>
+          <p class="tier-persona">{{ this.persona }}</p>
+          <div class="tier-price"><sup>$</sup>{{ this.price }}<span>{{ this.cadence }}</span></div>
+        </div>
+        <div class="tier-body">
+          <ul class="checks">
+            {{#each this.benefits}}
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="btn btn-primary btn-sm" href="#waitlist" style="width:100%">Reserve this tier</a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    <div class="swipe-dots" data-swipe-dots="tiers"><span></span><span></span><span></span><span></span></div>
+
+    <div class="grid grid-2" style="margin-top:clamp(36px,4vw,56px)">
+      <div class="card card-light reveal">
+        <h3 class="h4" style="margin-bottom:10px">League play &amp; events</h3>
+        <p style="font-size:0.9375rem">League play and select events may be offered separately, with members receiving preferred pricing and priority registration. Non-members may participate in select open events.</p>
+      </div>
+      <div class="card card-light reveal" data-delay="1">
+        <h3 class="h4" style="margin-bottom:10px">Annual savings</h3>
+        <p style="font-size:0.9375rem">{{ membershipNotes.annual }}. {{ membershipNotes.limits }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST ============================================================= -->
+<section class="band band-deep" id="waitlist">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Studio Updates</span>
+        <h2 class="h2">Join the waitlist</h2>
+        <p class="lead" style="margin-top:var(--s3)">Want updates on opening timeline, membership availability, league info and studio launch details? Join the waitlist and we'll keep you posted as The Studio gets closer to opening.</p>
+        <p class="fine" style="margin-top:var(--s3)">{{ membershipNotes.waitlistNote }} No payment required · Founders Club reservation is separate.</p>
+      </div>
+
+      <div class="card card-dark reveal" data-delay="1">
+        <!-- Mailchimp audience — unchanged from the live site. The hidden
+             honeypot field below is Mailchimp's bot protection: do not remove. -->
+        <form class="wtd-form"
+              action="https://worththedrivegolf.us8.list-manage.com/subscribe/post?u=2ad78f48f86871ac18f97925c&amp;id=ff60f6c0a0&amp;f_id=00596ee1f0"
+              method="post" target="_blank">
+          <div class="field-row">
+            <label class="field">
+              <span>First name</span>
+              <input type="text" name="FNAME" autocomplete="given-name"/>
+            </label>
+            <label class="field">
+              <span>Last name</span>
+              <input type="text" name="LNAME" autocomplete="family-name"/>
+            </label>
+          </div>
+          <label class="field">
+            <span>Email address</span>
+            <input type="email" name="EMAIL" required autocomplete="email" placeholder="you@example.com"/>
+          </label>
+          <label class="field">
+            <span>Preferred tier <em>(optional)</em></span>
+            <select name="TIER">
+              <option value="">No preference yet</option>
+              {{#each tiers}}
+              <option value="{{ this.name }}">{{ this.name }} — ${{ this.price }}{{ this.cadence }}</option>
+              {{/each}}
+            </select>
+          </label>
+          <div style="position:absolute;left:-5000px" aria-hidden="true">
+            <input type="text" name="b_2ad78f48f86871ac18f97925c_ff60f6c0a0" tabindex="-1" value=""/>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:var(--s2)">{{ ctas.primary.label }}</button>
+          <p class="fine" style="margin-top:var(--s2)">No payment required · General studio updates only</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS ============================================================= -->
+<section class="band band-footer" id="founders">
+  <div class="container">
+    <div class="founders-grid">
+      <div class="reveal">
+        <span class="founders-pill">{{ founders.pill }}</span>
+        <h2 class="h2">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h2>
+        <p class="lead" style="margin-top:var(--s3)">Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee locks your monthly rate for life, whatever pricing looks like after opening. No payment required now — we'll contact you when memberships open.</p>
+      </div>
+      <div class="founders-card reveal" data-delay="1">
+        <ul class="checks">
+          {{#each founders.benefits}}
+          <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
+          {{/each}}
+        </ul>
+        <a class="btn btn-gold" href="#waitlist">{{ ctas.founders.label }}</a>
+        <p class="fine center" style="margin-top:var(--s2)">No payment required now · Limited to {{ founders.spots }} founding members</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ================================================================== -->
+<section class="band band-paper" id="faq">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">Membership</span>
+      <h2 class="h2">Questions, answered</h2>
+    </div>
+
+    <div class="faq-grid reveal">
+      <details class="faq-item" open>
+        <summary>When do memberships open?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>The Studio opens in {{ brand.opening }}. Joining the waitlist costs nothing and puts you first in line for opening dates, membership availability and Founders Club spots — we'll contact you when memberships open.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>What does every tier include?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Studio access, the full GSPro course library, AI swing analysis, and priority registration with preferred pricing on league play. Tiers differ in when you can play, how long your tee times run, how many guests you bring, and how many bookings you can hold at once.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>How do guests work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Weekday Members bring up to 3 guests at $10 each. Full Members get 1 guest included, with additional guests at $10 each. Premier Members bring up to 3 guests included. The Corporate Club covers up to 4 guests per visit.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>Is there an annual option?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Yes. {{ membershipNotes.annual }}.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>Why are bookings limited?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ membershipNotes.limits }} Each tier sets how many bookings you can hold at once so tee times stay open for everyone, and memberships themselves are limited for the same reason.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>Can I visit before joining?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>There are no walk-ins and no drop-in tee times — day-to-day access is reserved for members and invited guests. Watch for advertised open nights to experience the Studio before joining.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-SELL =========================================================== -->
+<section class="band band-paper-alt">
+  <div class="container center">
+    <div class="reveal stack">
+      <span class="badge-chip"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-truck"></use></svg> On Tour</span>
+      <h2 class="h3">Need golf at your event instead?</h2>
+      <p class="lead">Our mobile simulator travels to birthdays, corporate events and fundraisers across four counties — Friday to Sunday.</p>
+      <div class="actions"><a class="btn btn-ghost-dark" href="on-tour.html">See On Tour</a></div>
+    </div>
+  </div>
+</section>

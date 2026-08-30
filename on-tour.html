@@ -1,623 +1,492 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
+<script>document.documentElement.classList.remove('no-js');</script>
+
+<!-- Google tag (gtag.js) — measurement ID unchanged from the live site -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJWD298VFD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-BJWD298VFD');
+  gtag('config', 'G-BJWD298VFD', {
+    // Cross-domain measurement: the booking app is a separate host on the same
+    // GA4 property, so the client id must survive the hop or conversions get
+    // attributed to a self-referral.
+    linker: { domains: ['worththedrivegolf.com', 'book.worththedrivegolf.com'] }
+  });
 </script>
 
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Worth the Drive On Tour — Mobile golf simulator events for parties, corporate events, fundraisers & more across Northeast Indiana."/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>On Tour — Mobile Golf Simulator Events | Worth the Drive, Northeast Indiana</title>
+<meta name="description" content="We bring a full golf simulator to your event — birthdays, corporate events, fundraisers and outings across Noble, LaGrange, Steuben and DeKalb Counties. Packages from $500."/>
 <link rel="canonical" href="https://worththedrivegolf.com/on-tour.html"/>
 
-<!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Worth the Drive Golf Studio"/>
-<meta property="og:title" content="On Tour — Mobile Golf Simulator Events | Worth the Drive Golf Studio"/>
-<meta property="og:description" content="Bring a pro-grade golf simulator to your event. Birthdays, corporate parties, fundraisers & more across Noble, LaGrange, Steuben & DeKalb counties. Packages from $500."/>
+<meta property="og:title" content="On Tour — Mobile Golf Simulator Events | Worth the Drive, Northeast Indiana"/>
+<meta property="og:description" content="We bring a full golf simulator to your event — birthdays, corporate events, fundraisers and outings across Noble, LaGrange, Steuben and DeKalb Counties. Packages from $500."/>
 <meta property="og:url" content="https://worththedrivegolf.com/on-tour.html"/>
-<meta property="og:image" content="https://worththedrivegolf.com/images/mobile-simulator.jpg"/>
+<meta property="og:image" content="https://worththedrivegolf.com/images/og-share.jpg"/>
 <meta property="og:locale" content="en_US"/>
-
-<!-- Twitter / X card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="On Tour — Mobile Golf Simulator Events"/>
-<meta name="twitter:description" content="Mobile golf simulator events across Northeast Indiana. Packages from $500."/>
-<meta name="twitter:image" content="https://worththedrivegolf.com/images/mobile-simulator.jpg"/>
-  <title>On Tour — Mobile Simulator | Worth the Drive Golf Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--navy:#1a2744;--navy-dk:#0e1a2e;--green:#5da83a;--green-lt:#7ed957;--gold:#f5c518;--white:#fff;--off:#f4f6f9;--muted:#5a6a8a;--border:#d0d8e8;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Open Sans',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(14,26,46,0.97);backdrop-filter:blur(12px);border-bottom:2px solid rgba(93,168,58,0.25);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
-    .nav-logo{height:44px;width:auto;}
-    .nav-links{display:flex;gap:22px;align-items:center;list-style:none;}
-    .nav-links a{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
-    .nav-book{background:linear-gradient(135deg,var(--green),var(--green-lt));color:var(--white)!important;padding:9px 20px;border-radius:50px;font-weight:700!important;box-shadow:0 3px 12px rgba(93,168,58,0.35);letter-spacing:1.5px;}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;}
-    .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--navy-dk);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu a{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
-    .mob-book{background:linear-gradient(135deg,var(--green),var(--green-lt));padding:14px 40px;border-radius:50px;}
+<meta name="twitter:title" content="On Tour — Mobile Golf Simulator Events | Worth the Drive, Northeast Indiana"/>
+<meta name="twitter:description" content="We bring a full golf simulator to your event — birthdays, corporate events, fundraisers and outings across Noble, LaGrange, Steuben and DeKalb Counties. Packages from $500."/>
+<meta name="twitter:image" content="https://worththedrivegolf.com/images/og-share.jpg"/>
 
-    .page-hero{background:linear-gradient(160deg,rgba(8,15,30,0.95) 0%,rgba(14,28,14,0.88) 100%),url('/images/mobile-simulator.jpg') center/cover no-repeat;padding:130px 24px 72px;text-align:center;position:relative;}
-    .page-hero-inner{max-width:740px;margin:0 auto;animation:fadeUp 0.6s ease 0.1s both;}
-    .eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:700;display:block;margin-bottom:10px;}
-    .eyebrow.gold{color:var(--gold);}
-    .page-hero h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,9vw,66px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
-    .page-hero h1 span{color:var(--green);}
-    .page-hero p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto;}
-    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 30px;border-radius:50px;text-decoration:none;transition:transform 0.2s,opacity 0.2s;cursor:pointer;border:none;min-height:48px;}
-    .btn:hover{transform:translateY(-2px);opacity:0.9;}
-    .btn-green{background:linear-gradient(135deg,var(--green),var(--green-lt));color:var(--white);box-shadow:0 4px 16px rgba(93,168,58,0.35);}
-    .btn-outline-w{background:rgba(255,255,255,0.07);color:var(--white);border:1.5px solid rgba(255,255,255,0.3);}
-    .btn-outline-w:hover{border-color:var(--gold);color:var(--gold);}
-
-    .section{padding:72px 24px;}
-    .section-inner{max-width:1000px;margin:0 auto;}
-    .section-title{font-family:'Oswald',sans-serif;font-size:clamp(24px,5vw,40px);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-    .section-title span{color:var(--green);}
-    .section-sub{font-size:15px;color:var(--muted);line-height:1.8;max-width:560px;}
-    .bg-off{background:var(--off);}
-    .bg-navy{background:var(--navy);}
-
-    .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px;}
-    .feature-card{background:var(--white);border:1.5px solid var(--border);border-left:4px solid var(--green);border-radius:8px;padding:22px;}
-    .feature-card h3{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:7px;}
-    .feature-card p{font-size:13px;color:var(--muted);line-height:1.7;}
-
-    .occasions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px;}
-    .occasion{background:var(--navy);border-radius:8px;padding:18px;text-align:center;}
-    .occasion-icon{font-size:26px;margin-bottom:7px;display:block;}
-    .occasion h4{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.5px;}
-
-    .pricing-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px;}
-    .price-box{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:22px 14px;text-align:center;transition:transform 0.2s;}
-    .price-box:hover{transform:translateY(-2px);}
-    .price-box.featured{background:var(--navy);border-color:var(--green);}
-    .price-dur{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-    .price-box.featured .price-dur{color:rgba(255,255,255,0.45);}
-    .price-amt{font-family:'Oswald',sans-serif;font-size:34px;font-weight:700;color:var(--navy);}
-    .price-box.featured .price-amt{color:var(--gold);}
-    .price-amt sup{font-size:16px;vertical-align:super;}
-    .price-note{font-size:12px;color:var(--muted);margin-top:5px;}
-    .price-box.featured .price-note{color:rgba(255,255,255,0.38);}
-    .price-badge{display:inline-block;margin-top:7px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--green);color:var(--white);padding:3px 10px;border-radius:3px;}
-
-    .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
-    .step{text-align:center;padding:24px 18px;}
-    .step-num{width:44px;height:44px;border-radius:50%;background:var(--green);color:var(--white);font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
-    .step h4{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:7px;}
-    .step p{font-size:13px;color:rgba(255,255,255,0.48);line-height:1.6;}
-
-    .counties-strip{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:28px;}
-    .county-tag{background:rgba(93,168,58,0.1);border:1px solid rgba(93,168,58,0.3);border-radius:20px;padding:8px 18px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--navy);}
-
-    .cta-strip{padding:72px 24px;background:linear-gradient(135deg,var(--green) 0%,#1f6b10 100%);text-align:center;}
-    .cta-strip .section-title{color:var(--white);margin-bottom:8px;}
-
-    .site-footer{background:var(--navy-dk);border-top:3px solid var(--green);padding:44px 24px 24px;}
-    .footer-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;}
-    .footer-logo{width:120px;height:auto;margin-bottom:12px;}
-    .footer-brand p{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.8;}
-    .footer-brand a{color:rgba(255,255,255,0.38);text-decoration:none;}
-    .footer-col h4{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
-    .footer-col ul{list-style:none;}
-    .footer-col ul li{margin-bottom:9px;}
-    .footer-col ul li a{font-size:13px;color:rgba(255,255,255,0.42);text-decoration:none;transition:color 0.2s;}
-    .footer-col ul li a:hover{color:var(--white);}
-    .footer-bottom{max-width:1000px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:11px;color:rgba(255,255,255,0.18);}.footer-social{display:flex;gap:14px;margin-top:6px;}.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55);transition:all 0.2s;}.footer-social a:hover{background:var(--green);color:var(--white);transform:translateY(-2px);}
-
-    .modal-overlay{position:fixed;inset:0;background:rgba(8,15,30,0.88);backdrop-filter:blur(10px);z-index:500;display:none;align-items:center;justify-content:center;padding:24px;}
-    .modal-overlay.open{display:flex;}
-    .modal-box{background:var(--navy);border:1.5px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px 32px;max-width:460px;width:100%;text-align:center;position:relative;animation:fadeUp 0.3s ease;}
-    .modal-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.07);border:none;color:rgba(255,255,255,0.5);width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-    .modal-eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:8px;}
-    .modal-title{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
-    .modal-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:26px;line-height:1.6;}
-    .modal-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-    .modal-option{border-radius:10px;padding:22px 14px;text-decoration:none;display:flex;flex-direction:column;gap:7px;align-items:center;text-align:center;transition:transform 0.2s;border:1.5px solid transparent;}
-    .modal-option:hover{transform:translateY(-3px);}
-    .modal-option.green{background:rgba(93,168,58,0.1);border-color:rgba(93,168,58,0.35);}
-    .modal-option.green:hover{background:rgba(93,168,58,0.18);border-color:var(--green);}
-    .modal-option.gold{background:rgba(245,197,24,0.07);border-color:rgba(245,197,24,0.28);}
-    .modal-option.gold:hover{background:rgba(245,197,24,0.13);border-color:var(--gold);}
-    .modal-option-icon{font-size:28px;}
-    .modal-option-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
-    .modal-option-label.green{color:var(--green);}
-    .modal-option-label.gold{color:var(--gold);}
-    .modal-option-title{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--white);text-transform:uppercase;}
-    .modal-option-desc{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.5;}
-    .modal-option-cta{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-    .modal-option-cta.green{color:var(--green);}
-    .modal-option-cta.gold{color:var(--gold);}
-
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-
-    .faq-list{margin-top:36px;display:flex;flex-direction:column;gap:12px;}
-    .faq-item{background:var(--white);border:1.5px solid var(--border);border-left:4px solid var(--green);border-radius:8px;overflow:hidden;}
-    .faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.4px;}
-    .faq-item summary::-webkit-details-marker{display:none;}
-    .faq-item summary::after{content:"+";font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--green);line-height:1;flex-shrink:0;transition:transform 0.2s;}
-    .faq-item[open] summary::after{content:"–";}
-    .faq-item summary:hover{color:var(--green);}
-    .faq-answer{padding:0 22px 20px;font-size:14px;color:var(--muted);line-height:1.75;}
-    .faq-policy-note{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.7;text-align:center;font-style:italic;}
-    .snapshot-card{max-width:640px;margin:32px auto 0;background:var(--white);border:1.5px solid var(--border);border-top:3px solid var(--green);border-radius:10px;padding:28px 30px;}
-    .snapshot-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
-    .snapshot-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--navy);line-height:1.6;}
-    .snapshot-list li svg{flex-shrink:0;margin-top:2px;color:var(--green);}
-    .snapshot-cta{display:block;margin-top:22px;text-align:center;}
-    .snapshot-cta a{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);text-decoration:none;border:1.5px solid var(--green);border-radius:50px;padding:11px 26px;display:inline-block;transition:background 0.2s,color 0.2s;}
-    .snapshot-cta a:hover{background:var(--green);color:var(--white);}
-
-    @media(max-width:768px){
-      .nav-links{display:none;}.hamburger{display:flex;}
-      .page-hero{padding:100px 20px 56px;}
-      .features-grid,.steps-row,.pricing-row{grid-template-columns:1fr;}
-      .occasions-grid{grid-template-columns:repeat(2,1fr);}
-      .footer-grid{grid-template-columns:1fr;gap:24px;}.footer-bottom{flex-direction:column;text-align:center;}
-      .modal-options{grid-template-columns:1fr;}
-      .faq-item summary{font-size:14px;padding:16px 18px;}
-      .faq-answer{padding:0 18px 18px;}
-    }
-  </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Worth the Drive On Tour — Mobile Golf Simulator Events",
-  "serviceType": "Mobile golf simulator event rental",
-  "description": "A professional-grade portable golf simulator brought to your location for birthdays, company events, fundraisers, private parties, and local gatherings across Northeast Indiana.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Worth the Drive Golf Studio",
-    "telephone": "+1-844-465-3983",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "7032 N Main St",
-      "addressLocality": "Wawaka",
-      "addressRegion": "IN",
-      "postalCode": "46794",
-      "addressCountry": "US"
-    }
-  },
-  "areaServed": [
-    { "@type": "AdministrativeArea", "name": "Noble County, Indiana" },
-    { "@type": "AdministrativeArea", "name": "LaGrange County, Indiana" },
-    { "@type": "AdministrativeArea", "name": "Steuben County, Indiana" },
-    { "@type": "AdministrativeArea", "name": "DeKalb County, Indiana" }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Mobile Event Packages",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "4 Hours — Minimum Rental",
-        "price": "500.00",
-        "priceCurrency": "USD",
-        "description": "4-hour mobile golf simulator event. $100 deposit reserves your date."
-      },
-      {
-        "@type": "Offer",
-        "name": "5 Hours — Great for Parties",
-        "price": "625.00",
-        "priceCurrency": "USD",
-        "description": "5-hour mobile golf simulator event. $100 deposit reserves your date."
-      },
-      {
-        "@type": "Offer",
-        "name": "6 Hours — Most Flexible",
-        "price": "750.00",
-        "priceCurrency": "USD",
-        "description": "6-hour mobile golf simulator event. $100 deposit reserves your date."
-      },
-      {
-        "@type": "Offer",
-        "name": "Full Day — Up to 10 Hours",
-        "price": "1000.00",
-        "priceCurrency": "USD",
-        "description": "Full-day mobile golf simulator event, up to 10 hours. $100 deposit reserves your date."
-      }
-    ]
-  }
-}
-</script>
-
-<!-- FAQ schema — strongly recommended for AI search.
-     Only keep questions that match real content/answers you're comfortable publishing. -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does a mobile golf simulator event cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mobile event packages start at $500 for 4 hours, $625 for 5 hours, $750 for 6 hours, and $1,000 for a full day of up to 10 hours. A $100 deposit reserves your date and the balance is due the day of the event."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much is the deposit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A $100 deposit is required to reserve and secure your event date and time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When is the remaining balance due?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The remaining balance is due at arrival before the event begins."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the cancellation policy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cancellations made within 48 hours of the scheduled event will result in forfeiture of the $100 deposit. Same-day cancellations or no-shows may be subject to additional charges related to staffing, travel, setup, and reserved equipment time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if weather is an issue?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Outdoor events are subject to weather and safety conditions. Worth the Drive may delay, pause, reschedule, modify, or cancel setup or operation due to rain, lightning, excessive wind, unsafe ground conditions, or other safety concerns. Rain-date rescheduling is allowed based on availability."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much space is needed?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The mobile simulator enclosure requires approximately 15 feet wide by 18 feet deep of clear setup space."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What power is required?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A standard electrical outlet is required. The outlet or extension cord must be within 5 feet of the enclosure setup area."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can the simulator be used indoors or outdoors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The simulator can be used indoors or outdoors. Indoor events require a minimum ceiling height of 12 feet."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are clubs, balls, and tees provided?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Clubs, balls, and tees are provided. Standard men's right-handed clubs are included. Left-handed, junior, and women's sets are available upon request."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can kids participate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Participants must be 6 years of age or older."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is alcohol allowed?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Alcohol is allowed if permitted by the venue or event host. However, alcohol is not allowed inside the simulator enclosure."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What areas do you serve?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Worth the Drive On Tour serves Noble, LaGrange, Steuben, and DeKalb Counties. Events outside those areas may be available, but require a custom quote by email."
-      }
-    }
-  ]
-}
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/wtd.css"/>
 </head>
 <body>
-<nav>
-  <a href="index.html"><img src="images/wtd-logo.png" alt="Worth the Drive Golf Studio" class="nav-logo"/></a>
-  <ul class="nav-links">
-    <li><a href="on-tour.html" class="active">On Tour</a></li>
-    <li><a href="studio.html">The Studio</a></li>
-    <li><a href="memberships.html">Memberships</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="#" class="nav-book" onclick="openBookingModal();return false;">Book Now</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="on-tour.html" onclick="closeMenu()">On Tour</a>
-  <a href="studio.html" onclick="closeMenu()">The Studio</a>
-  <a href="memberships.html" onclick="closeMenu()">Memberships</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
-  <a href="#" class="mob-book" onclick="openBookingModal();closeMenu();return false;">Book Now</a>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Stroke icon sprite (Lucide-style, 1.6px, currentColor).
+     Replaces every emoji site-wide. Referenced as:
+     <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2.5 6 12 13 21.5 6"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M21 20v-1.5a4 4 0 0 0-3-3.8"/><path d="M16.5 4.2a3.5 3.5 0 0 1 0 6.6"/></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v3h12v-3a2 2 0 0 1 4 0v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 14.8V4.5a2.5 2.5 0 0 0-5 0v10.3a4.5 4.5 0 1 0 5 0z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><line x1="3" y1="21" x2="21" y2="21"/><circle cx="13" cy="12" r="1"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="21" x2="6" y2="3"/><path d="M6 4h11l-2.5 3.5L17 11H6z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 7.5A1.5 1.5 0 0 1 3.5 6h9A1.5 1.5 0 0 1 14 7.5V17H2z"/><path d="M14 10h3.6a2 2 0 0 1 1.7 1l1.7 2.7V17h-7z"/><circle cx="6" cy="18.5" r="2"/><circle cx="17" cy="18.5" r="2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><polyline points="21 16 15.5 11 5 20"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 20 6v6c0 4.6-3.3 8.4-8 9.5-4.7-1.1-8-4.9-8-9.5V6z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<!-- Announcement bar — static, never a marquee. Founders phrase is the only
+     gold outside the founders band (HANDOFF rule 4). -->
+<div class="announce">
+  <span class="on-desktop">The Studio is under construction in Wawaka — opening 2026</span>
+  <span class="on-mobile">Opening 2026</span>
+  <span class="sep">·</span>
+  <b class="on-desktop">Founders Club now forming · 40 spots</b>
+  <b class="on-mobile">Founders Club forming</b>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <span class="eyebrow">● Available Now</span>
-    <h1>On Tour —<br/><span>Mobile Simulator</span></h1>
-    <p>We bring the full golf simulator experience to your event. You pick the location across Northeast Indiana — we handle setup, operation, and teardown.</p>
-    <div class="hero-btns">
-      <a href="https://book.worththedrivegolf.com" class="btn btn-green" target="_blank">Reserve Your Date →</a>
-      <a href="#pricing" class="btn btn-outline-w">View Pricing</a>
-    </div>
-  </div>
-</div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="index.html" aria-label="Worth the Drive Golf Studio — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+    </a>
 
-<section class="section bg-off">
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="eyebrow">What's Included</span>
-      <h2 class="section-title">Everything <span>Handled</span></h2>
-      <p class="section-sub">One price. Full service. Zero hassle for you or your guests.</p>
-    </div>
-    <div class="features-grid reveal">
-      <div class="feature-card"><h3>🚐 We Come to You</h3><p>Full mobile setup delivered anywhere in Noble, LaGrange, Steuben & DeKalb Counties. Backyard, event venue, office — you pick the spot.</p></div>
-      <div class="feature-card"><h3>⛳ Inflatable Simulator</h3><p>Pro-grade inflatable setup with a high-definition screen. Long drive, closest-to-the-pin, and open play formats keep every guest engaged.</p></div>
-      <div class="feature-card"><h3>👨‍💼 On-Site Staff</h3><p>A Worth the Drive team member runs the experience start to finish. You don't lift a finger — just enjoy the event with your guests.</p></div>
-      <div class="feature-card"><h3>🔧 Full Setup & Teardown</h3><p>We arrive early, run the entire show, and tear down when you're done. Zero hassle before or after your event.</p></div>
-      <div class="feature-card"><h3>🎯 Fun for Any Crowd</h3><p>No golf experience needed. Formats designed to get everyone involved — from first-timers to regulars. Always a great time.</p></div>
-      <div class="feature-card"><h3>📸 A Memorable Experience</h3><p>A genuine talking point and crowd-pleaser at any event. Guests leave impressed and ready to tell their friends.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Perfect For</span>
-      <h2 class="section-title">Any <span>Occasion</span></h2>
-    </div>
-    <div class="occasions-grid reveal">
-      <div class="occasion"><span class="occasion-icon">🎂</span><h4>Birthdays & Parties</h4></div>
-      <div class="occasion"><span class="occasion-icon">🏢</span><h4>Corporate Events</h4></div>
-      <div class="occasion"><span class="occasion-icon">🎓</span><h4>Graduations</h4></div>
-      <div class="occasion"><span class="occasion-icon">🤝</span><h4>Fundraisers</h4></div>
-      <div class="occasion"><span class="occasion-icon">⛳</span><h4>Golf Outings</h4></div>
-      <div class="occasion"><span class="occasion-icon">🏘️</span><h4>Neighborhood Events</h4></div>
-      <div class="occasion"><span class="occasion-icon">🥂</span><h4>Bachelor/Bachelorette</h4></div>
-      <div class="occasion"><span class="occasion-icon">🎪</span><h4>Vendor Shows & Fests</h4></div>
-      <div class="occasion"><span class="occasion-icon">❤️</span><h4>Client Appreciation</h4></div>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-off" id="pricing">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Event Packages</span>
-      <h2 class="section-title">Straightforward <span>Pricing</span></h2>
-      <p class="section-sub" style="margin:0 auto;">No hidden fees. Everything included. Additional time may be available at $125/hr.</p>
-    </div>
-    <div class="pricing-row reveal">
-      <div class="price-box featured"><div class="price-dur">4 Hours</div><div class="price-amt"><sup>$</sup>500</div><div class="price-note">Minimum booking</div><span class="price-badge">Most Popular</span></div>
-      <div class="price-box"><div class="price-dur">5 Hours</div><div class="price-amt"><sup>$</sup>625</div><div class="price-note">Great for parties</div></div>
-      <div class="price-box"><div class="price-dur">6 Hours</div><div class="price-amt"><sup>$</sup>750</div><div class="price-note">Most flexible</div></div>
-      <div class="price-box"><div class="price-dur">Full Day</div><div class="price-amt"><sup>$</sup>1,000</div><div class="price-note">Up to 10 hours</div></div>
-    </div>
-    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:14px;font-style:italic;">$100 deposit secures your date · Balance due day-of · Additional time may be available at $125/hr · Full Day package limited to 10 hours max · Custom quotes available for larger events</p>
-    <div style="text-align:center;margin-top:28px;">
-      <a href="https://book.worththedrivegolf.com" class="btn btn-green" target="_blank">Reserve Your Date →</a>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-navy">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow gold">How It Works</span>
-      <h2 class="section-title" style="color:var(--white);">Three <span>Simple Steps</span></h2>
-    </div>
-    <div class="steps-row reveal">
-      <div class="step"><div class="step-num">1</div><h4>Book Online</h4><p>Pick your date, duration, and pay the $100 deposit at book.worththedrivegolf.com. We confirm within 24 hours.</p></div>
-      <div class="step"><div class="step-num">2</div><h4>We Show Up</h4><p>Our team arrives early, sets up the full simulator at your location, and runs the entire experience on-site.</p></div>
-      <div class="step"><div class="step-num">3</div><h4>You Enjoy</h4><p>Your guests play, compete, and have a great time. We tear everything down when done. Balance due day-of.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Service Area</span>
-      <h2 class="section-title">We Come <span>to You.</span></h2>
-      <p class="section-sub" style="margin:0 auto;">Available Fridays, Saturdays & Sundays · 10 AM – 10 PM</p>
-    </div>
-    <div class="counties-strip reveal">
-      <div class="county-tag">📍 Noble County</div>
-      <div class="county-tag">📍 LaGrange County</div>
-      <div class="county-tag">📍 Steuben County</div>
-      <div class="county-tag">📍 DeKalb County</div>
-    </div>
-    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:14px;">Outside Noble, LaGrange, Steuben, or DeKalb County? Need a non-standard day or time? <a href="contact.html" style="color:var(--green);">Reach out</a> — we're happy to discuss availability and put together a custom quote.</p>
-  </div>
-</section>
-
-<section class="section bg-off" id="on-tour-faq">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">On Tour</span>
-      <h2 class="section-title">FAQ &amp; <span>Policies</span></h2>
-      <p class="section-sub" style="margin:0 auto;">Everything you need to know about booking a mobile golf simulator event with Worth the Drive On Tour.</p>
-    </div>
-    <div class="faq-list reveal">
-      <details class="faq-item">
-        <summary>How much is the deposit?</summary>
-        <div class="faq-answer">A $100 deposit is required to reserve and secure your event date and time.</div>
-      </details>
-      <details class="faq-item">
-        <summary>When is the remaining balance due?</summary>
-        <div class="faq-answer">The remaining balance is due at arrival before the event begins.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What is the cancellation policy?</summary>
-        <div class="faq-answer">Cancellations made within 48 hours of the scheduled event will result in forfeiture of the $100 deposit. Same-day cancellations or no-shows may be subject to additional charges related to staffing, travel, setup, and reserved equipment time.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What happens if weather is an issue?</summary>
-        <div class="faq-answer">Outdoor events are subject to weather and safety conditions. Worth the Drive may delay, pause, reschedule, modify, or cancel setup or operation due to rain, lightning, excessive wind, unsafe ground conditions, or other safety concerns. Rain-date rescheduling is allowed based on availability.</div>
-      </details>
-      <details class="faq-item">
-        <summary>How much space is needed?</summary>
-        <div class="faq-answer">The mobile simulator enclosure requires approximately 15 feet wide by 18 feet deep of clear setup space.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What power is required?</summary>
-        <div class="faq-answer">A standard electrical outlet is required. The outlet or extension cord must be within 5 feet of the enclosure setup area.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Can the simulator be used indoors or outdoors?</summary>
-        <div class="faq-answer">Yes. The simulator can be used indoors or outdoors. Indoor events require a minimum ceiling height of 12 feet.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Are clubs, balls, and tees provided?</summary>
-        <div class="faq-answer">Yes. Clubs, balls, and tees are provided. Standard men's right-handed clubs are included. Left-handed, junior, and women's sets are available upon request.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Can kids participate?</summary>
-        <div class="faq-answer">Yes. Participants must be 6 years of age or older.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Is alcohol allowed?</summary>
-        <div class="faq-answer">Alcohol is allowed if permitted by the venue or event host. However, alcohol is not allowed inside the simulator enclosure.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What areas do you serve?</summary>
-        <div class="faq-answer">Worth the Drive On Tour serves Noble, LaGrange, Steuben, and DeKalb Counties. Events outside those areas may be available, but require a custom quote by email.</div>
-      </details>
-    </div>
-    <p class="faq-policy-note">Still have questions? <a href="contact.html" style="color:var(--green);">Reach out</a> — we're happy to help you plan your event.</p>
-  </div>
-</section>
-
-<section class="section" id="rental-terms-snapshot">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Good to Know</span>
-      <h2 class="section-title">Rental Terms <span>Snapshot</span></h2>
-      <p class="section-sub" style="margin:0 auto;">The quick version before you book. Full details are on our Rental Terms &amp; Policies page.</p>
-    </div>
-    <div class="snapshot-card reveal">
-      <ul class="snapshot-list">
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>$100 deposit required to reserve your event</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Remaining balance due at arrival</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Cancellations within 48 hours forfeit the deposit</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>15&rsquo; x 18&rsquo; setup space required</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Indoor events require 12&rsquo; ceiling height</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Standard outlet or extension cord within 5&rsquo; of setup area required</span></li>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        
+        <li><a href="studio.html">The Studio</a></li>
+        
+        <li><a href="membership.html">Membership</a></li>
+        
+        <li><a href="on-tour.html">On Tour</a></li>
+        
+        <li><a href="about.html">About</a></li>
+        
+        <li><a href="contact.html">Contact</a></li>
+        
       </ul>
-      <span class="snapshot-cta"><a href="rental-terms.html">View Full Rental Terms &amp; Policies →</a></span>
+    </nav>
+
+    <a class="header-phone" href="tel:8444653983">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      (844) GOLF-WTD
+    </a>
+
+    <div class="header-actions">
+      <!-- Event booking is never buried in the menu, at any width. -->
+      <a class="btn btn-sm btn-ghost" href="https://book.worththedrivegolf.com">
+        <span class="on-desktop-inline">Book an Event</span>
+      </a>
+      <a class="btn btn-sm btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+      <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
     </div>
   </div>
-</section>
+</header>
 
-<section class="cta-strip">
-  <span class="eyebrow" style="color:rgba(255,255,255,0.65);">Ready?</span>
-  <h2 class="section-title" style="color:var(--white);margin-bottom:8px;">Book Your <span style="color:var(--gold);">Event</span></h2>
-  <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:28px;">$100 deposit secures your date. Available Fri–Sun.</p>
-  <a href="https://book.worththedrivegolf.com" class="btn btn-green" style="margin:0 auto;" target="_blank">Reserve Your Date →</a>
-  <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.45);">Questions? <a href="tel:8444653983" style="color:rgba(255,255,255,0.8);text-decoration:none;">(844) GOLF-WTD</a></p>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img src="images/wtd-logo.png" alt="Worth the Drive Golf Studio" class="footer-logo"/>
-      <p>Worth the Drive Golf Studio<br/>7032 N Main St · Wawaka, IN 46794<br/><a href="tel:8444653983">(844) GOLF-WTD · (844) 465-3983</a></p>
-    </div>
-    <div class="footer-col"><h4>Navigate</h4><ul>
-      <li><a href="on-tour.html">On Tour — Mobile</a></li>
+<div class="mobile-menu" id="mobileMenu" data-open="false">
+  <div class="mobile-menu-head">
+    <a class="brand-link" href="index.html" aria-label="Worth the Drive Golf Studio — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+    </a>
+    <button class="hamburger" id="menuClose" aria-label="Close menu">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      
       <li><a href="studio.html">The Studio</a></li>
-      <li><a href="memberships.html">Memberships</a></li>
-      <li><a href="about.html">About Us</a></li>
+      
+      <li><a href="membership.html">Membership</a></li>
+      
+      <li><a href="on-tour.html">On Tour</a></li>
+      
+      <li><a href="about.html">About</a></li>
+      
       <li><a href="contact.html">Contact</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>FAQ &amp; Policies</h4><ul>
-      <li><a href="on-tour.html#on-tour-faq">On Tour FAQ</a></li>
-      <li><a href="studio.html#studio-faq">Studio FAQ</a></li>
-      <li><a href="memberships.html#membership-faq">Membership FAQ</a></li>
-      <li><a href="rental-terms.html">Rental Terms</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Book & Connect</h4><ul>
-      <li><a href="https://book.worththedrivegolf.com" target="_blank">Book Mobile Event</a></li>
-      <li><a href="memberships.html#studio-waitlist">Join Studio Waitlist</a></li>
-      <li><a href="memberships.html#founders">Reserve Founders Spot</a></li>
-      <li><a href="mailto:info@worththedrivegolf.com">info@worththedrivegolf.com</a></li>
-      <li class="footer-social-li"><div class="footer-social"><a href="https://www.facebook.com/worththedrivegolf" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a><a href="https://www.instagram.com/worththedrivegolf/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></div></li>
-    </ul></div>
+      
+    </ul>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-primary" href="membership.html#waitlist">Join the Waitlist</a>
+    <a class="btn btn-ghost" href="https://book.worththedrivegolf.com">Book an Event</a>
+    <a class="btn btn-ghost" href="tel:8444653983">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      (844) GOLF-WTD
+    </a>
   </div>
-  <div class="footer-bottom"><span>© 2026 Worth the Drive Golf Studio · Wawaka, Indiana</span><span>worththedrivegolf.com</span></div>
+</div>
+
+
+<main id="main">
+<section class="band band-navy page-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="badge-chip" style="color:var(--green-bright);border-color:rgba(123,198,91,0.4)">
+        <svg class="icon icon-sm" aria-hidden="true"><use href="#i-truck"></use></svg> On Tour
+      </span>
+      <h1 class="h1">The club<br/><span class="accent">that travels.</span></h1>
+      <p class="lead" style="margin-top:var(--s3)">We bring the full simulator experience to your event. You pick the location across Northeast Indiana — we handle setup, staffing and teardown. Your guests just play.</p>
+      <div class="actions" style="margin-top:var(--s4)">
+        <a class="btn btn-primary" href="https://book.worththedrivegolf.com">Book a Mobile Event</a>
+        <a class="btn btn-ghost" href="#pricing">View Pricing</a>
+      </div>
+      <p class="fine" style="margin-top:var(--s3)">Packages from $500 · $100 deposit secures your date · Friday to Sunday</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED ====================================================== -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">What's Included</span>
+      <h2 class="h2">Everything handled</h2>
+      <p class="lead" style="margin-top:var(--s3)">One price. Full service. Zero hassle for you or your guests.</p>
+    </div>
+    <div class="grid grid-3 reveal">
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-truck"></use></svg>
+        <h3>We come to you</h3>
+        <p>Full mobile setup delivered anywhere in Noble, LaGrange, Steuben &amp; DeKalb Counties. Backyard, event venue, office — you pick the spot.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
+        <h3>Pro-grade simulator</h3>
+        <p>An inflatable enclosure with a high-definition screen. Long drive, closest-to-the-pin and open play formats keep every guest engaged.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg>
+        <h3>On-site staff</h3>
+        <p>A Worth the Drive team member runs the experience start to finish. You don't lift a finger — just enjoy the event with your guests.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-target"></use></svg>
+        <h3>Full setup &amp; teardown</h3>
+        <p>We arrive early, run the entire show, and tear down when you're done. Zero hassle before or after your event.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-check"></use></svg>
+        <h3>Fun for any crowd</h3>
+        <p>No golf experience needed. Formats designed to get everyone involved — from first-timers to regulars.</p>
+      </div>
+      <div class="feature">
+        <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-globe"></use></svg>
+        <h3>2,500+ courses</h3>
+        <p>The same GSPro library that will power the Studio — famous layouts and local favorites, at your event.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY ============================================================== -->
+<section class="band band-deep">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">On the Road</span>
+      <h2 class="h2">Where we've been</h2>
+      <p class="lead" style="margin-top:var(--s3)">Backyards, barns, fairgrounds and company lots across Northeast Indiana.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="slot"><img src="images/on-tour-night-crowd.jpg" srcset="images/on-tour-night-crowd-800.jpg 800w, images/on-tour-night-crowd-1400.jpg 1400w, images/on-tour-night-crowd.jpg 1440w" sizes="(min-width:1025px) 33vw, 100vw" alt="Guests watching a golfer play the mobile simulator under string lights at an evening event" loading="lazy" width="1440" height="1080"/></div>
+      <div class="slot"><img src="images/on-tour-night-lit.jpg" srcset="images/on-tour-night-lit-800.jpg 800w, images/on-tour-night-lit.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="The mobile simulator enclosure lit up at night with the course on screen" loading="lazy" width="1080" height="810"/></div>
+      <div class="slot"><img src="images/on-tour-backyard.jpg" srcset="images/on-tour-backyard-800.jpg 800w, images/on-tour-backyard-1400.jpg 1400w, images/on-tour-backyard.jpg 1536w" sizes="(min-width:1025px) 33vw, 100vw" alt="A backyard party gathered around the Worth the Drive mobile simulator" loading="lazy" width="1536" height="1152"/></div>
+      <div class="slot"><img src="images/on-tour-festival.jpg" srcset="images/on-tour-festival-800.jpg 800w, images/on-tour-festival.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="The mobile simulator set up at a fairground with a group waiting to play" loading="lazy" width="1080" height="810"/></div>
+      <div class="slot"><img src="images/on-tour-corporate.jpg" srcset="images/on-tour-corporate-800.jpg 800w, images/on-tour-corporate.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="A company team taking turns on the simulator at a corporate event" loading="lazy" width="1080" height="810"/></div>
+      <div class="slot"><img src="images/on-tour-setup.jpg" srcset="images/on-tour-setup-800.jpg 800w, images/on-tour-setup.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="The Worth the Drive team setting up the mobile simulator enclosure" loading="lazy" width="1080" height="810"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASIONS ============================================================ -->
+<section class="band band-paper-alt">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(28px,3vw,44px)">
+      <span class="eyebrow">Perfect For</span>
+      <h2 class="h2">Any occasion</h2>
+    </div>
+    <div class="occasions reveal">
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg><h4>Birthdays &amp; parties</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-target"></use></svg><h4>Corporate events</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg><h4>Graduations</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-check"></use></svg><h4>Fundraisers</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-globe"></use></svg><h4>Golf outings</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg><h4>Neighborhood events</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-sofa"></use></svg><h4>Bachelor / bachelorette</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-truck"></use></svg><h4>Vendor shows &amp; fests</h4></div>
+      <div class="occasion"><svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-mail"></use></svg><h4>Client appreciation</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING ============================================================== -->
+<section class="band band-paper" id="pricing">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">Event Packages</span>
+      <h2 class="h2">Straightforward pricing</h2>
+      <p class="lead" style="margin-top:var(--s3)">No hidden fees. Everything included. Additional time may be available at $125/hr.</p>
+    </div>
+    <div class="pricing reveal">
+      
+      <div class="price is-featured">
+        <div class="price-dur">4 Hours</div>
+        <div class="price-amt"><sup>$</sup>500</div>
+        <p class="price-note">Minimum booking</p>
+        <span class="price-badge">Most popular</span>
+      </div>
+      
+      <div class="price">
+        <div class="price-dur">5 Hours</div>
+        <div class="price-amt"><sup>$</sup>625</div>
+        <p class="price-note">Great for parties</p>
+        
+      </div>
+      
+      <div class="price">
+        <div class="price-dur">6 Hours</div>
+        <div class="price-amt"><sup>$</sup>750</div>
+        <p class="price-note">Most flexible</p>
+        
+      </div>
+      
+      <div class="price">
+        <div class="price-dur">Full Day</div>
+        <div class="price-amt"><sup>$</sup>1000</div>
+        <p class="price-note">Up to 10 hours</p>
+        
+      </div>
+      
+    </div>
+    <p class="fine center" style="margin-top:var(--s3)">$100 deposit secures your date · Balance due day-of · Additional time may be available at $125/hr · Full Day package limited to 10 hours max · Custom quotes available for larger events</p>
+    <div class="actions center" style="justify-content:center;margin-top:var(--s4)">
+      <a class="btn btn-primary" href="https://book.worththedrivegolf.com">Book a Mobile Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS ========================================================= -->
+<section class="band band-navy">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="h2">Three simple steps</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step" data-step="1"><span class="step-num">01</span><h3>Book online</h3><p>Pick your date, duration and pay the $100 deposit. We confirm within 24 hours.</p></div>
+      <div class="step" data-step="2"><span class="step-num">02</span><h3>We show up</h3><p>Our team arrives early, sets up the full simulator at your location, and runs the entire experience on-site.</p></div>
+      <div class="step" data-step="3"><span class="step-num">03</span><h3>You enjoy</h3><p>Your guests play, compete and have a great time. We tear everything down when you're done. Balance due day-of.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA ========================================================= -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(24px,3vw,36px)">
+      <span class="eyebrow">Service Area</span>
+      <h2 class="h2">We come to you.</h2>
+      <p class="lead" style="margin-top:var(--s3)">Available Friday to Sunday · 10 AM – 10 PM</p>
+    </div>
+    <div class="tags reveal">
+      
+      <span class="tag"><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg> Noble County</span>
+      
+      <span class="tag"><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg> LaGrange County</span>
+      
+      <span class="tag"><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg> Steuben County</span>
+      
+      <span class="tag"><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-map-pin"></use></svg> DeKalb County</span>
+      
+    </div>
+    <p class="fine" style="margin-top:var(--s3)">Outside those counties, or need a non-standard day or time? <a href="contact.html" style="color:var(--green-deep)">Reach out</a> — we're happy to discuss availability and put together a custom quote.</p>
+  </div>
+</section>
+
+<!-- FAQ ================================================================== -->
+<section class="band band-paper-alt" id="faq">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
+      <span class="eyebrow">On Tour</span>
+      <h2 class="h2">FAQ &amp; policies</h2>
+      <p class="lead" style="margin-top:var(--s3)">Everything you need to know about booking a mobile golf simulator event.</p>
+    </div>
+    <div class="faq-grid reveal">
+      <details class="faq-item" open><summary>How much is the deposit?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>A $100 deposit is required to reserve and secure your event date and time.</p></div></details>
+      <details class="faq-item" open><summary>When is the balance due?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>The remaining balance is due at arrival before the event begins.</p></div></details>
+      <details class="faq-item" open><summary>What is the cancellation policy?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>Cancellations made within 48 hours of the scheduled event will result in forfeiture of the $100 deposit. Same-day cancellations or no-shows may be subject to additional charges related to staffing, travel, setup and reserved equipment time.</p></div></details>
+      <details class="faq-item" open><summary>What happens if weather is an issue?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>Outdoor events are subject to weather and safety conditions. Worth the Drive may delay, pause, reschedule, modify or cancel setup or operation due to rain, lightning, excessive wind, unsafe ground conditions or other safety concerns. Rain-date rescheduling is allowed based on availability.</p></div></details>
+      <details class="faq-item" open><summary>How much space is needed?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>The mobile simulator enclosure requires approximately 15 feet wide by 18 feet deep of clear setup space.</p></div></details>
+      <details class="faq-item" open><summary>What power is required?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>A standard electrical outlet is required. The outlet or extension cord must be within 5 feet of the enclosure setup area.</p></div></details>
+      <details class="faq-item" open><summary>Indoors or outdoors?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>Both. The simulator can be used indoors or outdoors. Indoor events require a minimum ceiling height of 12 feet.</p></div></details>
+      <details class="faq-item" open><summary>Are clubs, balls and tees provided?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>Yes. Clubs, balls and tees are provided. Standard men's right-handed clubs are included; left-handed, junior and women's sets are available upon request.</p></div></details>
+      <details class="faq-item" open><summary>Can kids participate?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>Yes. Participants must be 6 years of age or older.</p></div></details>
+      <details class="faq-item" open><summary>Is alcohol allowed?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>Alcohol is allowed if permitted by the venue or event host. Alcohol is not allowed inside the simulator enclosure.</p></div></details>
+      <details class="faq-item" open><summary>What areas do you serve?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary><div class="faq-answer"><p>On Tour serves Noble, LaGrange, Steuben and DeKalb Counties. Events outside those areas may be available but require a custom quote by email.</p></div></details>
+    </div>
+    <p class="fine" style="margin-top:var(--s4)">Still have questions? <a href="contact.html" style="color:var(--green-deep)">Reach out</a> — we're happy to help you plan your event.</p>
+  </div>
+</section>
+
+<!-- TERMS SNAPSHOT ======================================================= -->
+<section class="band band-paper">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:clamp(24px,3vw,36px)">
+      <span class="eyebrow">Good to Know</span>
+      <h2 class="h2">Rental terms snapshot</h2>
+      <p class="lead" style="margin-top:var(--s3)">The quick version before you book. Full details are on the Rental Terms &amp; Policies page.</p>
+    </div>
+    <div class="card card-light reveal" style="max-width:760px">
+      <ul class="checks">
+        <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>$100 deposit required to reserve your event</span></li>
+        <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Remaining balance due at arrival</span></li>
+        <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Cancellations within 48 hours forfeit the deposit</span></li>
+        <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>15' x 18' setup space required</span></li>
+        <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Indoor events require 12' ceiling height</span></li>
+        <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Standard outlet or extension cord within 5' of the setup area</span></li>
+      </ul>
+      <a class="link-arrow" href="rental-terms.html" style="margin-top:var(--s3)">View full Rental Terms &amp; Policies <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-SELL + CLOSING ================================================= -->
+<section class="band band-navy">
+  <div class="container center">
+    <div class="reveal stack">
+      <span class="eyebrow">Coming 2026</span>
+      <h2 class="h3">Want this every week?</h2>
+      <p class="lead">The Studio — a members-only, 24/7 indoor golf club — opens in Wawaka in 2026.</p>
+      <div class="actions"><a class="btn btn-ghost" href="studio.html">Explore the Studio</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-deep center">
+  <div class="container">
+    <div class="reveal stack">
+      <h2 class="h2">Book your <span class="accent-dark">event.</span></h2>
+      <p class="lead">$100 deposit secures your date. Available Friday to Sunday.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://book.worththedrivegolf.com">Book a Mobile Event</a>
+        <a class="btn btn-ghost" href="tel:8444653983"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg> (844) GOLF-WTD</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer band-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="Worth the Drive Golf Studio" width="206" height="113"/>
+        <p>A members-only indoor golf club in Wawaka, Indiana — open 24/7 for members, and on the road for events across Northeast Indiana.</p>
+        <p style="margin-top:14px">
+          7032 N Main St · Wawaka, IN 46794<br/>
+          <a href="tel:8444653983">(844) GOLF-WTD · (844) 465-3983</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          
+          <li><a href="studio.html">The Studio</a></li>
+          
+          <li><a href="membership.html">Membership</a></li>
+          
+          <li><a href="on-tour.html">On Tour</a></li>
+          
+          <li><a href="about.html">About</a></li>
+          
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>FAQ &amp; Policies</h4>
+        <ul>
+          <li><a href="studio.html#faq">Studio FAQ</a></li>
+          <li><a href="membership.html#faq">Membership FAQ</a></li>
+          <li><a href="on-tour.html#faq">On Tour FAQ</a></li>
+          <li><a href="rental-terms.html">Rental Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Join &amp; Connect</h4>
+        <ul>
+          <li><a href="membership.html#waitlist">Join the Waitlist</a></li>
+          <li><a href="membership.html#founders">Reserve a Founders Spot</a></li>
+          <li><a href="https://book.worththedrivegolf.com">Book a Mobile Event</a></li>
+          <li><a href="mailto:info@worththedrivegolf.com">info@worththedrivegolf.com</a></li>
+        </ul>
+        <!-- Social URLs are the live main-site values — HANDOFF rule 9. -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/worththedrivegolf" target="_blank" rel="noopener" aria-label="Worth the Drive on Facebook">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a href="https://www.instagram.com/worththedrivegolf/" target="_blank" rel="noopener" aria-label="Worth the Drive on Instagram">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Worth the Drive Golf Studio · Wawaka, Indiana</p>
+      <p>worththedrivegolf.com</p>
+    </div>
+  </div>
 </footer>
 
-<div class="modal-overlay" id="bookingModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeBookingModal()">✕</button>
-    <span class="modal-eyebrow">Worth the Drive Golf Studio</span>
-    <h2 class="modal-title">How Can We Help?</h2>
-    <p class="modal-sub">Select an experience to get started.</p>
-    <div class="modal-options">
-      <a href="https://book.worththedrivegolf.com" class="modal-option green" target="_blank" onclick="closeBookingModal()">
-        <span class="modal-option-icon">🚐</span>
-        <span class="modal-option-label green">● Available Now</span>
-        <span class="modal-option-title">Mobile Event</span>
-        <span class="modal-option-desc">Book the On Tour simulator for your event. Fri–Sun, Northeast Indiana.</span>
-        <span class="modal-option-cta green">Book Now →</span>
-      </a>
-      <a href="memberships.html#founders" class="modal-option gold" onclick="closeBookingModal()">
-        <span class="modal-option-icon">🏌️</span>
-        <span class="modal-option-label gold">🚧 Coming Soon</span>
-        <span class="modal-option-title">Studio Access</span>
-        <span class="modal-option-desc">Private indoor studio — join the Founders Club waitlist to secure your spot.</span>
-        <span class="modal-option-cta gold">Join Waitlist →</span>
-      </a>
-    </div>
-  </div>
-</div>
 
-<script>
-  function openBookingModal(){var m=document.getElementById('bookingModal');if(m)m.classList.add('open');}
-  function closeBookingModal(){var m=document.getElementById('bookingModal');if(m)m.classList.remove('open');}
-  var bm=document.getElementById('bookingModal');if(bm)bm.addEventListener('click',function(e){if(e.target===this)closeBookingModal();});
-  var hb=document.getElementById('hamburger');if(hb)hb.addEventListener('click',function(){document.getElementById('mobileMenu').classList.toggle('open');});
-  function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
-  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-</script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

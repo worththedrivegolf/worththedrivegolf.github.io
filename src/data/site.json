@@ -1,0 +1,232 @@
+{
+  "_comment": "Single source of truth for cross-page facts. HANDOFF rule 1: tiers are defined ONCE here; every surface renders from this file. Business facts are frozen — presentation may change, values may not.",
+
+  "brand": {
+    "name": "Worth the Drive Golf Studio",
+    "shortName": "Worth the Drive",
+    "tagline": "Golf Worth The Drive.",
+    "opening": "2026",
+    "address": {
+      "street": "7032 N Main St",
+      "city": "Wawaka",
+      "region": "IN",
+      "postal": "46794",
+      "oneLine": "7032 N Main St · Wawaka, IN 46794"
+    },
+    "phone": { "display": "(844) GOLF-WTD", "numeric": "(844) 465-3983", "href": "tel:8444653983" },
+    "email": "info@worththedrivegolf.com",
+    "bookingsEmail": "bookings@worththedrivegolf.com",
+    "counties": ["Noble", "LaGrange", "Steuben", "DeKalb"]
+  },
+
+  "_socialComment": "HANDOFF rule 9: source of truth = live main site. Never invent alternates. The booking footer must use these exact URLs too.",
+  "social": {
+    "facebook": "https://www.facebook.com/worththedrivegolf",
+    "instagram": "https://www.instagram.com/worththedrivegolf/"
+  },
+
+  "urls": {
+    "booking": "https://book.worththedrivegolf.com",
+    "site": "https://worththedrivegolf.com"
+  },
+
+  "_ctaComment": "HANDOFF rule 3: CTAs are swappable config. Pre-opening values are live now. After opening, flip `state` to \"open\" — no layout changes required.",
+  "cta": {
+    "state": "pre-opening",
+    "preOpening": {
+      "primary": { "label": "Join the Waitlist", "short": "Join", "href": "membership.html#waitlist" },
+      "founders": { "label": "Reserve a Founders Spot", "href": "membership.html#founders" },
+      "booking": { "label": "Book a Mobile Event", "short": "Book", "alt": "Book an Event", "href": "https://book.worththedrivegolf.com" }
+    },
+    "open": {
+      "primary": { "label": "Become a Member", "short": "Join", "href": "membership.html" },
+      "founders": { "label": "Reserve a Founders Spot", "href": "membership.html#founders" },
+      "booking": { "label": "Book an Event", "short": "Book", "alt": "Book an Event", "href": "https://book.worththedrivegolf.com" }
+    }
+  },
+
+  "nav": [
+    { "label": "The Studio", "href": "studio.html" },
+    { "label": "Membership", "href": "membership.html" },
+    { "label": "On Tour", "href": "on-tour.html" },
+    { "label": "About", "href": "about.html" },
+    { "label": "Contact", "href": "contact.html" }
+  ],
+
+  "announcement": {
+    "desktop": "The Studio is under construction in Wawaka — opening 2026",
+    "desktopGold": "Founders Club now forming · 40 spots",
+    "mobile": "Opening 2026",
+    "mobileGold": "Founders Club forming"
+  },
+
+  "_tiersComment": "FROZEN — HANDOFF rule 1. Exactly the current live memberships page. Do not add priority windows, holds, peak definitions, or new guest fees.",
+  "tiers": [
+    {
+      "id": "weekday",
+      "name": "Weekday Member",
+      "tier": "Tier 1",
+      "persona": "Daytime flexibility, serious value",
+      "price": 100,
+      "cadence": "/mo",
+      "featured": false,
+      "defining": [
+        "Weekday access (no 5–9 PM or weekends)",
+        "1-hour tee times",
+        "Up to 3 guests at $10 each",
+        "1 active booking at a time"
+      ],
+      "benefits": [
+        "Weekday access (no 5–9 PM or weekends)",
+        "1-hour tee times",
+        "2-hour blocks when booking with another Weekday Member",
+        "Up to 3 guests at $10 each",
+        "1 active booking at a time",
+        "AI swing analysis included",
+        "Priority registration & preferred pricing on league play"
+      ]
+    },
+    {
+      "id": "full",
+      "name": "Full Member",
+      "tier": "Tier 2 — Most Popular",
+      "persona": "The club, any hour",
+      "price": 150,
+      "cadence": "/mo",
+      "featured": true,
+      "defining": [
+        "24/7 access — any time, any day",
+        "2-hour tee times",
+        "1 guest included; additional guests $10 each",
+        "1 active booking at a time"
+      ],
+      "benefits": [
+        "24/7 access — any time, any day",
+        "2-hour tee times",
+        "1 guest included; additional guests $10 each",
+        "1 active booking at a time",
+        "AI swing analysis included",
+        "Priority registration & preferred pricing on league play"
+      ]
+    },
+    {
+      "id": "premier",
+      "name": "Premier Member",
+      "tier": "Tier 3",
+      "persona": "Bring your foursome",
+      "price": 200,
+      "cadence": "/mo",
+      "featured": false,
+      "defining": [
+        "24/7 access — any time, any day",
+        "3-hour tee times",
+        "Up to 3 guests included",
+        "2 active bookings at a time"
+      ],
+      "benefits": [
+        "24/7 access — any time, any day",
+        "3-hour tee times",
+        "Up to 3 guests included",
+        "2 active bookings at a time",
+        "AI swing analysis included",
+        "Priority registration & preferred pricing on league play"
+      ]
+    },
+    {
+      "id": "corporate",
+      "name": "Corporate Club",
+      "tier": "Tier 4 — Business",
+      "persona": "Your team's fourth place",
+      "price": 400,
+      "cadence": "/mo",
+      "featured": false,
+      "gold": false,
+      "defining": [
+        "24/7 access for your team",
+        "2–3 named users on the account",
+        "Up to 4 guests per visit",
+        "1 private event per year included"
+      ],
+      "benefits": [
+        "24/7 access for your team",
+        "2–3 named users on the account",
+        "Up to 4 guests per visit",
+        "2 active bookings at a time",
+        "1 private event per year included",
+        "Priority registration & preferred pricing on league play"
+      ]
+    }
+  ],
+
+  "membershipNotes": {
+    "everyTier": "Every tier: priority registration & preferred pricing on league play",
+    "annual": "Annual plans: 1 month free — or 2 months free paid in full",
+    "limits": "Booking limits protect availability for all members.",
+    "waitlistNote": "The waitlist records your preferred tier — no payment required."
+  },
+
+  "_foundersComment": "HANDOFF rule 4. Gold appears ONLY here and in the announcement bar founders mention. Counter stays omitted until a real source exists.",
+  "founders": {
+    "pill": "Limited · 40 spots only",
+    "spots": 40,
+    "fee": 500,
+    "showCounter": false,
+    "benefits": [
+      "Rate locked for life",
+      "Founding member status",
+      "Priority booking access",
+      "Founding member events"
+    ]
+  },
+
+  "_onTourComment": "FROZEN — HANDOFF rule 5.",
+  "onTour": {
+    "packages": [
+      { "duration": "4 Hours", "price": 500, "note": "Minimum booking", "badge": "Most popular" },
+      { "duration": "5 Hours", "price": 625, "note": "Great for parties" },
+      { "duration": "6 Hours", "price": 750, "note": "Most flexible" },
+      { "duration": "Full Day", "price": 1000, "note": "Up to 10 hours" }
+    ],
+    "extraHour": 125,
+    "deposit": 100,
+    "days": "Friday to Sunday",
+    "hours": "10 AM – 10 PM",
+    "cancellation": "Cancellations within 48 hours forfeit the deposit."
+  },
+
+  "_techComment": "HANDOFF rule 6. Re-verify the GSPro course count at build. Disclaimers are not optional.",
+  "technology": {
+    "courseCount": "2,500+",
+    "equipmentDisclaimer": "Planned equipment — specifications subject to change before opening.",
+    "simScreenCaption": "Illustration with sample data — in-bay display varies by session and settings.",
+    "protee": [
+      "Ceiling-mounted launch monitor",
+      "Dual high-speed camera tracking",
+      "AI-assisted club and ball data",
+      "No club stickers or special golf balls required"
+    ],
+    "gspro": [
+      "2,500+ community-built courses — famous layouts to local favorites",
+      "League play and member events on the Studio calendar",
+      "The same library that powers On Tour events today"
+    ]
+  },
+
+  "_coursesComment": "HANDOFF rule 7 gate: the two `local` cards require SGT course-server verification before launch. If unverified, swap for verified regional courses (owner decides) — never ship unconfirmed claims.",
+  "courses": {
+    "disclaimer": "Simulated recreations from the GSPro community library. Not affiliated with or endorsed by the real-world clubs; availability varies.",
+    "cards": [
+      { "tag": "Bucket list", "name": "Pebble Beach", "sub": "Oceanside icon", "location": "California", "verified": true },
+      { "tag": "Bucket list", "name": "Tobacco Road", "sub": "Cult classic", "location": "North Carolina", "verified": true },
+      { "tag": "Regional favorite", "name": "Whistling Straits", "sub": "Major-championship host", "location": "Wisconsin", "verified": true },
+      { "tag": "Regional favorite", "name": "Conway Farms", "sub": "Championship host", "location": "Chicago, Illinois", "verified": true },
+      { "tag": "Close to home", "name": "Noble Hawk Golf Links", "sub": "", "location": "Kendallville, Indiana", "verified": false },
+      { "tag": "Close to home", "name": "Cobblestone Golf Course", "sub": "", "location": "Kendallville, Indiana", "verified": false }
+    ]
+  },
+
+  "_accessComment": "HANDOFF rule 2: generic access language until hardware is confirmed. Never name keycard/app/phone unlock.",
+  "access": {
+    "honesty": "Access details are finalized before opening — every member gets a full walkthrough."
+  }
+}

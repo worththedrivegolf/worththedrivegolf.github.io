@@ -1,0 +1,68 @@
+<!-- Announcement bar — static, never a marquee. Founders phrase is the only
+     gold outside the founders band (HANDOFF rule 4). -->
+<div class="announce">
+  <span class="on-desktop">{{ announcement.desktop }}</span>
+  <span class="on-mobile">{{ announcement.mobile }}</span>
+  <span class="sep">·</span>
+  <b class="on-desktop">{{ announcement.desktopGold }}</b>
+  <b class="on-mobile">{{ announcement.mobileGold }}</b>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="index.html" aria-label="{{ brand.name }} — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="{{ brand.name }}" width="206" height="113"/>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        {{#each nav}}
+        <li><a href="{{ this.href }}">{{ this.label }}</a></li>
+        {{/each}}
+      </ul>
+    </nav>
+
+    <a class="header-phone" href="{{ brand.phone.href }}">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      {{ brand.phone.display }}
+    </a>
+
+    <div class="header-actions">
+      <!-- Event booking is never buried in the menu, at any width. -->
+      <a class="btn btn-sm btn-ghost" href="{{ ctas.booking.href }}">
+        <span class="on-desktop-inline">{{ ctas.booking.alt }}</span>
+      </a>
+      <a class="btn btn-sm btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
+      <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" data-open="false">
+  <div class="mobile-menu-head">
+    <a class="brand-link" href="index.html" aria-label="{{ brand.name }} — home">
+      <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="{{ brand.name }}" width="206" height="113"/>
+    </a>
+    <button class="hamburger" id="menuClose" aria-label="Close menu">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <ul>
+      {{#each nav}}
+      <li><a href="{{ this.href }}">{{ this.label }}</a></li>
+      {{/each}}
+    </ul>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
+    <a class="btn btn-ghost" href="{{ ctas.booking.href }}">{{ ctas.booking.alt }}</a>
+    <a class="btn btn-ghost" href="{{ brand.phone.href }}">
+      <svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+      {{ brand.phone.display }}
+    </a>
+  </div>
+</div>

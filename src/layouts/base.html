@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.classList.remove('no-js');</script>
+
+<!-- Google tag (gtag.js) — measurement ID unchanged from the live site -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJWD298VFD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BJWD298VFD', {
+    // Cross-domain measurement: the booking app is a separate host on the same
+    // GA4 property, so the client id must survive the hop or conversions get
+    // attributed to a self-referral.
+    linker: { domains: ['worththedrivegolf.com', 'book.worththedrivegolf.com'] }
+  });
+</script>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}"/>
+<link rel="canonical" href="{{ urls.site }}/{{ page.canonical }}"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="{{ brand.name }}"/>
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:description" content="{{ page.description }}"/>
+<meta property="og:url" content="{{ urls.site }}/{{ page.canonical }}"/>
+<meta property="og:image" content="{{ urls.site }}/images/og-share.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{ page.title }}"/>
+<meta name="twitter:description" content="{{ page.description }}"/>
+<meta name="twitter:image" content="{{ urls.site }}/images/og-share.jpg"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/wtd.css"/>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+{{> icons }}
+{{> header }}
+
+<main id="main">
+{{{ content }}}
+</main>
+
+{{> footer }}
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
