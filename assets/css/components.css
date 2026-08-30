@@ -738,3 +738,28 @@ body[data-menu-open="true"] { overflow: hidden; }
 
 .gallery { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
 .gallery .slot { border-radius: var(--radius-photo); aspect-ratio: 4 / 3; }
+
+/* --- Form status --------------------------------------------------------- */
+/* The message never disappears silently: pending, success and failure each
+   have a visible state, and failure always offers a route that works. */
+
+.form-status {
+  display: none;
+  margin-top: var(--s2);
+  padding: 12px 14px;
+  border-radius: var(--radius-btn);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: none;
+}
+.form-status.is-pending,
+.form-status.is-ok,
+.form-status.is-error { display: block; }
+
+.form-status.is-pending { background: rgba(255,255,255,0.06); border: 1px solid var(--line-dark); color: var(--body-dark-2); }
+.form-status.is-ok      { background: rgba(93,168,58,0.12);  border: 1px solid rgba(93,168,58,0.45);  color: #DDF3D0; }
+.form-status.is-error   { background: rgba(203,60,46,0.12);  border: 1px solid rgba(203,60,46,0.45);  color: #F6D5D0; }
+.form-status a { color: inherit; text-decoration: underline; }
+
+.band-paper .form-status.is-ok    { background: rgba(93,168,58,0.10); color: var(--green-deep); }
+.band-paper .form-status.is-error { background: rgba(203,60,46,0.08); color: #A03A2E; }

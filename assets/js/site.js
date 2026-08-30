@@ -88,6 +88,93 @@
     sections.forEach(function (s) { spy.observe(s); });
   }
 
+  /* --- Contact form -----------------------------------------------------
+     Submits over fetch and inspects the response. Success is only ever shown
+     when the service confirms it; every failure path surfaces a real error
+     plus a fallback that always works (phone + a pre-filled mail draft).
+     A message must never be silently dropped. */
+
+  var cForm = document.getElementById('contactForm');
+  if (cForm) {
+    var cBtn = document.getElementById('contactSubmit');
+    var cStatus = document.getElementById('contactStatus');
+
+    var setStatus = function (kind, html) {
+      cStatus.className = 'form-status is-' + kind;
+      cStatus.innerHTML = html;
+    };
+
+    var mailtoFallback = function (data) {
+      var to = (cForm.getAttribute('action') || '').split('/').pop();
+      var subject = 'Website enquiry' + (data.topic ? ' — ' + data.topic : '');
+      var body = 'Name: ' + (data.name || '') + '\n' +
+                 'Email: ' + (data.email || '') + '\n' +
+                 'Phone: ' + (data.phone || '') + '\n\n' +
+                 (data.message || '');
+      return 'mailto:' + to + '?subject=' + encodeURIComponent(subject) +
+             '&body=' + encodeURIComponent(body);
+    };
+
+    cForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Native validity first, so required fields and email format are caught
+      // before anything leaves the page.
+      if (!cForm.checkValidity()) {
+        cForm.reportValidity();
+        return;
+      }
+
+      var fd = new FormData(cForm);
+      if (fd.get('_honey')) return;                 // bot trap: silently stop
+      var data = {};
+      fd.forEach(function (v, k) { data[k] = v; });
+
+      cBtn.disabled = true;
+      var original = cBtn.textContent;
+      cBtn.textContent = 'Sending…';
+      setStatus('pending', 'Sending your message…');
+
+      var done = function (ok, msg) {
+        cBtn.disabled = false;
+        cBtn.textContent = original;
+        if (ok) {
+          cForm.reset();
+          setStatus('ok', msg);
+        } else {
+          setStatus('error', msg +
+            ' <a href="' + mailtoFallback(data) + '">Email us directly</a> or call ' +
+            '<a href="tel:8444653983">(844) 465-3983</a>.');
+        }
+      };
+
+      fetch(cForm.getAttribute('action'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) {
+          return r.json().catch(function () { return { success: 'false' }; });
+        })
+        .then(function (res) {
+          // FormSubmit reports success as the string "true".
+          var ok = res && (res.success === true || res.success === 'true');
+          if (ok) {
+            done(true, 'Thanks — your message is on its way. We reply within 24 hours.');
+          } else {
+            // The service's own reason goes to the console for whoever is
+            // debugging — e.g. "This form needs Activation" — never to the
+            // visitor, who just needs a route that works.
+            if (res && res.message) console.warn('[contact] ' + res.message);
+            done(false, 'We could not send that message.');
+          }
+        })
+        .catch(function () {
+          done(false, 'We could not reach the server.');
+        });
+    });
+  }
+
   /* --- Swipe dots for the mobile tier row ------------------------------- */
 
   document.querySelectorAll('[data-swipe]').forEach(function (row) {

@@ -85,10 +85,13 @@
       <div class="card card-dark reveal" data-delay="1">
         <h2 class="h4" style="margin-bottom:var(--s3)">Send us a message</h2>
 
-        <!-- Posts to a real inbox via FormSubmit, which forwards to the address
-             in the action URL. No credentials in the page and no backend to run.
-             _next returns the visitor to the confirmation state below. -->
-        <form class="wtd-form" action="https://formsubmit.co/{{ brand.email }}" method="POST">
+        <!-- Submits over fetch to FormSubmit's AJAX endpoint so the response is
+             actually inspected. The old site's form showed "Message sent!"
+             unconditionally and threw the message away; this one only shows
+             success when the service confirms delivery, and surfaces a real
+             error with a working fallback otherwise. -->
+        <form class="wtd-form" id="contactForm"
+              action="https://formsubmit.co/ajax/{{ brand.email }}" method="POST" novalidate>
           <div class="field-row">
             <label class="field"><span>Your name</span>
               <input type="text" name="name" required autocomplete="name" placeholder="John Smith"/></label>
@@ -113,9 +116,12 @@
           <input type="hidden" name="_subject" value="Website enquiry — worththedrivegolf.com"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 
-          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:var(--s2)">Send message</button>
+          <button type="submit" class="btn btn-primary" id="contactSubmit" style="width:100%;margin-top:var(--s2)">Send message</button>
+
+          <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+
           <p class="fine" style="margin-top:var(--s2)">We reply within 24 hours. Prefer to talk? Call <a href="{{ brand.phone.href }}" style="color:var(--green-bright)">{{ brand.phone.display }}</a>.</p>
         </form>
       </div>
