@@ -295,23 +295,22 @@
 
     <div class="tech-grid">
       <div class="tech-col reveal">
-        <!-- Rotating simulator screens and data points. Shared by the homepage and the
-     Studio page so the two can never drift.
+        <!-- Rotating simulator screens. Shared by the homepage and the Studio page so
+     the two can never drift.
 
-     One list drives it: technology.vx.cards in site.json. A card with an
-     `image` renders that screenshot; a card without renders the type
-     treatment. Adding a card is one entry in that list — nothing here or in
-     the CSS needs to change. See cardsNote in site.json. -->
-<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="Simulator screens and the data the launch monitor measures">
+     Driven by technology.vx.shots in site.json. Adding a photo is one entry in
+     that list plus two image files — see cardsNote beside the list. The full
+     parameter list is separate (technology.vx.groups) and renders as the data
+     section on the Studio page; it is deliberately not in this rotator, since
+     the checklist next to it already covers club and ball data. -->
+<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="Simulator and launch monitor screens">
   <div class="vx-stage" data-rotator-stage>
     
-    <article class="vx-slide" data-kind="shot">
-      
+    <article class="vx-slide">
       <img src="images/sim-protee-labs.jpg"
            srcset="images/sim-protee-labs-800.jpg 800w, images/sim-protee-labs.jpg 1200w"
            sizes="(min-width: 1025px) 40vw, 80vw"
            alt="The ProTee Labs session view showing club speed, launch angle, spin axis, smash factor and carry for a single shot" loading="lazy" width="1200" height="675"/>
-      
       <div class="vx-slide-body">
         <span class="vx-slide-group">ProTee VX</span>
         <h3 class="vx-slide-name">Every number, one screen</h3>
@@ -320,21 +319,10 @@
     </article>
     
     <article class="vx-slide">
-      
-      <div class="vx-slide-body">
-        <span class="vx-slide-group">Ball data</span>
-        <h3 class="vx-slide-name">Ball Speed</h3>
-        <p class="vx-slide-blurb">How fast the ball leaves the face. The single biggest lever on distance.</p>
-      </div>
-    </article>
-    
-    <article class="vx-slide" data-kind="shot">
-      
       <img src="images/sim-gspro-course.jpg"
            srcset="images/sim-gspro-course-800.jpg 800w, images/sim-gspro-course.jpg 1200w"
            sizes="(min-width: 1025px) 40vw, 80vw"
            alt="A GSPro on-course view of a par 4 with live shot data panels on both sides" loading="lazy" width="1200" height="675"/>
-      
       <div class="vx-slide-body">
         <span class="vx-slide-group">GSPro</span>
         <h3 class="vx-slide-name">Play the course</h3>
@@ -343,21 +331,10 @@
     </article>
     
     <article class="vx-slide">
-      
-      <div class="vx-slide-body">
-        <span class="vx-slide-group">Club data</span>
-        <h3 class="vx-slide-name">Swing Path</h3>
-        <p class="vx-slide-blurb">The direction the club is travelling through impact — the start of every draw and fade.</p>
-      </div>
-    </article>
-    
-    <article class="vx-slide" data-kind="shot">
-      
       <img src="images/sim-gspro-data.jpg"
            srcset="images/sim-gspro-data-800.jpg 800w, images/sim-gspro-data.jpg 1200w"
            sizes="(min-width: 1025px) 40vw, 80vw"
            alt="A GSPro range view with the full ball, club and flight data panel displayed" loading="lazy" width="1200" height="675"/>
-      
       <div class="vx-slide-body">
         <span class="vx-slide-group">GSPro</span>
         <h3 class="vx-slide-name">See it as you hit</h3>
@@ -366,21 +343,10 @@
     </article>
     
     <article class="vx-slide">
-      
-      <div class="vx-slide-body">
-        <span class="vx-slide-group">Ball data</span>
-        <h3 class="vx-slide-name">Spin Axis</h3>
-        <p class="vx-slide-blurb">The tilt on the ball that decides whether it holds its line or curves.</p>
-      </div>
-    </article>
-    
-    <article class="vx-slide" data-kind="shot">
-      
       <img src="images/sim-gspro-range.jpg"
            srcset="images/sim-gspro-range-800.jpg 800w, images/sim-gspro-range.jpg 1200w"
            sizes="(min-width: 1025px) 40vw, 80vw"
            alt="A GSPro driving range view showing carry, ball speed, peak height and total length" loading="lazy" width="1200" height="675"/>
-      
       <div class="vx-slide-body">
         <span class="vx-slide-group">GSPro</span>
         <h3 class="vx-slide-name">Dial in your yardages</h3>
@@ -388,39 +354,12 @@
       </div>
     </article>
     
-    <article class="vx-slide">
-      
-      <div class="vx-slide-body">
-        <span class="vx-slide-group">Club data</span>
-        <h3 class="vx-slide-name">Attack Angle</h3>
-        <p class="vx-slide-blurb">Whether you are striking up or down on the ball at contact.</p>
-      </div>
-    </article>
-    
-    <article class="vx-slide">
-      
-      <div class="vx-slide-body">
-        <span class="vx-slide-group">Flight data</span>
-        <h3 class="vx-slide-name">Carry Distance</h3>
-        <p class="vx-slide-blurb">How far the ball actually flies before it first touches the ground.</p>
-      </div>
-    </article>
-    
-    <article class="vx-slide">
-      
-      <div class="vx-slide-body">
-        <span class="vx-slide-group">Flight data</span>
-        <h3 class="vx-slide-name">Descent Angle</h3>
-        <p class="vx-slide-blurb">How steeply the ball comes down, and whether it will hold a green.</p>
-      </div>
-    </article>
-    
   </div>
 
-  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous">
+  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous screen">
     <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
   </button>
-  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next">
+  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next screen">
     <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
   </button>
 
