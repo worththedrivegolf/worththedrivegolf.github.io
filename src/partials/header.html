@@ -30,9 +30,13 @@
     <div class="header-actions">
       <!-- Event booking is never buried in the menu, at any width. -->
       <a class="btn btn-sm btn-ghost" href="{{ ctas.booking.href }}">
-        <span class="on-desktop-inline">{{ ctas.booking.alt }}</span>
+        <span class="lbl-full">{{ ctas.booking.alt }}</span>
+        <span class="lbl-short">{{ ctas.booking.short }}</span>
       </a>
-      <a class="btn btn-sm btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
+      <a class="btn btn-sm btn-primary" href="{{ ctas.primary.href }}">
+        <span class="lbl-full">{{ ctas.primary.label }}</span>
+        <span class="lbl-short">{{ ctas.primary.short }}</span>
+      </a>
       <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
         <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
         <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"></use></svg>
