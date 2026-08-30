@@ -1,0 +1,33 @@
+<!-- Rotating ProTee VX data-point cards. Shared by the homepage and Studio
+     technology bands so the two can never drift.
+
+     Each card renders a type treatment by default. Give a card an `image` in
+     site.json and it renders that screenshot instead, same frame, same
+     rotation — which is how real GSPro/ProTee captures drop in later without
+     touching this markup. -->
+<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="ProTee VX data points">
+  <div class="vx-stage" data-rotator-stage>
+    {{#each technology.vx.cards}}
+    <article class="vx-slide"{{#if this.image}} data-has-image="true"{{/if}}>
+      {{#if this.image}}
+      <img src="images/{{ this.image }}" alt="{{ this.name }} shown on the simulator display" loading="lazy"/>
+      {{/if}}
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">{{ this.group }} data</span>
+        <h3 class="vx-slide-name">{{ this.name }}</h3>
+        <p class="vx-slide-blurb">{{ this.blurb }}</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    {{/each}}
+  </div>
+
+  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous data point">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next data point">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+
+  <div class="vx-dots" data-rotator-dots aria-hidden="true"></div>
+</div>

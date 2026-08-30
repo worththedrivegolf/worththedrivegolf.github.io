@@ -138,11 +138,8 @@
 
     <div class="tech-grid">
       <div class="tech-col reveal">
-        <!-- slot: sim-screen -->
-        <div class="slot slot-16x9">
-          <img src="images/sim-screen.png" alt="A simulator display showing a course view with ball speed, carry, launch angle and club path" loading="lazy" width="1600" height="900"/>
-        </div>
-        <p class="slot-caption">{{ technology.simScreenCaption }}</p>
+        {{> vx-rotator }}
+        <p class="slot-caption">{{ technology.rotatorCaption }}</p>
       </div>
 
       <div class="tech-col reveal" data-delay="1">

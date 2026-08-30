@@ -172,10 +172,8 @@
 
     <div class="tech-grid">
       <div class="tech-col reveal">
-        <div class="slot slot-16x9">
-          <img src="images/sim-screen.png" alt="A simulator display showing a course view with ball speed, carry, launch angle and club path" loading="lazy" width="1600" height="900"/>
-        </div>
-        <p class="slot-caption">{{ technology.simScreenCaption }}</p>
+        {{> vx-rotator }}
+        <p class="slot-caption">{{ technology.rotatorCaption }}</p>
       </div>
       <div class="tech-col reveal" data-delay="1">
         <h3 class="tech-sub">ProTee VX™ — the practice engine</h3>
@@ -232,6 +230,50 @@
 </section>
 
 <!-- COURSES ============================================================== -->
+<!-- PROTEE VX DATA ======================================================= -->
+<section class="band band-paper" id="data">
+  <div class="container">
+    <div class="split reveal" style="align-items:end;margin-bottom:clamp(36px,4vw,60px)">
+      <div>
+        <span class="eyebrow">The Technology</span>
+        <h2 class="h2">Every number<br/>your swing makes</h2>
+      </div>
+      <p class="lead">ProTee VX reads {{ technology.vx.total }} data points off a single shot — ball, club and flight — and puts them on screen in under a third of a second. {{ technology.vx.noMarkers }}</p>
+    </div>
+
+    <div class="vx-grid reveal" data-swipe="vx">
+      {{#each technology.vx.groups}}
+      <article class="vx-card">
+        <div class="vx-head">
+          <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#{{ this.icon }}"></use></svg>
+          <div>
+            <h3>{{ this.name }}</h3>
+            <span class="vx-count">{{ this.count }}</span>
+          </div>
+        </div>
+        <ul class="vx-list">
+          {{#each this.points}}
+          <li>{{ this }}</li>
+          {{/each}}
+        </ul>
+      </article>
+      {{/each}}
+    </div>
+    <div class="swipe-dots" data-swipe-dots="vx"><span></span><span></span><span></span></div>
+
+    <div class="vx-specs reveal">
+      {{#each technology.vx.specs}}
+      <div class="vx-spec">
+        <span class="vx-spec-value">{{ this.prefix }}{{ this.value }}</span>
+        <span class="vx-spec-label">{{ this.label }}</span>
+      </div>
+      {{/each}}
+    </div>
+
+    <p class="fine reveal" style="margin-top:var(--s4)">{{ technology.vx.handedness }} Specifications published by <a href="{{ technology.vx.sourceUrl }}" target="_blank" rel="noopener" style="color:var(--green-deep)">{{ technology.vx.sourceName }}</a>. {{ technology.equipmentDisclaimer }}</p>
+  </div>
+</section>
+
 <section class="band band-navy" id="courses">
   <div class="container">
     <div class="reveal" style="margin-bottom:clamp(28px,3vw,44px)">

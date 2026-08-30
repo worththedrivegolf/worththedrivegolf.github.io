@@ -295,11 +295,109 @@
 
     <div class="tech-grid">
       <div class="tech-col reveal">
-        <!-- slot: sim-screen -->
-        <div class="slot slot-16x9">
-          <img src="images/sim-screen.png" alt="A simulator display showing a course view with ball speed, carry, launch angle and club path" loading="lazy" width="1600" height="900"/>
-        </div>
-        <p class="slot-caption">Illustration with sample data — in-bay display varies by session and settings.</p>
+        <!-- Rotating ProTee VX data-point cards. Shared by the homepage and Studio
+     technology bands so the two can never drift.
+
+     Each card renders a type treatment by default. Give a card an `image` in
+     site.json and it renders that screenshot instead, same frame, same
+     rotation — which is how real GSPro/ProTee captures drop in later without
+     touching this markup. -->
+<div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="ProTee VX data points">
+  <div class="vx-stage" data-rotator-stage>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Ball data</span>
+        <h3 class="vx-slide-name">Ball Speed</h3>
+        <p class="vx-slide-blurb">How fast the ball leaves the face. The single biggest lever on distance.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Club data</span>
+        <h3 class="vx-slide-name">Swing Path</h3>
+        <p class="vx-slide-blurb">The direction the club is travelling through impact — the start of every draw and fade.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Ball data</span>
+        <h3 class="vx-slide-name">Spin Axis</h3>
+        <p class="vx-slide-blurb">The tilt on the ball that decides whether it holds its line or curves.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Club data</span>
+        <h3 class="vx-slide-name">Attack Angle</h3>
+        <p class="vx-slide-blurb">Whether you are striking up or down on the ball at contact.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Flight data</span>
+        <h3 class="vx-slide-name">Carry Distance</h3>
+        <p class="vx-slide-blurb">How far the ball actually flies before it first touches the ground.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Club data</span>
+        <h3 class="vx-slide-name">Impact Point</h3>
+        <p class="vx-slide-blurb">Where on the face you struck it, vertically and horizontally.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Flight data</span>
+        <h3 class="vx-slide-name">Descent Angle</h3>
+        <p class="vx-slide-blurb">How steeply the ball comes down, and whether it will hold a green.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+    <article class="vx-slide">
+      
+      <div class="vx-slide-body">
+        <span class="vx-slide-group">Ball data</span>
+        <h3 class="vx-slide-name">Launch Angle</h3>
+        <p class="vx-slide-blurb">The angle the ball leaves the ground on — the other half of distance.</p>
+      </div>
+      <span class="vx-slide-mark">Measured by ProTee VX</span>
+    </article>
+    
+  </div>
+
+  <button class="vx-arrow vx-prev" type="button" data-rotator-prev aria-label="Previous data point">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+  <button class="vx-arrow vx-next" type="button" data-rotator-next aria-label="Next data point">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+
+  <div class="vx-dots" data-rotator-dots aria-hidden="true"></div>
+</div>
+
+        <p class="slot-caption">The data points ProTee VX measures on every shot. Planned equipment — specifications subject to change before opening.</p>
       </div>
 
       <div class="tech-col reveal" data-delay="1">
