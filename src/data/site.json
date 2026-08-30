@@ -333,11 +333,11 @@
           "blurb": "2,500+ community-built layouts, with your live numbers on screen as you play."
         },
         {
-          "image": "sim-gspro-data",
-          "alt": "A GSPro range view with the full ball, club and flight data panel displayed",
-          "group": "GSPro",
-          "name": "See it as you hit",
-          "blurb": "Ball, club and flight data on screen the moment the shot leaves the face."
+          "image": "sim-protee-vx",
+          "alt": "A golfer mid-swing under the ceiling-mounted ProTee VX, with carry, ball speed and launch angle shown beside the shot",
+          "group": "ProTee VX",
+          "name": "The Power of VX",
+          "blurb": "Dual high-speed cameras overhead, reading club and ball on every swing."
         },
         {
           "image": "sim-gspro-range",
