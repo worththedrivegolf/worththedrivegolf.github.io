@@ -245,7 +245,9 @@
           {{/each}}
         </ul>
         <a class="btn btn-gold" href="{{ ctas.founders.href }}">{{ ctas.founders.label }}</a>
-        {{#if founders.showCounter}}<p class="fine center" style="margin-top:var(--s2)">{{ founders.remaining }} of {{ founders.spots }} spots remaining</p>{{/if}}
+        <!-- Populated at runtime from /founders.json. Stays hidden unless that
+             file holds a real whole number, so it can never show a stale count. -->
+        <p class="founders-count" data-founders-count data-founders-total="{{ founders.spots }}" hidden></p>
       </div>
     </div>
   </div>

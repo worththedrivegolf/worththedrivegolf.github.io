@@ -1,0 +1,4 @@
+{
+  "_readme": "Founders Club spots remaining. Edit `remaining` on github.com and commit — the site picks it up within about a minute, no rebuild needed. Set it to null to hide the counter. Only a whole number from 0 to 40 is accepted; anything else and the counter stays hidden rather than showing something wrong.",
+  "remaining": null
+}
