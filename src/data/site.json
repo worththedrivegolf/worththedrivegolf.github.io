@@ -123,7 +123,7 @@
         "2-hour blocks when booking with another Weekday Member",
         "Up to 3 guests at $10 each",
         "1 active booking at a time",
-        "AI swing analysis included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     },
@@ -146,7 +146,7 @@
         "2-hour tee times",
         "1 guest included; additional guests $10 each",
         "1 active booking at a time",
-        "AI swing analysis included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     },
@@ -169,7 +169,7 @@
         "3-hour tee times",
         "Up to 3 guests included",
         "2 active bookings at a time",
-        "AI swing analysis included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     },
@@ -194,6 +194,7 @@
         "Up to 4 guests per visit",
         "2 active bookings at a time",
         "1 private event per year included",
+        "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     }
@@ -256,7 +257,7 @@
     "protee": [
       "Ceiling-mounted launch monitor",
       "Dual high-speed camera tracking",
-      "AI Swing Trainer — full-body swing analysis, every tier",
+      "Swing A.I. Trainer — swing analysis & training, every tier",
       "AI-assisted club and ball data",
       "No club stickers or special golf balls required"
     ],
@@ -350,10 +351,10 @@
       ]
     },
     "aiSwing": {
-      "_source": "ProTee VX AI Swing Trainer, powered by GolfSwings.ai, inside ProTee Labs. Two included swing cameras, full-body tracking, an instructional video paired with each point it raises, no extra subscription. In public beta as of August 2026 — say so.",
-      "eyebrow": "AI Swing Trainer",
+      "_source": "ProTee VX Swing A.I. Trainer (ProTee also write it AI Swing Trainer), powered by GolfSwings.ai, inside ProTee Labs. Two included swing cameras, full-body tracking, an instructional video paired with each point it raises, no extra subscription. In public beta as of August 2026 — say so.",
+      "eyebrow": "Swing A.I. Trainer",
       "heading": "Something watching every swing",
-      "lead": "Launch monitors tell you what the ball did. The AI Swing Trainer looks at what you did — two cameras track your whole body through the swing, not just the club, and the analysis points at the specific thing costing you shots.",
+      "lead": "Launch monitors tell you what the ball did. The Swing A.I. Trainer looks at what you did — two cameras track your whole body through the swing, not just the club, and the analysis points at the specific thing costing you shots.",
       "points": [
         {
           "icon": "i-users",
@@ -371,7 +372,7 @@
           "body": "Each point it raises comes paired with an instructional video showing what to work on and how to make the change."
         }
       ],
-      "note": "The AI Swing Trainer is in public beta from ProTee and improving continuously. It runs inside ProTee Labs with no extra subscription, and it is included with studio access — every tier, no upcharge."
+      "note": "The Swing A.I. Trainer is in public beta from ProTee and improving continuously. It runs inside ProTee Labs with no extra subscription, and it is included with studio access — every tier, no upcharge."
     }
   },
   "_coursesComment": "HANDOFF rule 7 gate: the two `local` cards require SGT course-server verification before launch. If unverified, swap for verified regional courses (owner decides) — never ship unconfirmed claims.",
