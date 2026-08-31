@@ -251,12 +251,16 @@ function attachCourseThumbs(cards) {
   if (!Array.isArray(cards)) return cards;
   return cards.map((card) => {
     const slug = slugify(card.name);
-    const full = path.join(COURSE_THUMB_DIR, slug + '.jpg');
-    if (!fs.existsSync(full)) return card;
-    const small = path.join(COURSE_THUMB_DIR, slug + '-800.jpg');
+    // Whatever extension the file was saved with. Looking only for .jpg meant a
+    // .png dropped in was silently ignored, which reads as the feature being
+    // broken rather than the filename being wrong.
+    const ext = ['.jpg', '.jpeg', '.png', '.webp']
+      .find((e) => fs.existsSync(path.join(COURSE_THUMB_DIR, slug + e)));
+    if (!ext) return card;
+    const small = path.join(COURSE_THUMB_DIR, slug + '-800' + ext);
     return Object.assign({}, card, {
-      thumb: 'images/courses/' + slug + '.jpg',
-      thumbSmall: fs.existsSync(small) ? 'images/courses/' + slug + '-800.jpg' : null,
+      thumb: 'images/courses/' + slug + ext,
+      thumbSmall: fs.existsSync(small) ? 'images/courses/' + slug + '-800' + ext : null,
     });
   });
 }
