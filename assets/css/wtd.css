@@ -1449,3 +1449,19 @@ body[data-menu-open="true"] { overflow: hidden; }
   border: 1px solid var(--line-dark);
   flex: none;
 }
+
+/* Founders explanation, inside the signup section rather than its own band.
+   Gold stays the founders-only accent (rule 4); the left border carries it
+   without turning the whole block gold. */
+.founders-inline {
+  margin-top: clamp(26px, 3vw, 38px);
+  padding: clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--line-dark);
+  border-inline-start: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+  scroll-margin-top: calc(var(--header-h) + 20px);
+}
+.founders-inline h3 { margin: 12px 0 10px; }
+.founders-inline > p { font-size: 0.9375rem; line-height: 1.65; color: var(--body-dark-2); margin: 0 0 16px; }
+.founders-inline .checks { margin: 0; }

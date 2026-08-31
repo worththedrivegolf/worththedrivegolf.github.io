@@ -391,6 +391,15 @@
   }
 
   if (interestField) interestField.addEventListener('change', syncSubmitLabel);
+
+  /* Arriving from another page. A founders CTA on the homepage links to
+     membership.html#founders, and without this the visitor would land on the
+     right section with the wrong option selected and have to set it by hand —
+     which is the second click this whole change exists to remove. */
+  if (interestField && window.location.hash === '#founders') {
+    interestField.value = 'Founders Club';
+  }
+
   syncSubmitLabel();
 
 })();
