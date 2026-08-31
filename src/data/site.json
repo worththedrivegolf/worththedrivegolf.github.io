@@ -318,7 +318,7 @@
           ]
         }
       ],
-      "cardsNote": "The rotator shows photos only — `shots`. The full parameter list lives in `groups`, rendered on the Studio page. TO ADD A PHOTO: save a 16:9 image as images/<name>.jpg AND images/<name>-800.jpg, then append to `shots` with image set to <name> (no extension), a real alt description, plus group, name and blurb. Nothing else changes — the homepage and Studio share one partial. Order here is the order on screen.",
+      "cardsNote": "The rotator shows photos only — `shots`. The full parameter list lives in `groups`, rendered on the Studio page. TO ADD A PHOTO: save a 16:9 image as images/<name>.jpg AND images/<name>-800.jpg, then append to `shots` with image set to <name> (no extension), a real alt description, plus group, name and blurb. Leave `name` empty if the image already has a title printed on it, or the caption reads as a stutter. Order here is the order on screen.",
       "shots": [
         {
           "image": "sim-protee-labs",
@@ -338,7 +338,7 @@
           "image": "sim-protee-vx",
           "alt": "A golfer mid-swing under the ceiling-mounted ProTee VX, with carry, ball speed and launch angle shown beside the shot",
           "group": "ProTee VX",
-          "name": "The Power of VX",
+          "name": "",
           "blurb": "Dual high-speed cameras overhead, reading club and ball on every swing."
         },
         {
