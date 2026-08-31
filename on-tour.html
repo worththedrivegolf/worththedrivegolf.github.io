@@ -233,14 +233,85 @@
       <h2 class="h2">Where we've been</h2>
       <p class="lead" style="margin-top:var(--s3)">Backyards, businesses, concerts and company lots across Northeast Indiana.</p>
     </div>
-    <div class="gallery reveal">
-      <div class="slot"><img src="images/on-tour-night-crowd.jpg" srcset="images/on-tour-night-crowd-800.jpg 800w, images/on-tour-night-crowd-1400.jpg 1400w, images/on-tour-night-crowd.jpg 1440w" sizes="(min-width:1025px) 33vw, 100vw" alt="Guests watching a golfer play the mobile simulator under string lights at an evening event" loading="lazy" width="1440" height="1080"/></div>
-      <div class="slot"><img src="images/on-tour-night-lit.jpg" srcset="images/on-tour-night-lit-800.jpg 800w, images/on-tour-night-lit.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="The mobile simulator enclosure lit up at night with the course on screen" loading="lazy" width="1080" height="810"/></div>
-      <div class="slot"><img src="images/on-tour-backyard.jpg" srcset="images/on-tour-backyard-800.jpg 800w, images/on-tour-backyard-1400.jpg 1400w, images/on-tour-backyard.jpg 1536w" sizes="(min-width:1025px) 33vw, 100vw" alt="A backyard party gathered around the Worth the Drive mobile simulator" loading="lazy" width="1536" height="1152"/></div>
-      <div class="slot"><img src="images/on-tour-festival.jpg" srcset="images/on-tour-festival-800.jpg 800w, images/on-tour-festival.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="The mobile simulator set up outdoors on a grass lot with a group waiting to play" loading="lazy" width="1080" height="810"/></div>
-      <div class="slot"><img src="images/on-tour-corporate.jpg" srcset="images/on-tour-corporate-800.jpg 800w, images/on-tour-corporate.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="A company team taking turns on the simulator at a corporate event" loading="lazy" width="1080" height="810"/></div>
-      <div class="slot"><img src="images/on-tour-setup.jpg" srcset="images/on-tour-setup-800.jpg 800w, images/on-tour-setup.jpg 1080w" sizes="(min-width:1025px) 33vw, 100vw" alt="The Worth the Drive team setting up the mobile simulator enclosure" loading="lazy" width="1080" height="810"/></div>
-    </div>
+    <!-- On Tour photo gallery.
+
+     Nothing here lists the photos. The build scans images/gallery/ and hands
+     them over, so adding one is dropping a file in that folder — any number,
+     no markup to edit, no JSON to keep in step. Filenames sort, so the 010-,
+     020- prefixes are how the order is controlled.
+
+     A horizontal rail rather than a grid on purpose: a grid leaves a ragged
+     last row that gets worse the more photos there are, and this list is
+     meant to grow. -->
+<div class="rail-wrap reveal">
+  <div class="rail" data-rail tabindex="0" role="group" aria-label="Photos from past On Tour events">
+    
+    <figure class="rail-item">
+      <img src="images/gallery/010-night-crowd.jpg"
+           srcset="images/gallery/010-night-crowd-800.jpg 800w, images/gallery/010-night-crowd.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="Guests watching a golfer play the mobile simulator under string lights at an evening event" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/020-night-lit.jpg"
+           srcset="images/gallery/020-night-lit-800.jpg 800w, images/gallery/020-night-lit.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="The mobile simulator enclosure lit up at night with the course on screen" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/030-backyard.jpg"
+           srcset="images/gallery/030-backyard-800.jpg 800w, images/gallery/030-backyard.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="A backyard party gathered around the Worth the Drive mobile simulator" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/040-festival.jpg"
+           srcset="images/gallery/040-festival-800.jpg 800w, images/gallery/040-festival.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="The mobile simulator set up outdoors on a grass lot with a group waiting to play" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/050-corporate.jpg"
+           srcset="images/gallery/050-corporate-800.jpg 800w, images/gallery/050-corporate.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="A company team taking turns on the simulator at a corporate event" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/060-setup.jpg"
+           srcset="images/gallery/060-setup-800.jpg 800w, images/gallery/060-setup.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="The Worth the Drive team setting up the mobile simulator enclosure" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/070-event.jpg"
+           srcset="images/gallery/070-event-800.jpg 800w, images/gallery/070-event.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="Guests playing the mobile simulator at an outdoor event" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+    <figure class="rail-item">
+      <img src="images/gallery/080-driveway.jpg"
+           srcset="images/gallery/080-driveway-800.jpg 800w, images/gallery/080-driveway.jpg 1200w"
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="The mobile simulator set up on a driveway for a private booking" loading="lazy" width="1200" height="900"/>
+    </figure>
+    
+  </div>
+
+  <button class="rail-arrow rail-prev" type="button" data-rail-prev aria-label="Scroll photos left">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+  <button class="rail-arrow rail-next" type="button" data-rail-next aria-label="Scroll photos right">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+</div>
+
   </div>
 </section>
 

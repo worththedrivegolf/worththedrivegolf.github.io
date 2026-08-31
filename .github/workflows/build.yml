@@ -1,0 +1,91 @@
+name: Build site
+
+# GitHub Pages serves the committed HTML — it does not run build.js. So without
+# this, dropping a photo into images/gallery/ on github.com would change
+# nothing on the live site until someone rebuilt locally.
+#
+# This runs the same build, generates the missing image sizes, and commits the
+# result back. Drop photos in, and they appear on the site a minute later.
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'images/gallery/**'
+      - 'src/**'
+      - 'assets/css/site.css'
+      - 'assets/css/components.css'
+      - 'assets/js/site.js'
+      - 'build.js'
+  workflow_dispatch:
+
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      # Phone photos carry EXIF, which includes GPS coordinates. This repo is
+      # public, so every processed image is stripped before it is committed —
+      # otherwise dropping a picture taken at a customer's house would publish
+      # that customer's address.
+      - name: Prepare gallery images
+        run: |
+          shopt -s nullglob nocaseglob
+          changed=0
+          for f in images/gallery/*.jpg images/gallery/*.jpeg images/gallery/*.png; do
+            case "$f" in *-800.*) continue;; esac
+
+            # Cap the full-size copy once. Already-processed files are <= 1200px
+            # so this does not re-encode them on every run.
+            w=$(identify -format '%w' "$f" 2>/dev/null || echo 0)
+            if [ "$w" -gt 1200 ]; then
+              convert "$f" -auto-orient -strip -resize '1200>' -quality 86 -interlace Plane "$f"
+              echo "resized $f (was ${w}px)"
+              changed=1
+            fi
+
+            small="${f%.*}-800.${f##*.}"
+            if [ ! -f "$small" ]; then
+              convert "$f" -auto-orient -strip -resize '800>' -quality 86 -interlace Plane "$small"
+              echo "created $small"
+              changed=1
+            fi
+          done
+          echo "images_changed=$changed" >> "$GITHUB_ENV"
+
+      # Every photo should have a real description. The build falls back to one
+      # derived from the filename so a photo is never dropped, but that is a
+      # placeholder, not a description — so say so rather than let it pass
+      # silently. A warning, not a failure: a live photo beats a blocked deploy.
+      - name: Warn about missing alt text
+        run: |
+          node build.js | tee /tmp/build.log
+          if grep -q 'filename-derived alt' /tmp/build.log; then
+            echo "::warning::Some gallery photos have no entry in images/gallery/alt.json and are using a filename-derived description. Screen readers and search engines both read these."
+          fi
+
+      - name: Commit the built site
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — the committed output already matches the source."
+            exit 0
+          fi
+          git diff --cached --name-only | sed 's/^/  /'
+          git commit -m "Rebuild site [skip ci]"
+          git push

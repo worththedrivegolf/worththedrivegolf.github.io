@@ -1,0 +1,29 @@
+<!-- On Tour photo gallery.
+
+     Nothing here lists the photos. The build scans images/gallery/ and hands
+     them over, so adding one is dropping a file in that folder — any number,
+     no markup to edit, no JSON to keep in step. Filenames sort, so the 010-,
+     020- prefixes are how the order is controlled.
+
+     A horizontal rail rather than a grid on purpose: a grid leaves a ragged
+     last row that gets worse the more photos there are, and this list is
+     meant to grow. -->
+<div class="rail-wrap reveal">
+  <div class="rail" data-rail tabindex="0" role="group" aria-label="Photos from past On Tour events">
+    {{#each gallery}}
+    <figure class="rail-item">
+      <img src="{{ this.src }}"
+           {{#if this.small}}srcset="{{ this.small }} 800w, {{ this.src }} 1200w"{{/if}}
+           sizes="(min-width: 1025px) 32vw, 78vw"
+           alt="{{ this.alt }}" loading="lazy" width="1200" height="900"/>
+    </figure>
+    {{/each}}
+  </div>
+
+  <button class="rail-arrow rail-prev" type="button" data-rail-prev aria-label="Scroll photos left">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+  <button class="rail-arrow rail-next" type="button" data-rail-next aria-label="Scroll photos right">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+  </button>
+</div>
