@@ -351,4 +351,31 @@
     sync();
   });
 
+  /* --- Waitlist form intent ----------------------------------------------
+     One form, one Mailchimp audience. "Reserve a Founders Spot" and "Reserve
+     this tier" both land here, so they say which one they meant rather than
+     dropping the visitor into a generic signup with the context lost.
+
+     The fields are visible and the visitor can change them — this only sets a
+     starting value. Without JS the form still works; they pick it themselves. */
+  var interestField = document.querySelector('[data-interest]');
+  var tierField     = document.querySelector('select[name="TIER"]');
+
+  function preselect(link) {
+    var interest = link.getAttribute('data-preselect-interest');
+    var tier     = link.getAttribute('data-preselect-tier');
+    if (interest && interestField) interestField.value = interest;
+    if (tier && tierField) {
+      // Only if the tier is actually an option — names could drift.
+      for (var i = 0; i < tierField.options.length; i++) {
+        if (tierField.options[i].value === tier) { tierField.value = tier; break; }
+      }
+    }
+  }
+
+  document.querySelectorAll('[data-preselect-interest], [data-preselect-tier]')
+    .forEach(function (link) {
+      link.addEventListener('click', function () { preselect(link); });
+    });
+
 })();

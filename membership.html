@@ -217,7 +217,7 @@
           </ul>
         </div>
         <div class="tier-foot">
-          <a class="btn btn-primary btn-sm" href="#waitlist" style="width:100%">Reserve this tier</a>
+          <a class="btn btn-primary btn-sm" href="#waitlist" data-preselect-tier="Weekday Member" style="width:100%">Reserve this tier</a>
         </div>
       </article>
       
@@ -245,7 +245,7 @@
           </ul>
         </div>
         <div class="tier-foot">
-          <a class="btn btn-primary btn-sm" href="#waitlist" style="width:100%">Reserve this tier</a>
+          <a class="btn btn-primary btn-sm" href="#waitlist" data-preselect-tier="Full Member" style="width:100%">Reserve this tier</a>
         </div>
       </article>
       
@@ -273,7 +273,7 @@
           </ul>
         </div>
         <div class="tier-foot">
-          <a class="btn btn-primary btn-sm" href="#waitlist" style="width:100%">Reserve this tier</a>
+          <a class="btn btn-primary btn-sm" href="#waitlist" data-preselect-tier="Premier Member" style="width:100%">Reserve this tier</a>
         </div>
       </article>
       
@@ -303,7 +303,7 @@
           </ul>
         </div>
         <div class="tier-foot">
-          <a class="btn btn-primary btn-sm" href="#waitlist" style="width:100%">Reserve this tier</a>
+          <a class="btn btn-primary btn-sm" href="#waitlist" data-preselect-tier="Corporate Club" style="width:100%">Reserve this tier</a>
         </div>
       </article>
       
@@ -355,6 +355,13 @@
             <input type="email" name="EMAIL" required autocomplete="email" placeholder="you@example.com"/>
           </label>
           <label class="field">
+            <span>What are you signing up for?</span>
+            <select name="INTEREST" data-interest>
+              <option value="Studio waitlist">Studio waitlist — updates on opening</option>
+              <option value="Founders Club">Founders Club — reserve a founding spot</option>
+            </select>
+          </label>
+          <label class="field">
             <span>Preferred tier <em>(optional)</em></span>
             <select name="TIER">
               <option value="">No preference yet</option>
@@ -373,7 +380,7 @@
             <input type="text" name="b_2ad78f48f86871ac18f97925c_ff60f6c0a0" tabindex="-1" value=""/>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;margin-top:var(--s2)">Join the Waitlist</button>
-          <p class="fine" style="margin-top:var(--s2)">No payment required · General studio updates only</p>
+          <p class="fine" style="margin-top:var(--s2)">No payment required · We'll contact you when memberships open</p>
         </form>
       </div>
     </div>
@@ -401,7 +408,7 @@
           <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>Founding member events</span></li>
           
         </ul>
-        <a class="btn btn-gold" href="#waitlist">Reserve a Founders Spot</a>
+        <a class="btn btn-gold" href="#waitlist" data-preselect-interest="Founders Club">Reserve a Founders Spot</a>
         <p class="founders-count" data-founders-count data-founders-total="40" hidden></p>
         <p class="fine center" style="margin-top:var(--s2)">No payment required now · Limited to 40 founding members</p>
       </div>
