@@ -1078,3 +1078,11 @@ body[data-menu-open="true"] { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .rail { scroll-behavior: auto; }
 }
+
+/* Course-library screenshot. Capped below the container width so it reads as a
+   window into a bay rather than a hero, and centred above the course cards. */
+.course-shot {
+  margin: 0 auto clamp(30px, 3.4vw, 50px);
+  max-width: min(920px, 100%);
+}
+.course-shot .slot-caption { text-align: center; }
