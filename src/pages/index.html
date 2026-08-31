@@ -170,10 +170,18 @@
 
     <div class="course-grid reveal">
       {{#each courses.cards}}
-      <article class="card card-dark course-card">
-        <span class="course-tag">{{ this.tag }}</span>
-        <h4>{{ this.name }}</h4>
-        <p>{{#if this.sub}}{{ this.sub }} · {{/if}}{{ this.location }}</p>
+      <article class="card card-dark course-card{{#if this.thumb}} has-thumb{{/if}}">
+        <div class="course-text">
+          <span class="course-tag">{{ this.tag }}</span>
+          <h4>{{ this.name }}</h4>
+          <p>{{#if this.sub}}{{ this.sub }} · {{/if}}{{ this.location }}</p>
+        </div>
+        {{#if this.thumb}}
+        <img class="course-thumb" src="{{ this.thumb }}"
+             {{#if this.thumbSmall}}srcset="{{ this.thumbSmall }} 800w, {{ this.thumb }} 1200w"{{/if}}
+             sizes="120px"
+             alt="{{ this.name }} as recreated in GSPro" loading="lazy" width="1200" height="900"/>
+        {{/if}}
       </article>
       {{/each}}
     </div>

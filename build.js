@@ -232,6 +232,35 @@ function loadGallery() {
   });
 }
 
+/* Course thumbnails are discovered the same way gallery photos are: drop
+   images/courses/<course-name-slugified>.jpg in and that card gets a thumbnail.
+   No JSON to edit. A card with no matching file simply renders without one, so
+   the section is never half-broken while thumbnails are being collected.
+
+   The right source is a GSPro capture of that course. A photograph of the real
+   course would sit directly above a line saying we are not affiliated with or
+   endorsed by these clubs, and would undercut it.                              */
+
+const COURSE_THUMB_DIR = path.join(__dirname, 'images', 'courses');
+
+function slugify(name) {
+  return String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function attachCourseThumbs(cards) {
+  if (!Array.isArray(cards)) return cards;
+  return cards.map((card) => {
+    const slug = slugify(card.name);
+    const full = path.join(COURSE_THUMB_DIR, slug + '.jpg');
+    if (!fs.existsSync(full)) return card;
+    const small = path.join(COURSE_THUMB_DIR, slug + '-800.jpg');
+    return Object.assign({}, card, {
+      thumb: 'images/courses/' + slug + '.jpg',
+      thumbSmall: fs.existsSync(small) ? 'images/courses/' + slug + '-800.jpg' : null,
+    });
+  });
+}
+
 /* --- build ---------------------------------------------------------------- */
 
 function build() {
@@ -244,6 +273,7 @@ function build() {
 
   // Discovered from the folder, not configured. See loadGallery.
   site.gallery = loadGallery();
+  if (site.courses) site.courses.cards = attachCourseThumbs(site.courses.cards);
 
   const cssBytes = buildCss();
   const layout = read(path.join(SRC, 'layouts', 'base.html'));
@@ -270,17 +300,20 @@ function build() {
     built.push({ slug, bytes: html.length });
   }
 
-  return { built, cssBytes, gallery: site.gallery };
+  const cards = (site.courses && site.courses.cards) || [];
+  return { built, cssBytes, gallery: site.gallery,
+           thumbs: cards.filter((c) => c.thumb).length, courseCount: cards.length };
 }
 
 if (require.main === module) {
   try {
-    const { built, cssBytes, gallery } = build();
+    const { built, cssBytes, gallery, thumbs, courseCount } = build();
     console.log(`css bundle  assets/css/wtd.css  ${(cssBytes / 1024).toFixed(1)} KB`);
     for (const b of built.sort((a, z) => a.slug.localeCompare(z.slug))) {
       console.log(`page        ${b.slug}.html`.padEnd(34) + `${(b.bytes / 1024).toFixed(1)} KB`);
     }
     const missingAlt = gallery.filter((g) => g.generic).length;
+    console.log(`courses     ${thumbs} of ${courseCount} card(s) have a thumbnail`);
     console.log(`gallery     ${gallery.length} photo(s) from images/gallery/`
       + (missingAlt ? `  (${missingAlt} using a filename-derived alt)` : ''));
     console.log(`\n${built.length} page(s) built.`);

@@ -1086,3 +1086,25 @@ body[data-menu-open="true"] { overflow: hidden; }
   max-width: min(920px, 100%);
 }
 .course-shot .slot-caption { text-align: center; }
+
+/* Course card thumbnails — homepage only; the Studio page carries a single
+   large course screenshot instead, so cards there stay text.
+
+   The thumbnail is opt-in per card: .has-thumb is only set when the build
+   found a matching file. Cards without one keep the original layout, so the
+   grid is never half-illustrated while thumbnails are being collected. */
+.course-card.has-thumb {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: clamp(12px, 1.4vw, 18px);
+}
+.course-text { min-width: 0; }
+.course-thumb {
+  width: clamp(72px, 9vw, 104px);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line-dark);
+  flex: none;
+}

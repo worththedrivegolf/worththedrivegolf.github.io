@@ -11,6 +11,7 @@ on:
     branches: [master]
     paths:
       - 'images/gallery/**'
+      - 'images/courses/**'
       - 'src/**'
       - 'assets/css/site.css'
       - 'assets/css/components.css'
@@ -41,11 +42,11 @@ jobs:
       # public, so every processed image is stripped before it is committed —
       # otherwise dropping a picture taken at a customer's house would publish
       # that customer's address.
-      - name: Prepare gallery images
+      - name: Prepare dropped-in images
         run: |
           shopt -s nullglob nocaseglob
           changed=0
-          for f in images/gallery/*.jpg images/gallery/*.jpeg images/gallery/*.png; do
+          for f in images/gallery/*.jpg images/gallery/*.jpeg images/gallery/*.png                    images/courses/*.jpg images/courses/*.jpeg images/courses/*.png; do
             case "$f" in *-800.*) continue;; esac
 
             # Cap the full-size copy once. Already-processed files are <= 1200px
