@@ -16,7 +16,7 @@
            alt="{{ this.alt }}" loading="lazy" width="1200" height="675"/>
       <div class="vx-slide-body">
         <span class="vx-slide-group">{{ this.group }}</span>
-        <h3 class="vx-slide-name">{{ this.name }}</h3>
+        {{#if this.name}}<h3 class="vx-slide-name">{{ this.name }}</h3>{{/if}}
         <p class="vx-slide-blurb">{{ this.blurb }}</p>
       </div>
     </article>
