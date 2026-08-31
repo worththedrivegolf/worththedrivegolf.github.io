@@ -375,7 +375,22 @@
 
   document.querySelectorAll('[data-preselect-interest], [data-preselect-tier]')
     .forEach(function (link) {
-      link.addEventListener('click', function () { preselect(link); });
+      link.addEventListener('click', function () { preselect(link); syncSubmitLabel(); });
     });
+
+  /* The button said "Join the Waitlist" even with Founders Club chosen directly
+     above it, which read as though the choice had been ignored. */
+  var submitBtn = document.querySelector('[data-submit-label]');
+  var defaultLabel = submitBtn ? submitBtn.textContent : '';
+
+  function syncSubmitLabel() {
+    if (!submitBtn || !interestField) return;
+    submitBtn.textContent = interestField.value === 'Founders Club'
+      ? 'Reserve My Founders Spot'
+      : defaultLabel;
+  }
+
+  if (interestField) interestField.addEventListener('change', syncSubmitLabel);
+  syncSubmitLabel();
 
 })();
