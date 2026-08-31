@@ -17,7 +17,7 @@
       <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. Four simple tiers, from $100 a month — with annual savings if you want them.</p>
       <div class="actions" style="margin-top:var(--s4)">
         <a class="btn btn-primary" href="#waitlist">{{ ctas.primary.label }}</a>
-        <a class="btn btn-ghost" href="#founders">{{ ctas.founders.label }}</a>
+        <a class="btn btn-ghost" href="#founders" data-preselect-interest="Founders Club">{{ ctas.founders.label }}</a>
       </div>
     </div>
   </div>
@@ -68,15 +68,31 @@
   </div>
 </section>
 
+
 <!-- WAITLIST ============================================================= -->
 <section class="band band-deep" id="waitlist">
   <div class="container">
     <div class="split" style="align-items:start">
       <div class="reveal">
-        <span class="eyebrow">Studio Updates</span>
-        <h2 class="h2">Join the waitlist</h2>
-        <p class="lead" style="margin-top:var(--s3)">Want updates on opening timeline, membership availability, league info and studio launch details? Join the waitlist and we'll keep you posted as The Studio gets closer to opening.</p>
-        <p class="fine" style="margin-top:var(--s3)">{{ membershipNotes.waitlistNote }} No payment required · Founders Club reservation is separate.</p>
+        <span class="eyebrow">Sign Up</span>
+        <h2 class="h2">Get on the list</h2>
+        <p class="lead" style="margin-top:var(--s3)">Waitlist or Founders Club — one form for both. Tell us which below, and we'll be in touch as The Studio gets closer to opening.</p>
+        <p class="fine" style="margin-top:var(--s3)">{{ membershipNotes.waitlistNote }} A Founders spot is confirmed later, when we contact you.</p>
+
+        <!-- Founders explanation lives here, in the same section as the form,
+             so a founders CTA anywhere on the site is one click to signing up.
+             #founders is on this block, not a separate band. -->
+        <div class="founders-inline" id="founders">
+          <span class="founders-pill">{{ founders.pill }}</span>
+          <h3 class="h4">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h3>
+          <p>Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee locks your monthly rate for life, whatever pricing looks like after opening. Choose <em>Founders Club</em> in the form and we'll contact you when memberships open.</p>
+          <ul class="checks">
+            {{#each founders.benefits}}
+            <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
+            {{/each}}
+          </ul>
+          <p class="founders-count" data-founders-count data-founders-total="{{ founders.spots }}" hidden></p>
+        </div>
       </div>
 
       <div class="card card-dark reveal" data-delay="1">
@@ -118,32 +134,9 @@
           <div style="position:absolute;left:-5000px" aria-hidden="true">
             <input type="text" name="b_2ad78f48f86871ac18f97925c_ff60f6c0a0" tabindex="-1" value=""/>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:var(--s2)">{{ ctas.primary.label }}</button>
+          <button type="submit" class="btn btn-primary" data-submit-label style="width:100%;margin-top:var(--s2)">{{ ctas.primary.label }}</button>
           <p class="fine" style="margin-top:var(--s2)">No payment required · We'll contact you when memberships open</p>
         </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDERS ============================================================= -->
-<section class="band band-footer" id="founders">
-  <div class="container">
-    <div class="founders-grid">
-      <div class="reveal">
-        <span class="founders-pill">{{ founders.pill }}</span>
-        <h2 class="h2">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h2>
-        <p class="lead" style="margin-top:var(--s3)">Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee locks your monthly rate for life, whatever pricing looks like after opening. No payment required now — we'll contact you when memberships open.</p>
-      </div>
-      <div class="founders-card reveal" data-delay="1">
-        <ul class="checks">
-          {{#each founders.benefits}}
-          <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
-          {{/each}}
-        </ul>
-        <a class="btn btn-gold" href="#waitlist" data-preselect-interest="Founders Club">{{ ctas.founders.label }}</a>
-        <p class="founders-count" data-founders-count data-founders-total="{{ founders.spots }}" hidden></p>
-        <p class="fine center" style="margin-top:var(--s2)">No payment required now · Limited to {{ founders.spots }} founding members</p>
       </div>
     </div>
   </div>

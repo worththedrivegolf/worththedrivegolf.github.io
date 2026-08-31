@@ -375,7 +375,31 @@
 
   document.querySelectorAll('[data-preselect-interest], [data-preselect-tier]')
     .forEach(function (link) {
-      link.addEventListener('click', function () { preselect(link); });
+      link.addEventListener('click', function () { preselect(link); syncSubmitLabel(); });
     });
+
+  /* The button said "Join the Waitlist" even with Founders Club chosen directly
+     above it, which read as though the choice had been ignored. */
+  var submitBtn = document.querySelector('[data-submit-label]');
+  var defaultLabel = submitBtn ? submitBtn.textContent : '';
+
+  function syncSubmitLabel() {
+    if (!submitBtn || !interestField) return;
+    submitBtn.textContent = interestField.value === 'Founders Club'
+      ? 'Reserve My Founders Spot'
+      : defaultLabel;
+  }
+
+  if (interestField) interestField.addEventListener('change', syncSubmitLabel);
+
+  /* Arriving from another page. A founders CTA on the homepage links to
+     membership.html#founders, and without this the visitor would land on the
+     right section with the wrong option selected and have to set it by hand —
+     which is the second click this whole change exists to remove. */
+  if (interestField && window.location.hash === '#founders') {
+    interestField.value = 'Founders Club';
+  }
+
+  syncSubmitLabel();
 
 })();
