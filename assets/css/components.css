@@ -1009,3 +1009,72 @@ body[data-menu-open="true"] { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .vx-slide { transition: opacity 0.2s linear; }
 }
+
+/* ── Photo rail ───────────────────────────────────────────────────────────
+   Horizontal scroller for the On Tour gallery. A grid was leaving a ragged
+   last row, and that gets worse as photos are added — this list is meant to
+   grow, so it scrolls instead. Snap points, arrows on pointer devices, native
+   swipe on touch, keyboard scrollable via tabindex. */
+.rail-wrap { position: relative; }
+
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(78%, 340px);
+  gap: clamp(12px, 1.4vw, 20px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 4px; border-radius: var(--radius); }
+
+.rail-item {
+  margin: 0;
+  scroll-snap-align: start;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-dark);
+  aspect-ratio: 4 / 3;
+}
+.rail-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.rail-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 44px; height: 44px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(9,14,25,0.78);
+  border: 1px solid var(--line-dark);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+.rail-prev { inset-inline-start: -14px; }
+.rail-next { inset-inline-end: -14px; }
+.rail-prev .icon { transform: rotate(180deg); }
+.rail-arrow[hidden] { display: none !important; }
+@media (hover: hover) and (min-width: 768px) {
+  .rail-arrow { display: grid; }
+  .rail-arrow:hover { background: var(--green); border-color: var(--green); }
+}
+.rail-arrow:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; }
+
+@media (min-width: 1025px) {
+  .rail { grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column; }
+  /* Three across, the rest scroll. */
+  .rail { grid-auto-columns: calc((100% - 2 * clamp(12px, 1.4vw, 20px)) / 3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail { scroll-behavior: auto; }
+}

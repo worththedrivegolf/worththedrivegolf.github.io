@@ -315,4 +315,40 @@
     go(0);
   });
 
+  /* --- Photo rail --------------------------------------------------------
+     Arrows page the On Tour gallery one viewport at a time and hide when
+     there is nothing further that way, so they never sit there doing
+     nothing. Touch swipe and keyboard scrolling are native. */
+  document.querySelectorAll('[data-rail]').forEach(function (rail) {
+    var wrap = rail.parentElement;
+    var prev = wrap.querySelector('[data-rail-prev]');
+    var next = wrap.querySelector('[data-rail-next]');
+    if (!prev || !next) return;
+
+    function sync() {
+      var max = rail.scrollWidth - rail.clientWidth;
+      // 2px of slack: sub-pixel layout leaves scrollLeft a hair short of max.
+      prev.hidden = rail.scrollLeft <= 2;
+      next.hidden = rail.scrollLeft >= max - 2;
+    }
+
+    function page(dir) {
+      rail.scrollBy({ left: dir * rail.clientWidth * 0.9, behavior: 'smooth' });
+    }
+
+    prev.addEventListener('click', function () { page(-1); });
+    next.addEventListener('click', function () { page(1); });
+
+    var ticking = false;
+    rail.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { sync(); ticking = false; });
+    });
+
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(rail);
+    window.addEventListener('load', sync);
+    sync();
+  });
+
 })();

@@ -183,6 +183,55 @@ function buildCss() {
   return bundle.length;
 }
 
+/* --- gallery ---------------------------------------------------------------
+   Photos are discovered from images/gallery/ rather than listed anywhere. Drop
+   a file in, rebuild, and it appears. Any number, no markup to edit.
+
+   -800 variants sit beside the originals and are excluded from the listing;
+   the build wires them into srcset when present. alt.json is optional and maps
+   a filename to its alt text — anything missing falls back to a description
+   derived from the filename, so a photo is never dropped for lacking one.     */
+
+const GALLERY_DIR = path.join(__dirname, 'images', 'gallery');
+
+function titleFromFilename(name) {
+  return name
+    .replace(/\.[a-z]+$/i, '')
+    .replace(/^\d+[-_]/, '')      // strip a leading sort prefix like 010-
+    .replace(/[-_]+/g, ' ')
+    .trim();
+}
+
+function loadGallery() {
+  if (!fs.existsSync(GALLERY_DIR)) return [];
+
+  let alts = {};
+  const altFile = path.join(GALLERY_DIR, 'alt.json');
+  if (fs.existsSync(altFile)) {
+    try {
+      alts = JSON.parse(read(altFile));
+    } catch (e) {
+      throw new Error('images/gallery/alt.json is not valid JSON: ' + e.message);
+    }
+  }
+
+  const files = fs.readdirSync(GALLERY_DIR)
+    .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+    .filter((f) => !/-800\.[a-z]+$/i.test(f))   // generated variant, not a photo
+    .sort((a, z) => a.localeCompare(z, 'en', { numeric: true }));
+
+  return files.map((file) => {
+    const small = file.replace(/(\.[a-z]+)$/i, '-800$1');
+    const hasSmall = fs.existsSync(path.join(GALLERY_DIR, small));
+    return {
+      src: 'images/gallery/' + file,
+      small: hasSmall ? 'images/gallery/' + small : null,
+      alt: alts[file] || ('Worth the Drive On Tour — ' + titleFromFilename(file)),
+      generic: !alts[file],
+    };
+  });
+}
+
 /* --- build ---------------------------------------------------------------- */
 
 function build() {
@@ -192,6 +241,9 @@ function build() {
   // CTA config resolves once, here — flipping site.cta.state swaps every
   // surface with no layout change (HANDOFF rule 3).
   site.ctas = site.cta.state === 'open' ? site.cta.open : site.cta.preOpening;
+
+  // Discovered from the folder, not configured. See loadGallery.
+  site.gallery = loadGallery();
 
   const cssBytes = buildCss();
   const layout = read(path.join(SRC, 'layouts', 'base.html'));
@@ -218,16 +270,19 @@ function build() {
     built.push({ slug, bytes: html.length });
   }
 
-  return { built, cssBytes };
+  return { built, cssBytes, gallery: site.gallery };
 }
 
 if (require.main === module) {
   try {
-    const { built, cssBytes } = build();
+    const { built, cssBytes, gallery } = build();
     console.log(`css bundle  assets/css/wtd.css  ${(cssBytes / 1024).toFixed(1)} KB`);
     for (const b of built.sort((a, z) => a.slug.localeCompare(z.slug))) {
       console.log(`page        ${b.slug}.html`.padEnd(34) + `${(b.bytes / 1024).toFixed(1)} KB`);
     }
+    const missingAlt = gallery.filter((g) => g.generic).length;
+    console.log(`gallery     ${gallery.length} photo(s) from images/gallery/`
+      + (missingAlt ? `  (${missingAlt} using a filename-derived alt)` : ''));
     console.log(`\n${built.length} page(s) built.`);
   } catch (e) {
     console.error('BUILD FAILED: ' + e.message);
