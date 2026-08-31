@@ -377,7 +377,7 @@
   },
   "_coursesComment": "HANDOFF rule 7 gate: the two `local` cards require SGT course-server verification before launch. If unverified, swap for verified regional courses (owner decides) — never ship unconfirmed claims.",
   "courses": {
-    "disclaimer": "Simulated recreations from the GSPro community library. Not affiliated with or endorsed by the real-world clubs; availability varies.",
+    "disclaimer": "Simulated recreations from the GSPro community library. Not affiliated with or endorsed by the real-world clubs; availability varies. Thumbnails are photographs of the real courses, not simulator captures.",
     "cards": [
       {
         "tag": "Bucket list",
@@ -427,7 +427,8 @@
       "image": "gspro-courses",
       "alt": "A GSPro course view of a par 4 tee shot, with the shot data panels shown either side",
       "caption": "A GSPro course as it appears in the bay. Screen shown from GSPro."
-    }
+    },
+    "_thumbNote": "The disclaimer's last sentence exists because the thumbnails are currently real photographs. Drop that sentence when the thumbnails become GSPro screenshots."
   },
   "_accessComment": "HANDOFF rule 2: generic access language until hardware is confirmed. Never name keycard/app/phone unlock.",
   "access": {
