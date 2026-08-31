@@ -1087,8 +1087,7 @@ body[data-menu-open="true"] { overflow: hidden; }
 }
 .course-shot .slot-caption { text-align: center; }
 
-/* Course card thumbnails — homepage only; the Studio page carries a single
-   large course screenshot instead, so cards there stay text.
+/* Course card thumbnails, both pages.
 
    The thumbnail is opt-in per card: .has-thumb is only set when the build
    found a matching file. Cards without one keep the original layout, so the
