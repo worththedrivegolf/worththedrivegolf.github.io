@@ -10,8 +10,7 @@ on:
   push:
     branches: [master]
     paths:
-      - 'images/gallery/**'
-      - 'images/courses/**'
+      - 'images/**'
       - 'src/**'
       - 'assets/css/site.css'
       - 'assets/css/components.css'
@@ -46,8 +45,15 @@ jobs:
         run: |
           shopt -s nullglob nocaseglob
           changed=0
-          for f in images/gallery/*.jpg images/gallery/*.jpeg images/gallery/*.png                    images/courses/*.jpg images/courses/*.jpeg images/courses/*.png; do
-            case "$f" in *-800.*) continue;; esac
+          # Every image anywhere under images/, not just the drop folders, so a
+          # replacement hero or interior shot only ever has to be uploaded once.
+          for f in images/*.jpg images/*.jpeg images/*.png                    images/gallery/*.jpg images/gallery/*.jpeg images/gallery/*.png                    images/courses/*.jpg images/courses/*.jpeg images/courses/*.png; do
+            # Generated variants and the originals folder are not sources.
+            case "$f" in
+              *-800.*|*-1400.*|*@2x.*) continue;;
+              images/incoming/*) continue;;
+              images/logo.png|images/og-share.jpg) continue;;   # fixed-size assets
+            esac
 
             # Cap the full-size copy once. Already-processed files are <= 1200px
             # so this does not re-encode them on every run.
