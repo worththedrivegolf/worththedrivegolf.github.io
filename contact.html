@@ -248,7 +248,7 @@
              success when the service confirms delivery, and surfaces a real
              error with a working fallback otherwise. -->
         <form class="wtd-form" id="contactForm"
-              action="https://formsubmit.co/ajax/info@worththedrivegolf.com" method="POST" novalidate>
+              action="https://formsubmit.co/info@worththedrivegolf.com" method="POST">
           <div class="field-row">
             <label class="field"><span>Your name</span>
               <input type="text" name="name" required autocomplete="name" placeholder="John Smith"/></label>
@@ -272,7 +272,7 @@
 
           <input type="hidden" name="_subject" value="Website enquiry — worththedrivegolf.com"/>
           <input type="hidden" name="_template" value="table"/>
-          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://worththedrivegolf.com/contact.html?sent=1"/>
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 
           <button type="submit" class="btn btn-primary" id="contactSubmit" style="width:100%;margin-top:var(--s2)">Send message</button>
