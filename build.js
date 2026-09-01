@@ -265,6 +265,66 @@ function attachCourseThumbs(cards) {
   });
 }
 
+/* --- image dimensions -------------------------------------------------------
+   width/height on an <img> reserve the space before the picture arrives, so a
+   stale pair makes the page jump as it loads. Hand-maintaining them means every
+   replacement image has to be the same size as the one it replaced, which is
+   not a rule anyone will remember.
+
+   So the build reads the real dimensions out of the file and corrects the
+   attributes itself. Upload any size; the markup follows.                     */
+
+function jpegSize(buf) {
+  let i = 2;                                   // skip SOI
+  while (i < buf.length) {
+    if (buf[i] !== 0xff) { i++; continue; }
+    const marker = buf[i + 1];
+    // SOF0-3, 5-7, 9-11, 13-15 carry the frame header. Others are skipped.
+    if ((marker >= 0xc0 && marker <= 0xcf) &&
+        marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      return { height: buf.readUInt16BE(i + 5), width: buf.readUInt16BE(i + 7) };
+    }
+    i += 2 + buf.readUInt16BE(i + 2);
+  }
+  return null;
+}
+
+function pngSize(buf) {
+  return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+}
+
+const sizeCache = new Map();
+
+function imageSize(relPath) {
+  if (sizeCache.has(relPath)) return sizeCache.get(relPath);
+  const file = path.join(__dirname, relPath);
+  let out = null;
+  try {
+    const buf = fs.readFileSync(file);
+    if (buf.length > 24 && buf[0] === 0x89 && buf[1] === 0x50) out = pngSize(buf);
+    else if (buf[0] === 0xff && buf[1] === 0xd8) out = jpegSize(buf);
+  } catch { /* referenced file missing — reported separately */ }
+  sizeCache.set(relPath, out);
+  return out;
+}
+
+/* Rewrite width/height on every <img> whose src points at a local file. */
+function correctImageDimensions(html, onFix) {
+  return html.replace(/<img\b[^>]*>/g, (tag) => {
+    const src = (tag.match(/\ssrc="([^"]+)"/) || [])[1];
+    if (!src || !src.startsWith('images/')) return tag;
+    const real = imageSize(src);
+    if (!real) return tag;
+    const w = (tag.match(/\swidth="(\d+)"/) || [])[1];
+    const h = (tag.match(/\sheight="(\d+)"/) || [])[1];
+    if (String(real.width) === w && String(real.height) === h) return tag;
+    if (w && h) onFix(src, `${w}x${h}`, `${real.width}x${real.height}`);
+    return tag
+      .replace(/\swidth="\d+"/, ` width="${real.width}"`)
+      .replace(/\sheight="\d+"/, ` height="${real.height}"`);
+  });
+}
+
 /* --- build ---------------------------------------------------------------- */
 
 function build() {
@@ -285,6 +345,7 @@ function build() {
   const pagesDir = path.join(SRC, 'pages');
   const files = fs.readdirSync(pagesDir).filter((f) => f.endsWith('.html'));
   const built = [];
+  const dimFixes = [];
 
   for (const file of files) {
     const { meta, body } = parsePage(read(path.join(pagesDir, file)), file);
@@ -298,26 +359,30 @@ function build() {
 
     const content = render(body, ctx);
     const html = render(layout, Object.assign(Object.create(null), ctx, { content }));
+    const fixed = correctImageDimensions(html, (src, was, now) => {
+      dimFixes.push(`${slug}.html  ${src}  ${was} -> ${now}`);
+    });
 
     const outFile = path.join(OUT, `${slug}.html`);
-    fs.writeFileSync(outFile, html);
+    fs.writeFileSync(outFile, fixed);
     built.push({ slug, bytes: html.length });
   }
 
   const cards = (site.courses && site.courses.cards) || [];
-  return { built, cssBytes, gallery: site.gallery,
+  return { built, cssBytes, gallery: site.gallery, dimFixes,
            thumbs: cards.filter((c) => c.thumb).length, courseCount: cards.length };
 }
 
 if (require.main === module) {
   try {
-    const { built, cssBytes, gallery, thumbs, courseCount } = build();
+    const { built, cssBytes, gallery, thumbs, courseCount, dimFixes } = build();
     console.log(`css bundle  assets/css/wtd.css  ${(cssBytes / 1024).toFixed(1)} KB`);
     for (const b of built.sort((a, z) => a.slug.localeCompare(z.slug))) {
       console.log(`page        ${b.slug}.html`.padEnd(34) + `${(b.bytes / 1024).toFixed(1)} KB`);
     }
     const missingAlt = gallery.filter((g) => g.generic).length;
     console.log(`courses     ${thumbs} of ${courseCount} card(s) have a thumbnail`);
+    for (const f of dimFixes) console.log(`img fixed   ${f}`);
     console.log(`gallery     ${gallery.length} photo(s) from images/gallery/`
       + (missingAlt ? `  (${missingAlt} using a filename-derived alt)` : ''));
     console.log(`\n${built.length} page(s) built.`);

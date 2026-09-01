@@ -1124,3 +1124,7 @@ body[data-menu-open="true"] { overflow: hidden; }
 .founders-inline > p { font-size: 0.9375rem; line-height: 1.65; color: var(--body-dark-2); margin: 0 0 16px; }
 .founders-inline .checks { margin: 0; }
 
+
+/* Renderings are labelled as renderings. The studio is under construction, so
+   a photorealistic interior needs to say what it is. Quiet, not apologetic. */
+.hero-render-note { margin-top: 6px; opacity: 0.75; }
