@@ -94,84 +94,36 @@
      plus a fallback that always works (phone + a pre-filled mail draft).
      A message must never be silently dropped. */
 
+  /* --- Contact form -------------------------------------------------------
+     Posts normally to FormSubmit rather than over fetch. The AJAX endpoint
+     cannot present a captcha, which is why the captcha had been turned off —
+     and with it off, bots were POSTing straight to the endpoint scraped from
+     this page's source, never touching the form at all. No client-side trick
+     helps against that; only the service can reject it.
+
+     The cost is a round trip instead of an inline reply, so FormSubmit sends
+     the visitor back here with ?sent=1 and the confirmation is shown below. */
   var cForm = document.getElementById('contactForm');
+  var cStatus = document.getElementById('contactStatus');
+
+  if (cStatus && /[?&]sent=1/.test(window.location.search)) {
+    cStatus.className = 'form-status is-ok';
+    cStatus.textContent = 'Thanks — your message is on its way. We reply within 24 hours.';
+    // Drop the flag so a refresh does not re-congratulate them.
+    if (window.history.replaceState) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+    cStatus.scrollIntoView({ block: 'center' });
+  }
+
   if (cForm) {
     var cBtn = document.getElementById('contactSubmit');
-    var cStatus = document.getElementById('contactStatus');
-
-    var setStatus = function (kind, html) {
-      cStatus.className = 'form-status is-' + kind;
-      cStatus.innerHTML = html;
-    };
-
-    var mailtoFallback = function (data) {
-      var to = (cForm.getAttribute('action') || '').split('/').pop();
-      var subject = 'Website enquiry' + (data.topic ? ' — ' + data.topic : '');
-      var body = 'Name: ' + (data.name || '') + '\n' +
-                 'Email: ' + (data.email || '') + '\n' +
-                 'Phone: ' + (data.phone || '') + '\n\n' +
-                 (data.message || '');
-      return 'mailto:' + to + '?subject=' + encodeURIComponent(subject) +
-             '&body=' + encodeURIComponent(body);
-    };
-
-    cForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Native validity first, so required fields and email format are caught
-      // before anything leaves the page.
-      if (!cForm.checkValidity()) {
-        cForm.reportValidity();
-        return;
-      }
-
-      var fd = new FormData(cForm);
-      if (fd.get('_honey')) return;                 // bot trap: silently stop
-      var data = {};
-      fd.forEach(function (v, k) { data[k] = v; });
-
-      cBtn.disabled = true;
-      var original = cBtn.textContent;
-      cBtn.textContent = 'Sending…';
-      setStatus('pending', 'Sending your message…');
-
-      var done = function (ok, msg) {
-        cBtn.disabled = false;
-        cBtn.textContent = original;
-        if (ok) {
-          cForm.reset();
-          setStatus('ok', msg);
-        } else {
-          setStatus('error', msg +
-            ' <a href="' + mailtoFallback(data) + '">Email us directly</a> or call ' +
-            '<a href="tel:8444653983">(844) 465-3983</a>.');
-        }
-      };
-
-      fetch(cForm.getAttribute('action'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then(function (r) {
-          return r.json().catch(function () { return { success: 'false' }; });
-        })
-        .then(function (res) {
-          // FormSubmit reports success as the string "true".
-          var ok = res && (res.success === true || res.success === 'true');
-          if (ok) {
-            done(true, 'Thanks — your message is on its way. We reply within 24 hours.');
-          } else {
-            // The service's own reason goes to the console for whoever is
-            // debugging — e.g. "This form needs Activation" — never to the
-            // visitor, who just needs a route that works.
-            if (res && res.message) console.warn('[contact] ' + res.message);
-            done(false, 'We could not send that message.');
-          }
-        })
-        .catch(function () {
-          done(false, 'We could not reach the server.');
-        });
+    cForm.addEventListener('submit', function () {
+      // Kept as a second filter. It only catches bots that render the form;
+      // the captcha is what stops the ones that do not.
+      var honey = cForm.querySelector('[name="_honey"]');
+      if (honey && honey.value) return;
+      if (cBtn) { cBtn.disabled = true; cBtn.textContent = 'Sending…'; }
     });
   }
 
