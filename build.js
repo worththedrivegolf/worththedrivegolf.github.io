@@ -325,6 +325,26 @@ function correctImageDimensions(html, onFix) {
   });
 }
 
+/* Rotator cards are 4:3 and contain their image, so a wider screenshot
+   letterboxes. Centred, that splits the empty space top and bottom and the
+   caption ends up sitting over the screenshot's bottom row of data. Anchoring
+   those to the top collects all the space at the bottom, under the caption.
+
+   Derived from the file rather than listed by hand, so swapping an image
+   changes the anchor with it.                                                */
+
+const CARD_ASPECT = 4 / 3;
+
+function markWideShots(shots) {
+  if (!Array.isArray(shots)) return shots;
+  return shots.map((shot) => {
+    const size = imageSize('images/' + shot.image + '.jpg');
+    if (!size || !size.height) return shot;
+    const wider = (size.width / size.height) > CARD_ASPECT + 0.02;
+    return wider ? Object.assign({}, shot, { anchorTop: true }) : shot;
+  });
+}
+
 /* --- build ---------------------------------------------------------------- */
 
 function build() {
@@ -338,6 +358,9 @@ function build() {
   // Discovered from the folder, not configured. See loadGallery.
   site.gallery = loadGallery();
   if (site.courses) site.courses.cards = attachCourseThumbs(site.courses.cards);
+  if (site.technology && site.technology.vx) {
+    site.technology.vx.shots = markWideShots(site.technology.vx.shots);
+  }
 
   const cssBytes = buildCss();
   const layout = read(path.join(SRC, 'layouts', 'base.html'));

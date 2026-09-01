@@ -9,7 +9,7 @@
 <div class="vx-rotator" data-rotator aria-roledescription="carousel" aria-label="Simulator and launch monitor screens">
   <div class="vx-stage" data-rotator-stage>
     {{#each technology.vx.shots}}
-    <article class="vx-slide">
+    <article class="vx-slide"{{#if this.anchorTop}} data-anchor="top"{{/if}}>
       <img src="images/{{ this.image }}.jpg"
            srcset="images/{{ this.image }}-800.jpg 800w, images/{{ this.image }}.jpg 1200w"
            sizes="(min-width: 1025px) 40vw, 80vw"
