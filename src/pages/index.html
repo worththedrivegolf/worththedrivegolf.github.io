@@ -67,7 +67,7 @@
         <h2 class="h2">A private club,<br/>not a crowded range.</h2>
         <p class="lead" style="margin-block:var(--s3) var(--s4)">When it's your tee time, your bay is yours — no waiting on strangers, no crowds, no closing time to beat. Just your game, your people, and a club built around both.</p>
         <ul class="checks">
-          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Three dedicated hitting bays — book your time and the bay is all yours, never shared</span></li>
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Three dedicated hitting bays — book your time and the bay is all yours, never shared with another booking</span></li>
           <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>A lounge built for staying — comfortable between rounds, not a waiting room</span></li>
           <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Members, guests &amp; hosted open nights — always club-run, never a walk-in crowd</span></li>
           <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Climate-controlled, 365 days a year — Indiana winters don't stop your game</span></li>
@@ -110,7 +110,7 @@
       <div class="step" data-step="2">
         <span class="step-num">02</span>
         <h3>Reserve</h3>
-        <p>Book your bay online in 30-minute blocks — up to 1, 2 or 3 weeks ahead, depending on your plan.</p>
+        <p>Book your bay online in 30-minute blocks, up to {{ studioRules.maxLength }} at a time — up to 1, 2 or 3 weeks ahead, depending on your plan.</p>
       </div>
       <div class="step" data-step="3">
         <span class="step-num">03</span>
@@ -209,13 +209,14 @@
           <div class="tier-name">{{ this.name }}</div>
           <p class="tier-persona">{{ this.persona }}</p>
           <div class="tier-price"><sup>$</sup>{{ this.price }}<span>{{ this.cadence }}</span></div>
-          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan · ${{ this.pifYear }}/yr paid in full</p>
+          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan (final payment ${{ this.commitLast }}) · ${{ this.pifYear }}/yr paid in full</p>
         </div>
         <div class="tier-body">
           <ul class="checks">
             {{#each this.defining}}
             <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
             {{/each}}
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this.guestLine }}</span></li>
           </ul>
         </div>
         <div class="tier-foot">
@@ -336,7 +337,7 @@
 
       <details class="faq-item" open>
         <summary>Can I bring guests?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Yes, and your tier sets how many. {{ memberRules.guests }} {{ memberRules.guestList }}</p></div>
+        <div class="faq-answer"><p>Yes, and your tier sets how many come free. {{ memberRules.guests }} {{ memberRules.shared }} {{ memberRules.guestList }}</p></div>
       </details>
 
       <details class="faq-item" open>

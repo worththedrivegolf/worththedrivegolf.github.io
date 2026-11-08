@@ -39,11 +39,18 @@
           <div class="tier-name">{{ this.name }}</div>
           <p class="tier-persona">{{ this.persona }}</p>
           <div class="tier-price"><sup>$</sup>{{ this.price }}<span>{{ this.cadence }}</span></div>
-          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan · ${{ this.pifYear }}/yr paid in full</p>
+          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan (final payment ${{ this.commitLast }}) · ${{ this.pifYear }}/yr paid in full</p>
         </div>
         <div class="tier-body">
           <ul class="checks">
             {{#each this.benefits}}
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
+            {{/each}}
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Book in 30-minute increments, up to {{ studioRules.maxLength }} per booking</span></li>
+            <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this.guestLine }}</span></li>
+            {{#if this.buddyMonthly}}<li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Buddy or spouse, month to month: {{ this.buddyMonthly.line }}</span></li>{{/if}}
+            {{#if this.buddyCommit}}<li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Buddy or spouse, 12-month plan: {{ this.buddyCommit.line }}</span></li>{{/if}}
+            {{#each this.perks}}
             <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
             {{/each}}
           </ul>
@@ -68,6 +75,20 @@
       <div class="card card-light reveal">
         <h3 class="h4" style="margin-bottom:10px">Bring a buddy or spouse</h3>
         <p style="font-size:0.9375rem">{{ memberRules.buddy }}</p>
+        <ul class="checks" style="margin-top:10px;font-size:0.9375rem">
+          {{#each tiers}}{{#if this.buddyMonthly}}
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>{{ this.name }}</strong> — month to month: {{ this.buddyMonthly.line }}. 12-month plan: {{ this.buddyCommit.line }}.</span></li>
+          {{/if}}{{/each}}
+        </ul>
+        <p class="fine" style="margin-top:10px">{{ memberRules.buddyFounders }}</p>
+      </div>
+      <div class="card card-light reveal" data-delay="1">
+        <h3 class="h4" style="margin-bottom:10px">Guests &amp; shared bookings</h3>
+        <p style="font-size:0.9375rem">{{ memberRules.guests }} {{ memberRules.shared }}</p>
+      </div>
+      <div class="card card-light reveal">
+        <h3 class="h4" style="margin-bottom:10px">When your time is up</h3>
+        <p style="font-size:0.9375rem">{{ memberRules.session }}</p>
       </div>
       <div class="card card-light reveal" data-delay="1">
         <h3 class="h4" style="margin-bottom:10px">League play &amp; events</h3>
@@ -209,6 +230,16 @@
       </details>
 
       <details class="faq-item" open>
+        <summary>Can I add another member to my booking?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>Yes — one other member per booking. In the guest step choose “Add a member” and find them by name, or by their exact email or phone; members only ever see a first name and last initial. {{ memberRules.shared }} It stays your booking: it counts only against your booking limits, you're responsible for your guests, and the guest fee is billed to you. Either of you can take them off before the start, and the guest fee is worked out again straight away — you'll see any change before you confirm. Rather not be added to other members' bookings? Switch it off on your account page.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>What happens when my time is up?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.session }} Sign in with your own door code only, and never try to get around the sign-in screen or change anything on the bay computer — that's grounds for ending a membership.</p></div>
+      </details>
+
+      <details class="faq-item" open>
         <summary>Can my household use two bays at once?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
         <div class="faq-answer"><p>{{ memberRules.household }} A second-bay claim doesn't count toward your booking limits.</p></div>
       </details>
@@ -220,12 +251,12 @@
 
       <details class="faq-item" open>
         <summary>How do the 12-month plans work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>{{ membershipNotes.annual }}. On {{ tiers.2.name }}, for example, that's ${{ tiers.2.commitMonthly }} a month (${{ tiers.2.commitYear }} for the year) or ${{ tiers.2.pifYear }} paid in full, against ${{ tiers.2.price }} a month{{#if billing.monthToMonth}} month to month{{/if}}. {{ membershipNotes.commitRounding }} If you leave a 12-month plan early, the rest of the commitment is still owed. After the 12 months your membership simply continues month to month.</p></div>
+        <div class="faq-answer"><p>{{ membershipNotes.annual }}. On {{ tiers.2.name }}, for example, that's ${{ tiers.2.commitMonthly }} a month with a final payment of ${{ tiers.2.commitLast }} (${{ tiers.2.commitYear }} for the year) or ${{ tiers.2.pifYear }} paid in full, against ${{ tiers.2.price }} a month{{#if billing.monthToMonth}} month to month{{/if}}. {{ membershipNotes.commitRounding }} If you leave a 12-month plan early, the rest of the commitment is still owed. After the 12 months your membership simply continues month to month.</p></div>
       </details>
 
       <details class="faq-item" open>
         <summary>How does the Founders Club work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>The first {{ founders.spots }} members can pay a one-time ${{ founders.fee }} fee for {{ founders.discount }}% off their tier's base price for life, as long as the membership never lapses. Founders also book 3 weeks ahead, hold up to 6 bookings (2 in peak) and get an embroidered Founders flag. {{ founders.fine }}</p></div>
+        <div class="faq-answer"><p>The first {{ founders.spots }} members can pay a one-time ${{ founders.fee }} fee for {{ founders.discount }}% off their tier's base price for life, as long as the membership never lapses. Founders also book 3 weeks ahead, hold up to {{ founders.maxBookings }} bookings at a time with no limit on peak hours, and get an embroidered Founders flag. {{ founders.fine }}</p></div>
       </details>
 
       <details class="faq-item" open>
@@ -235,7 +266,7 @@
 
       <details class="faq-item" open>
         <summary>What if a payment fails?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>{{ memberRules.grace }} After that, we'll be in touch and your door code and bookings may pause until it's sorted out.</p></div>
+        <div class="faq-answer"><p>{{ memberRules.grace }} After that, your door code and new bookings pause until it's sorted out, and we'll be in touch.</p></div>
       </details>
 
       <details class="faq-item" open>
