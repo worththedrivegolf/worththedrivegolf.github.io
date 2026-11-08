@@ -294,9 +294,9 @@
     "limits": "Booking limits protect availability for all members.",
     "waitlistNote": "The waitlist records your preferred tier — no payment required."
   },
-  "_memberRulesComment": "Added 2026-11-07. One-line statements of the members system's booking and membership rules, used in FAQs and summary cards so every page says the same thing. 2026-11-08: booking, limits, guests, shared, session, buddy and buddyFounders are WRITTEN BY wtd-members src/documents/tools/site-data.js from the members settings (2-hour max, 8 players, free guests per tier, $10 guest fee, no Founders peak limit, buddy dollars); edit their wording in that tool, not here. The other lines are hand-written prose; keep them in step with the members system and with wtd-members src/documents/membership-terms.md.",
+  "_memberRulesComment": "Added 2026-11-07. One-line statements of the members system's booking and membership rules, used in FAQs and summary cards so every page says the same thing. 2026-11-08: booking, limits, guests, shared, session, buddy and buddyFounders are WRITTEN BY wtd-members src/documents/tools/site-data.js from the members settings (2-hour max, 8 players, free guests per tier, $10 guest fee, no Founders peak limit, buddy dollars); edit their wording in that tool, not here. 2026-11-08 (Phase 4): peak, windows, household, door (the walkthrough clock starts on the day the studio door goes live) and buddyLeave are generated too, from the same settings as the legal drafts. The other lines are hand-written prose; keep them in step with the members system and with wtd-members src/documents/membership-terms.md.",
   "memberRules": {
-    "peak": "Peak hours are weekdays 5–10 PM and all day Saturday and Sunday.",
+    "peak": "Peak hours are weekdays from 5 PM to 10 PM, and all day Saturday and Sunday.",
     "booking": "Book in 30-minute increments, from 30 minutes up to 2 hours per booking (new bookings default to 1 hour 30 minutes).",
     "windows": "Book up to 1 week ahead on Weekday and Full, 2 weeks on Premier and Corporate, and 3 weeks as a Founder.",
     "limits": "Hold up to 2 upcoming bookings on Weekday and Full, 4 on Premier and Corporate, and 6 as a Founder, with no limit on how many are in peak hours. Limits are shared by your household.",
@@ -304,8 +304,8 @@
     "guests": "Guests are per booking, and a bay holds up to 8 players. Full, Premier and Corporate members get 3 free guests per booking; Weekday members pay for every guest. Every guest beyond the free ones is $10, the same on every plan, charged to the member who made the booking.",
     "guestList": "Every guest must be on your booking — by name, or as “Guest 1” and “Guest 2” if you'd rather not say. Guests don't sign a waiver: you're responsible for them, so tell them the house rules and the risks, keep an eye on them (and on any kids), and cover any damage. Guest fees are charged when you book, and guests come in with you.",
     "buddy": "Add a buddy or spouse for 33% of your tier's regular price, split between you. Month to month, Premier for two is $266 a month ($133 each); on a 12-month plan it's $244 a month for two ($122 each, with a final payment of $121 each). Each of you gets your own door code, signs your own waiver and pays your own half, and nothing starts until both of you have signed and paid. Not available on the Corporate Club.",
-    "buddyLeave": "If one of you leaves, the other keeps full access for 30 days at their half rate, then switches to a solo membership or cancels. A replacement buddy can step in and take over the remaining months.",
-    "door": "When you join, the system creates your own 6-digit door code. It works right away and stays on once you've done your in-person walkthrough within 30 days. Your code is personal — never share it.",
+    "buddyLeave": "If one of you leaves, the other keeps full access for 30 days at their half rate, then switches to a solo membership or cancels. A replacement buddy can step in and take over the remaining months, and a Founders household keeps the Founders rate.",
+    "door": "When you join, the system creates your own 6-digit door code. It works right away and stays on once you've done your in-person walkthrough within 30 days (if you join before the studio door goes live, the 30 days start on that day). Your code is personal — never share it.",
     "signup": "Sign the waiver online, pay securely, and you're approved straight away — no application to wait on.",
     "grace": "If a payment fails, it's retried automatically and you keep full access for at least 24 hours while you update your card.",
     "cancel": "Cancel a booking any time before it starts. Month-to-month memberships can be cancelled any time; on a 12-month plan, the rest of the commitment is still owed if you leave early.",
@@ -327,14 +327,96 @@
   "buddy": {
     "adderPercent": 33
   },
-  "_foundersComment": "HANDOFF rule 4. Gold appears ONLY here and in the announcement bar founders mention. Counter stays omitted until a real source exists. 2026-11-07: 'Rate locked for life' replaced by the members system's rule (25% off the base tier price for life while the membership never lapses). 2026-11-08: the '2 in peak' limit is gone (Founders hold 6 bookings, any number in peak). `benefits` is kept equal to the members system's founders.perks, and spots, fee, discount and example are written by wtd-members src/documents/tools/site-data.js. OWNER DECISION PENDING: how to treat people who joined the Founders waitlist under the old 'rate locked for life' wording.",
+  "_memberTermsComment": "Added 2026-11-08 (Phase 4). WRITTEN BY wtd-members src/documents/tools/site-data.js: every membership-terms.md placeholder that is not a tier price or a studioRules number (booking windows and limits, peak and weekday hours, the payment grace, the walkthrough days, buddy and Founders rules, the studio contact), nested by placeholder name, with the exact words the members system shows. membership-terms.html uses them; never edit them by hand.",
+  "memberTerms": {
+    "access": {
+      "pinDigits": "6",
+      "walkthroughDays": "30 days"
+    },
+    "advance": {
+      "corporate": "2 weeks",
+      "full": "1 week",
+      "premier": "2 weeks",
+      "weekday": "1 week"
+    },
+    "automation": {
+      "extendOptions": "30 or 60 minutes",
+      "wakeLead": "15 minutes",
+      "warning": "5 minutes"
+    },
+    "billing": {
+      "commitFreeMonths": "1 month",
+      "commitPaidMonths": "11 months",
+      "graceHours": "48 hours",
+      "pifFreeMonths": "2 months",
+      "pifPaidMonths": "10 months",
+      "rounding": "the nearest whole dollar"
+    },
+    "booking": {
+      "lateStart": "15 minutes",
+      "limitsLine": "2 on Weekday and Full, 4 on Premier and Corporate, and 6 for Founders",
+      "minLength": "30 minutes",
+      "windowsLine": "1 week on Weekday and Full, 2 weeks on Premier and Corporate, and 3 weeks for Founders"
+    },
+    "buddy": {
+      "inviteDays": "7 days",
+      "leaveGraceDays": "30 days",
+      "reminderGap": "once a day",
+      "replacementRule": "If your buddy leaves and is replaced by a buddy who is not a Founder, the household keeps the Founders rate: the replacement takes over the payments the member who left had, does not pay the Founders fee or take a Founders spot, and does not become a Founder. The Founder who stays keeps their own Founders rate."
+    },
+    "founders": {
+      "advance": "3 weeks",
+      "cap": "40",
+      "feeRule": "The one-time $500 Founders fee is not refunded.",
+      "forLife": "for life, as long as your membership never ends",
+      "forfeitRule": "Any ending of your membership ends your Founders rate for good: you cancel, you leave a buddy household, you leave a 12-month plan early, your membership ends because a payment was never made after the retries and grace period, or the studio ends it, including with the immediate stop. Rejoining later does not bring the Founders rate back. If the studio reverses an immediate stop that was used in error, the rate comes back with it.",
+      "hold": "30 minutes",
+      "maxBookings": "6 bookings",
+      "perksRule": "The Founders booking perks (booking 3 weeks ahead and holding up to 6 bookings) end with the rate.",
+      "spotRule": "Your Founders spot does not go back to the pool of 40."
+    },
+    "guests": {
+      "example": "2 guests over the free 3 = $20",
+      "sharedExample": "3 + 3 = 6 free"
+    },
+    "household": {
+      "secondBayClaim": "15 minutes",
+      "secondBayMax": "1 hour"
+    },
+    "maxBookings": {
+      "corporate": "4 upcoming bookings",
+      "full": "2 upcoming bookings",
+      "premier": "4 upcoming bookings",
+      "weekday": "2 upcoming bookings"
+    },
+    "namedUsers": {
+      "corporate": "2 named users"
+    },
+    "payoff": {
+      "accessRule": "While you pay off the remainder you have no door code and cannot book: your membership has ended, and you are only finishing the payments you agreed to. The one exception is a solo member who chooses to pay all at once: they keep access until that payment is made, or until the day to make it has passed."
+    },
+    "peak": {
+      "hours": "weekdays from 5 PM to 10 PM, and all day Saturday and Sunday",
+      "offPeak": "weekdays before 5 PM and after 10 PM"
+    },
+    "studio": {
+      "address": "7032 N Main St, Wawaka, IN 46794",
+      "contactLine": "email info@worththedrivegolf.com or call 844-GOLF-WTD (844-465-3983)"
+    },
+    "weekdayPlan": {
+      "days": "Monday to Friday",
+      "end": "5 PM",
+      "hours": "midnight to 5 PM"
+    }
+  },
+  "_foundersComment": "HANDOFF rule 4. Gold appears ONLY here and in the announcement bar founders mention. Counter stays omitted until a real source exists. 2026-11-07: 'Rate locked for life' replaced by the members system's rule (25% off the base tier price for life while the membership never lapses). 2026-11-08: the '2 in peak' limit is gone (Founders hold 6 bookings, any number in peak). `benefits` is kept equal to the members system's founders.perks, and spots, fee, discount and example are written by wtd-members src/documents/tools/site-data.js. 2026-11-08 (owner Decision I): ANY ending of a membership ends the Founders rate for good; the spot is not returned, the booking perks end and the fee is not refunded (decision A1). `fine`, `keep` and `advance` are WRITTEN BY site-data.js from the members settings (founders.forfeitOn, spotReturnsOnForfeit, perksAfterForfeit, feeRefundOnForfeit, buddy.replacementKeepsFounderRate), so the site always says what the system does. OWNER DECISION PENDING: how to treat people who joined the Founders waitlist under the old 'rate locked for life' wording.",
   "founders": {
     "pill": "Limited · 40 spots only",
     "spots": 40,
     "fee": 500,
     "discount": 25,
     "example": "Premier at $150 a month instead of $200",
-    "fine": "The 25% comes off your tier's base price, not the buddy add-on, and 12-month and paid-in-full savings still apply on top. In a buddy household both of you must be Founders — each pays the fee and takes a spot. If your membership ever lapses, the Founders rate ends for good.",
+    "fine": "The 25% comes off your tier's base price, not the 33% buddy add-on, and 12-month and paid-in-full savings still apply on top. In a buddy household both of you must be Founders when you join — each pays the fee and takes a spot; if your buddy is later replaced, the household keeps the Founders rate. If your membership ends for any reason — you cancel, leave early, or a payment is never made — the Founders rate and booking perks end for good: rejoining doesn't bring them back, the spot isn't returned to the 40 and the $500 fee isn't refunded.",
     "_counterNote": "The spots-remaining counter is driven at runtime by /founders.json, not from here. Edit that file to turn it on.",
     "benefits": [
       "25% off your tier for life while your membership never lapses",
@@ -342,7 +424,9 @@
       "Hold up to 6 bookings at a time",
       "Embroidered Founders flag"
     ],
-    "maxBookings": 6
+    "maxBookings": 6,
+    "advance": "3 weeks",
+    "keep": "your membership never ends"
   },
   "_onTourComment": "FROZEN — HANDOFF rule 5.",
   "onTour": {

@@ -123,7 +123,7 @@
         <div class="founders-inline" id="founders">
           <span class="founders-pill">{{ founders.pill }}</span>
           <h3 class="h4">Founders Club — {{ founders.discount }}% off your tier. <span class="accent-gold">For life.</span></h3>
-          <p>Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee takes {{ founders.discount }}% off your tier's monthly price for as long as your membership never lapses — {{ founders.example }}. {{#if ctas.waitlist}}Choose <em>Founders Club</em> in the form and we'll contact you when memberships open.{{else}}<a href="{{ ctas.founders.href }}" style="color:var(--gold)">Claim a Founders spot</a>.{{/if}}</p>
+          <p>Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee takes {{ founders.discount }}% off your tier's monthly price for as long as {{ founders.keep }} — {{ founders.example }}. {{#if ctas.waitlist}}Choose <em>Founders Club</em> in the form and we'll contact you when memberships open.{{else}}<a href="{{ ctas.founders.href }}" style="color:var(--gold)">Claim a Founders spot</a>.{{/if}}</p>
           <ul class="checks">
             {{#each founders.benefits}}
             <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
@@ -256,7 +256,7 @@
 
       <details class="faq-item" open>
         <summary>How does the Founders Club work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>The first {{ founders.spots }} members can pay a one-time ${{ founders.fee }} fee for {{ founders.discount }}% off their tier's base price for life, as long as the membership never lapses. Founders also book 3 weeks ahead, hold up to {{ founders.maxBookings }} bookings at a time with no limit on peak hours, and get an embroidered Founders flag. {{ founders.fine }}</p></div>
+        <div class="faq-answer"><p>The first {{ founders.spots }} members can pay a one-time ${{ founders.fee }} fee for {{ founders.discount }}% off their tier's base price for life, as long as {{ founders.keep }}. Founders also book {{ founders.advance }} ahead, hold up to {{ founders.maxBookings }} bookings at a time with no limit on peak hours, and get an embroidered Founders flag. {{ founders.fine }}</p></div>
       </details>
 
       <details class="faq-item" open>
