@@ -14,9 +14,9 @@
       "oneLine": "7032 N Main St · Wawaka, IN 46794"
     },
     "phone": {
-      "display": "(844) GOLF-WTD",
-      "numeric": "(844) 465-3983",
-      "href": "tel:8444653983"
+      "display": "844-GOLF-WTD",
+      "numeric": "844-465-3983",
+      "href": "tel:+18444653983"
     },
     "email": "info@worththedrivegolf.com",
     "bookingsEmail": "bookings@worththedrivegolf.com",
@@ -341,6 +341,7 @@
     },
     "automation": {
       "extendOptions": "30 or 60 minutes",
+      "sleepRule": "the bay computer goes to sleep",
       "wakeLead": "15 minutes",
       "warning": "5 minutes"
     },
@@ -348,6 +349,7 @@
       "commitFreeMonths": "1 month",
       "commitPaidMonths": "11 months",
       "graceHours": "48 hours",
+      "lapseOwedRule": "Unpaid amounts, and the rest of any 12-month commitment, are still owed.",
       "pifFreeMonths": "2 months",
       "pifPaidMonths": "10 months",
       "rounding": "the nearest whole dollar"
@@ -419,7 +421,7 @@
     "fine": "The 25% comes off your tier's base price, not the 33% buddy add-on, and 12-month and paid-in-full savings still apply on top. In a buddy household both of you must be Founders when you join — each pays the fee and takes a spot; if your buddy is later replaced, the household keeps the Founders rate. If your membership ends for any reason — you cancel, leave early, or a payment is never made — the Founders rate and booking perks end for good: rejoining doesn't bring them back, the spot isn't returned to the 40 and the $500 fee isn't refunded.",
     "_counterNote": "The spots-remaining counter is driven at runtime by /founders.json, not from here. Edit that file to turn it on.",
     "benefits": [
-      "25% off your tier for life while your membership never lapses",
+      "25% off your tier for life, as long as your membership never ends",
       "Book 3 weeks ahead",
       "Hold up to 6 bookings at a time",
       "Embroidered Founders flag"

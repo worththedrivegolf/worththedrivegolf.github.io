@@ -250,7 +250,8 @@
           <li><strong>You keep full access for a grace period of at least 24 hours</strong> (currently {{ memberTerms.billing.graceHours }}) while you update your card.</li>
           <li>After the grace period, your door code and new bookings are paused automatically until the payment is made, and the studio is notified. In a buddy household only the person whose payment failed is paused. While a payment is overdue, other members cannot add you to their bookings.</li>
           <li>When the payment is made, your access comes back.</li>
-          <li>If the payment is never made, your membership may be ended, which ends the Founders rate (section 13). Unpaid amounts, and the rest of any 12-month commitment, are still owed.</li>
+          <li>If the payment is never made, your membership may be ended, which ends the Founders rate (section 13). {{ memberTerms.billing.lapseOwedRule }}</li>
+          <li><em style="font-size:0.8125rem;color:var(--muted-light)">[OWNER TO CONFIRM (decision A4/A5): when a membership ends because a payment was never made, is the rest of a 12-month commitment written off too, or still owed? Section 19 says it is still owed when the studio ends a membership for non-payment.]</em></li>
         </ul>
       </div>
 
@@ -281,7 +282,7 @@
         <ul>
           <li>Each bay is run by a computer that the studio controls. Its software alone decides who plays and when a session ends; nothing else on the computer is relied on for that.</li>
           <li><strong>Sign in at the bay with your own door code.</strong> Every member on a booking uses their own code. Sign-in opens {{ memberTerms.automation.wakeLead }} before your start time.</li>
-          <li><strong>At your end time the simulator closes automatically, a "Session over" screen shows, and the bay computer goes to sleep.</strong> Starting a game again after the end does not work. The computer wakes again for the next booking.</li>
+          <li><strong>At your end time the simulator closes automatically, a "Session over" screen shows, and {{ memberTerms.automation.sleepRule }}.</strong> Starting a game again after the end does not work. The computer wakes again for the next booking.</li>
           <li>The studio can end a session early from its own systems, for example for safety or security, or when a membership is paused or ended. The session then closes the same way. When the studio ends the membership of the member who made a booking that is being played, that booking ends at once for everyone on it, including a member they added, and no door code opens it again.</li>
           <li><strong>Do not try to get around the sign-in screen</strong>, and do not tamper with, unplug, move, reconfigure, or install or remove anything on the bay computers, launch monitors, projectors, screens, network or other equipment or software. Doing so is grounds for ending your membership straight away (section 19), and you are responsible for any damage or cost it causes.</li>
           <li>The bay system records sign-ins and when each session starts, ends and is extended.</li>
