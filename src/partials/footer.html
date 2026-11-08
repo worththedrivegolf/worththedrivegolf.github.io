@@ -4,7 +4,7 @@
 
       <div class="footer-brand">
         <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="{{ brand.name }}" width="206" height="113"/>
-        <p>A members-only indoor golf club in Wawaka, Indiana — open 24/7 for members, and on the road for events across Northeast Indiana.</p>
+        <p>A members-only indoor golf club in Wawaka, Indiana — open around the clock for Premier and Corporate members, and on the road for events across Northeast Indiana.</p>
         <p style="margin-top:14px">
           {{ brand.address.oneLine }}<br/>
           <a href="{{ brand.phone.href }}">{{ brand.phone.display }} · {{ brand.phone.numeric }}</a>
@@ -16,7 +16,7 @@
         <ul>
           {{#each nav}}
           <li><a href="{{ this.href }}">{{ this.label }}</a></li>
-          {{/each}}
+          {{/each}}{{#if ctas.login}}<li><a href="{{ ctas.login.href }}">{{ ctas.login.label }}</a></li>{{/if}}
         </ul>
       </div>
 
@@ -26,6 +26,7 @@
           <li><a href="studio.html#faq">Studio FAQ</a></li>
           <li><a href="membership.html#faq">Membership FAQ</a></li>
           <li><a href="on-tour.html#faq">On Tour FAQ</a></li>
+          <li><a href="membership-terms.html">Membership Terms</a></li>
           <li><a href="rental-terms.html">Rental Terms</a></li>
         </ul>
       </div>

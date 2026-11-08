@@ -3,7 +3,7 @@
   "slug": "studio",
   "canonical": "studio.html",
   "title": "The Studio | Worth the Drive Golf Studio — Wawaka, Indiana",
-  "description": "A members-only, 24/7 indoor golf studio under construction in Wawaka, Indiana. Three dedicated bays, ProTee VX and GSPro, opening 2026.",
+  "description": "A members-only indoor golf studio under construction in Wawaka, Indiana, with 24/7 access on Premier and Corporate plans. Three dedicated bays, ProTee VX and GSPro, opening 2026.",
   "year": 2026
 }
 -->
@@ -13,9 +13,9 @@
     <div class="reveal">
       <span class="eyebrow">The Studio</span>
       <h1 class="h1">A private club,<br/><span class="accent">not a crowded range.</span></h1>
-      <p class="lead" style="margin-top:var(--s3)">A members-only indoor golf club under construction at {{ brand.address.street }}, {{ brand.address.city }} — open around the clock to members, built for golfers who are serious about their game and their time.</p>
+      <p class="lead" style="margin-top:var(--s3)">A members-only indoor golf club under construction at {{ brand.address.street }}, {{ brand.address.city }} — open around the clock, with anytime access on Premier and Corporate plans — built for golfers who are serious about their game and their time.</p>
       <div class="actions" style="margin-top:var(--s4)">
-        <a class="btn btn-primary" href="membership.html#waitlist">{{ ctas.primary.label }}</a>
+        <a class="btn btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
         <a class="btn btn-ghost" href="membership.html">View Membership</a>
       </div>
     </div>
@@ -105,8 +105,8 @@
     <div class="grid grid-3 reveal">
       <div class="feature">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-clock"></use></svg>
-        <h3>24/7 member access</h3>
-        <p>Play before sunrise or after midnight. The Studio is always open — on your schedule, not ours.</p>
+        <h3>Open 24/7</h3>
+        <p>Play before sunrise or after midnight. {{ memberRules.anytime }}</p>
       </div>
       <div class="feature">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-radar"></use></svg>
@@ -126,7 +126,7 @@
       <div class="feature">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-users"></use></svg>
         <h3>Guest privileges</h3>
-        <p>Bring guests based on your tier. Access is by invitation — keeping the club private and the bays available.</p>
+        <p>Bring guests based on your tier — every guest is on your booking. Access is by invitation, keeping the club private and the bays available.</p>
       </div>
       <div class="feature">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-thermometer"></use></svg>
@@ -148,14 +148,14 @@
     <div class="split reveal" style="align-items:end;margin-bottom:clamp(36px,4vw,60px)">
       <div>
         <span class="eyebrow">Access</span>
-        <h2 class="h2">How 24/7 access works</h2>
+        <h2 class="h2">How member access works</h2>
       </div>
-      <p class="lead">No front desk. No phone calls. The Studio is yours around the clock — here's the whole routine.</p>
+      <p class="lead">No front desk. No phone calls. Book online, let yourself in with your own door code, and play — around the clock on Premier and Corporate. Here's the whole routine.</p>
     </div>
     <div class="steps reveal">
-      <div class="step" data-step="1"><span class="step-num">01</span><h3>Join</h3><p>Pick the tier that fits your game — simple monthly tiers, with annual savings if you want them.</p></div>
-      <div class="step" data-step="2"><span class="step-num">02</span><h3>Reserve</h3><p>Reserve your tee time online in seconds — tonight, tomorrow, whenever.</p></div>
-      <div class="step" data-step="3"><span class="step-num">03</span><h3>Secure member access</h3><p>The door opens for members at any hour — 5 AM before work or midnight after the kids are down.</p></div>
+      <div class="step" data-step="1"><span class="step-num">01</span><h3>Join</h3><p>Pick the tier that fits your game — month to month, or save with a 12-month plan. Sign online and you're approved as soon as you pay.</p></div>
+      <div class="step" data-step="2"><span class="step-num">02</span><h3>Reserve</h3><p>Book your bay online in 30-minute blocks — up to 1, 2 or 3 weeks ahead, depending on your plan.</p></div>
+      <div class="step" data-step="3"><span class="step-num">03</span><h3>Secure member access</h3><p>Let yourself in with your own personal door code — 5 AM before work or after the kids are down, whenever your plan lets you play.</p></div>
       <div class="step" data-step="4"><span class="step-num">04</span><h3>Play</h3><p>Your bay, your pace — practice with purpose, play a round, or host league night.</p></div>
     </div>
     <p class="fine" style="margin-top:var(--s5)">{{ access.honesty }}</p>
@@ -313,7 +313,7 @@
     <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
       <span class="eyebrow">Membership</span>
       <h2 class="h2">Choose your tier</h2>
-      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. Four simple tiers, from $100 a month.</p>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. {{ membershipNotes.fromLine }}</p>
     </div>
     <div class="tier-grid reveal" data-swipe="tiers">
       {{#each tiers}}
@@ -322,6 +322,7 @@
           <div class="tier-name">{{ this.name }}</div>
           <p class="tier-persona">{{ this.persona }}</p>
           <div class="tier-price"><sup>$</sup>{{ this.price }}<span>{{ this.cadence }}</span></div>
+          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan · ${{ this.pifYear }}/yr paid in full</p>
         </div>
         <div class="tier-body">
           <ul class="checks">
@@ -337,7 +338,7 @@
       {{/each}}
     </div>
     <div class="swipe-dots" data-swipe-dots="tiers"><span></span><span></span><span></span><span></span></div>
-    <p class="fine" style="margin-top:var(--s4)">{{ membershipNotes.everyTier }} · {{ membershipNotes.annual }} · {{ membershipNotes.limits }}</p>
+    <p class="fine" style="margin-top:var(--s4)">{{ membershipNotes.everyTier }} · {{ membershipNotes.annual }} · {{ memberRules.peak }} {{ membershipNotes.limits }}</p>
   </div>
 </section>
 
@@ -347,8 +348,9 @@
     <div class="founders-grid">
       <div class="reveal">
         <span class="founders-pill">{{ founders.pill }}</span>
-        <h2 class="h2">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h2>
-        <p class="lead" style="margin-top:var(--s3)">Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee locks your monthly rate for life, whatever pricing looks like after opening. No payment required now — we'll contact you when memberships open.</p>
+        <h2 class="h2">Founders Club — {{ founders.discount }}% off your tier. <span class="accent-gold">For life.</span></h2>
+        <p class="lead" style="margin-top:var(--s3)">Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee takes {{ founders.discount }}% off your tier's monthly price for as long as your membership never lapses — {{ founders.example }}. {{ ctas.note }}</p>
+        <p class="fine" style="margin-top:var(--s2)">{{ founders.fine }}</p>
       </div>
       <div class="founders-card reveal" data-delay="1">
         <ul class="checks">
@@ -356,7 +358,7 @@
           <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
           {{/each}}
         </ul>
-        <a class="btn btn-gold" href="membership.html#founders">{{ ctas.founders.label }}</a>
+        <a class="btn btn-gold" href="{{ ctas.founders.href }}">{{ ctas.founders.label }}</a>
         <p class="founders-count" data-founders-count data-founders-total="{{ founders.spots }}" hidden></p>
       </div>
     </div>
@@ -373,19 +375,19 @@
     <div class="faq-grid reveal">
       <details class="faq-item" open>
         <summary>Is the Studio members-only?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Yes. No walk-ins and no drop-in tee times — day-to-day access is reserved for members and invited guests. Watch for advertised open nights to experience the Studio before joining.</p></div>
+        <div class="faq-answer"><p>Yes. No walk-ins, no drop-in tee times and no public online booking — day-to-day access is reserved for members and invited guests. Watch for advertised open nights to experience the Studio before joining.</p></div>
       </details>
       <details class="faq-item" open>
         <summary>How does access work at 2 AM?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>You reserve your tee time online, then let yourself in with secure member access — no front desk, no staff to meet, no phone calls. {{ access.honesty }}</p></div>
+        <div class="faq-answer"><p>You book your bay online, then let yourself in with your own personal door code — no front desk, no staff to meet, no phone calls. 2 AM on a weekday is inside every plan's hours; weekends are Premier and Corporate only. {{ memberRules.door }} {{ access.honesty }}</p></div>
       </details>
       <details class="faq-item" open>
         <summary>How many bays are there?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Three dedicated hitting bays, separated by half walls. Your reservation gives you your bay for your tee time — it is never shared — and other members may be playing in the other bays at the same time.</p></div>
+        <div class="faq-answer"><p>Three dedicated hitting bays, separated by half walls. Your reservation gives you your bay for your tee time — it is never shared — and other members may be playing in the other bays at the same time. {{ memberRules.household }}</p></div>
       </details>
       <details class="faq-item" open>
         <summary>Can I bring guests?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Yes, and your tier sets how many. Weekday Members bring up to 3 guests at $10 each; Full Members get 1 guest included with additional guests at $10; Premier Members bring up to 3 guests included; the Corporate Club covers up to 4 guests per visit.</p></div>
+        <div class="faq-answer"><p>Yes, and your tier sets how many. {{ memberRules.guests }} {{ memberRules.guestList }}</p></div>
       </details>
       <details class="faq-item" open>
         <summary>What about league play?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
@@ -418,7 +420,7 @@
       <h2 class="h2">The club is coming.<br/><span class="accent-dark">The founding class is forming.</span></h2>
       <p class="lead">Join the waitlist to hear first about opening dates, membership availability and Founders Club spots — no payment required.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="membership.html#waitlist">{{ ctas.primary.label }}</a>
+        <a class="btn btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
         <a class="btn btn-ghost" href="{{ brand.phone.href }}"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-phone"></use></svg> {{ brand.phone.display }}</a>
       </div>
     </div>

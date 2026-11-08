@@ -3,7 +3,7 @@
   "slug": "index",
   "canonical": "",
   "title": "Worth the Drive Golf Studio | Members-Only Indoor Golf in Wawaka, Indiana",
-  "description": "A private, 24/7 member-access indoor golf studio coming to Wawaka, Indiana — built on ProTee VX and GSPro. Mobile simulator events across Northeast Indiana now.",
+  "description": "A private, members-only indoor golf studio coming to Wawaka, Indiana — 24/7 access on Premier and Corporate plans, built on ProTee VX and GSPro. Mobile simulator events across Northeast Indiana now.",
   "year": 2026
 }
 -->
@@ -21,9 +21,9 @@
   <div class="hero-scrim"></div>
   <div class="hero-inner">
     <div class="hero-copy on-dark">
-      <span class="eyebrow">Wawaka, Indiana · Members-Only · Open 24/7</span>
+      <span class="eyebrow">Wawaka, Indiana · Members-Only · 24/7 on Premier &amp; Corporate</span>
       <h1 class="h1">Golf Worth<br/><span class="accent">The Drive.</span></h1>
-      <p class="hero-sub">A private, 24/7 member-access indoor golf studio is coming to Wawaka — built on ProTee VX and GSPro for golfers who are serious about their game, their practice, and their time.</p>
+      <p class="hero-sub">A private, members-only indoor golf studio is coming to Wawaka — open around the clock on Premier and Corporate plans, and built on ProTee VX and GSPro for golfers who are serious about their game, their practice, and their time.</p>
       <div class="actions">
         <a class="btn btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
         <a class="btn btn-ghost" href="studio.html">Explore the Studio</a>
@@ -44,7 +44,7 @@
       </div>
       <div class="strip-item reveal" data-delay="1">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-clock"></use></svg>
-        <div><h3>24/7 member access</h3><p>Book. Walk in. Play — any hour</p></div>
+        <div><h3>Book. Walk in. Play.</h3><p>Your own door code · 24/7 on Premier &amp; Corporate</p></div>
       </div>
       <div class="strip-item reveal" data-delay="2">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-radar"></use></svg>
@@ -90,32 +90,32 @@
   </div>
 </section>
 
-<!-- 6 · HOW 24/7 ACCESS WORKS ============================================ -->
+<!-- 6 · HOW MEMBER ACCESS WORKS ========================================= -->
 <section class="band band-paper">
   <div class="container">
     <div class="split reveal" style="align-items:end;margin-bottom:clamp(36px,4vw,60px)">
       <div>
         <span class="eyebrow">Access</span>
-        <h2 class="h2">How 24/7 access works</h2>
+        <h2 class="h2">How member access works</h2>
       </div>
-      <p class="lead">No front desk. No phone calls. The Studio is yours around the clock — here's the whole routine.</p>
+      <p class="lead">No front desk. No phone calls. Book online, let yourself in with your own door code, and play — around the clock on Premier and Corporate. Here's the whole routine.</p>
     </div>
 
     <div class="steps reveal">
       <div class="step" data-step="1">
         <span class="step-num">01</span>
         <h3>Join</h3>
-        <p>Pick the tier that fits your game — simple monthly tiers, with annual savings if you want them.</p>
+        <p>Pick the tier that fits your game — month to month, or save with a 12-month plan. Sign online and you're approved as soon as you pay.</p>
       </div>
       <div class="step" data-step="2">
         <span class="step-num">02</span>
         <h3>Reserve</h3>
-        <p>Reserve your tee time online in seconds — tonight, tomorrow, whenever.</p>
+        <p>Book your bay online in 30-minute blocks — up to 1, 2 or 3 weeks ahead, depending on your plan.</p>
       </div>
       <div class="step" data-step="3">
         <span class="step-num">03</span>
         <h3>Secure member access</h3>
-        <p>The door opens for members at any hour — 5 AM before work or midnight after the kids are down.</p>
+        <p>Let yourself in with your own personal door code — 5 AM before work or after the kids are down, whenever your plan lets you play.</p>
       </div>
       <div class="step" data-step="4">
         <span class="step-num">04</span>
@@ -199,7 +199,7 @@
     <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
       <span class="eyebrow">Membership</span>
       <h2 class="h2">Choose your tier</h2>
-      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. Four simple tiers, from $100 a month.</p>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. {{ membershipNotes.fromLine }}</p>
     </div>
 
     <div class="tier-grid reveal" data-swipe="tiers">
@@ -209,6 +209,7 @@
           <div class="tier-name">{{ this.name }}</div>
           <p class="tier-persona">{{ this.persona }}</p>
           <div class="tier-price"><sup>$</sup>{{ this.price }}<span>{{ this.cadence }}</span></div>
+          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan · ${{ this.pifYear }}/yr paid in full</p>
         </div>
         <div class="tier-body">
           <ul class="checks">
@@ -228,13 +229,13 @@
     <div class="swipe-dots" data-swipe-dots="tiers"><span></span><span></span><span></span><span></span></div>
 
     <p class="fine" style="margin-top:var(--s4)">
-      {{ membershipNotes.everyTier }} · {{ membershipNotes.annual }} · {{ membershipNotes.limits }}
+      {{ membershipNotes.everyTier }} · {{ membershipNotes.annual }} · {{ memberRules.peak }} {{ membershipNotes.limits }}
     </p>
 
     <div class="actions" style="margin-top:var(--s4)">
       <a class="btn btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
     </div>
-    <p class="fine" style="margin-top:var(--s2)">{{ membershipNotes.waitlistNote }}</p>
+    <p class="fine" style="margin-top:var(--s2)">{{#if ctas.waitlist}}{{ membershipNotes.waitlistNote }}{{else}}{{ ctas.note }}{{/if}}</p>
   </div>
 </section>
 
@@ -244,8 +245,9 @@
     <div class="founders-grid">
       <div class="reveal">
         <span class="founders-pill">{{ founders.pill }}</span>
-        <h2 class="h2">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h2>
-        <p class="lead" style="margin-top:var(--s3)">Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee locks your monthly rate for life, whatever pricing looks like after opening. No payment required now — we'll contact you when memberships open.</p>
+        <h2 class="h2">Founders Club — {{ founders.discount }}% off your tier. <span class="accent-gold">For life.</span></h2>
+        <p class="lead" style="margin-top:var(--s3)">Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee takes {{ founders.discount }}% off your tier's monthly price for as long as your membership never lapses — {{ founders.example }}. {{ ctas.note }}</p>
+        <p class="fine" style="margin-top:var(--s2)">{{ founders.fine }}</p>
       </div>
       <div class="founders-card reveal" data-delay="1">
         <ul class="checks">
@@ -329,12 +331,12 @@
 
       <details class="faq-item" open>
         <summary>How does access work at 2 AM?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>You reserve your tee time online, then let yourself in with secure member access — no front desk, no staff to meet, no phone calls. {{ access.honesty }}</p></div>
+        <div class="faq-answer"><p>You book your bay online, then let yourself in with your own personal door code — no front desk, no staff to meet, no phone calls. 2 AM on a weekday is inside every plan's hours; weekends are Premier and Corporate only. {{ memberRules.door }} {{ access.honesty }}</p></div>
       </details>
 
       <details class="faq-item" open>
         <summary>Can I bring guests?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Yes, and your tier sets how many. Weekday Members bring up to 3 guests at $10 each; Full Members get 1 guest included with additional guests at $10; Premier Members bring up to 3 guests included; the Corporate Club covers up to 4 guests per visit.</p></div>
+        <div class="faq-answer"><p>Yes, and your tier sets how many. {{ memberRules.guests }} {{ memberRules.guestList }}</p></div>
       </details>
 
       <details class="faq-item" open>

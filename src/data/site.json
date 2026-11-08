@@ -34,16 +34,18 @@
   },
   "urls": {
     "booking": "https://book.worththedrivegolf.com",
-    "site": "https://worththedrivegolf.com"
+    "site": "https://worththedrivegolf.com",
+    "members": "https://members.worththedrivegolf.com"
   },
-  "_ctaComment": "HANDOFF rule 3: CTAs are swappable config. Pre-opening values are live now. After opening, flip `state` to \"open\" — no layout changes required.",
+  "_ctaComment": "HANDOFF rule 3: CTAs are swappable config. Pre-opening values are live now. After opening, flip `state` to \"open\" — no layout changes required. 2026-11-07: `open` now points at the members site (Join Membership, Founders Club, Member Login). Keys used by the templates: `waitlist` (present = show the Mailchimp waitlist form), `joinBase` (present = tier cards link to the members join page with ?tier=<id>), `login` (present = a Member Login link is added to the header, mobile and footer nav), `note` (the one-line signup note under Founders copy) and `primary.blurb` (the contact-page card text). `booking` is unchanged and must stay pointed at book.worththedrivegolf.com.",
   "cta": {
     "state": "pre-opening",
     "preOpening": {
       "primary": {
         "label": "Join the Waitlist",
         "short": "Join",
-        "href": "membership.html#waitlist"
+        "href": "membership.html#waitlist",
+        "blurb": "Hear first about opening dates and membership availability. No payment required."
       },
       "founders": {
         "label": "Reserve a Founders Spot",
@@ -54,24 +56,33 @@
         "short": "Book",
         "alt": "Book an Event",
         "href": "https://book.worththedrivegolf.com"
-      }
+      },
+      "waitlist": true,
+      "note": "No payment required now — we'll contact you when memberships open."
     },
     "open": {
       "primary": {
-        "label": "Become a Member",
+        "label": "Join Membership",
         "short": "Join",
-        "href": "membership.html"
+        "href": "https://members.worththedrivegolf.com/join",
+        "blurb": "Pick your tier, sign the waiver online and pay securely — you're approved the moment you pay."
       },
       "founders": {
-        "label": "Reserve a Founders Spot",
-        "href": "membership.html#founders"
+        "label": "Founders Club",
+        "href": "https://members.worththedrivegolf.com/founders"
       },
       "booking": {
         "label": "Book an Event",
         "short": "Book",
         "alt": "Book an Event",
         "href": "https://book.worththedrivegolf.com"
-      }
+      },
+      "joinBase": "https://members.worththedrivegolf.com/join",
+      "login": {
+        "label": "Member Login",
+        "href": "https://members.worththedrivegolf.com/login"
+      },
+      "note": "Join online — sign, pay, and your personal door code is ready right away."
     }
   },
   "nav": [
@@ -102,7 +113,7 @@
     "mobile": "Opening 2026",
     "mobileGold": "Founders Club forming"
   },
-  "_tiersComment": "FROZEN — HANDOFF rule 1. Exactly the current live memberships page. Do not add priority windows, holds, peak definitions, or new guest fees.",
+  "_tiersComment": "FROZEN — HANDOFF rule 1, with one owner-requested change. On 2026-11-07 the owner asked for a rule-matching pass so the website says exactly what the members system (members.worththedrivegolf.com, wtd-members src/config/defaults.js) enforces. That pass replaced the old freeze line ('Do not add priority windows, holds, peak definitions, or new guest fees') and changed: $100 hours to weekdays midnight-5 PM; $150 from 24/7 to off-peak; guests stated per booking; fixed 1/2/3-hour tee times replaced by 30-minute increments up to 4 hours; active-booking limits 1/1/2/2 changed to 2/2/4/4; booking windows added (1/1/2/2 weeks); Corporate users 2-3 changed to 2 and guests 4 changed to 3; buddy add-on added; the Weekday 2-hour buddy-block line removed. Prices stay configurable data: `price` is the month-to-month list price in whole dollars. `commitMonthly`, `commitYear`, `pifYear`, `founderPrice`, `buddyAdd` and `guestFee` are derived the same way the members system's pricing.quote() derives them (12-month plan = 11 months spread over 12 payments, rounded down to the cent with the last payment absorbing the remainder; paid in full = 10 months; Founders = 25% off `price`; buddy add-on = 33% of `price`). If a price changes in the members admin, update these fields to match /api/public/plans. Frozen otherwise: change values only when the members system changes. Removing `buddyAdd` hides the buddy line for that tier.",
   "tiers": [
     {
       "id": "weekday",
@@ -111,19 +122,26 @@
       "persona": "Daytime flexibility, serious value",
       "price": 100,
       "cadence": "/mo",
+      "commitMonthly": "91.66",
+      "commitYear": "1,100",
+      "pifYear": "1,000",
+      "founderPrice": "75",
+      "buddyAdd": "33",
+      "guestFee": "10",
       "featured": false,
       "defining": [
-        "Weekday access (no 5–9 PM or weekends)",
-        "1-hour tee times",
-        "Up to 3 guests at $10 each",
-        "1 active booking at a time"
+        "Weekdays, midnight to 5 PM",
+        "Book up to 1 week ahead · 2 active bookings",
+        "Up to 3 guests per booking at $10 each",
+        "Book in 30-minute increments"
       ],
       "benefits": [
-        "Weekday access (no 5–9 PM or weekends)",
-        "1-hour tee times",
-        "2-hour blocks when booking with another Weekday Member",
-        "Up to 3 guests at $10 each",
-        "1 active booking at a time",
+        "Unlimited play on weekdays, midnight to 5 PM",
+        "Book in 30-minute increments, up to 4 hours per booking",
+        "Book up to 1 week ahead",
+        "Hold up to 2 active bookings at a time",
+        "Up to 3 guests per booking at $10 each",
+        "Add a buddy or spouse for +33% ($33/mo)",
         "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
@@ -132,21 +150,29 @@
       "id": "full",
       "name": "Full Member",
       "tier": "Tier 2 — Most Popular",
-      "persona": "The club, any hour",
+      "persona": "Off-peak, unlimited",
       "price": 150,
       "cadence": "/mo",
+      "commitMonthly": "137.50",
+      "commitYear": "1,650",
+      "pifYear": "1,500",
+      "founderPrice": "112.50",
+      "buddyAdd": "49.50",
+      "guestFee": "10",
       "featured": true,
       "defining": [
-        "24/7 access — any time, any day",
-        "2-hour tee times",
-        "1 guest included; additional guests $10 each",
-        "1 active booking at a time"
+        "Unlimited off-peak play",
+        "Weekdays before 5 PM and after 10 PM",
+        "1 guest free per booking; extra guests $10 each",
+        "Book up to 1 week ahead · 2 active bookings"
       ],
       "benefits": [
-        "24/7 access — any time, any day",
-        "2-hour tee times",
-        "1 guest included; additional guests $10 each",
-        "1 active booking at a time",
+        "Unlimited off-peak play — weekdays before 5 PM and after 10 PM",
+        "Book in 30-minute increments, up to 4 hours per booking",
+        "Book up to 1 week ahead",
+        "Hold up to 2 active bookings at a time",
+        "1 guest free per booking; extra guests $10 each, up to 3 guests",
+        "Add a buddy or spouse for +33% ($49.50/mo)",
         "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
@@ -158,18 +184,26 @@
       "persona": "Bring your foursome",
       "price": 200,
       "cadence": "/mo",
+      "commitMonthly": "183.33",
+      "commitYear": "2,200",
+      "pifYear": "2,000",
+      "founderPrice": "150",
+      "buddyAdd": "66",
+      "guestFee": "0",
       "featured": false,
       "defining": [
-        "24/7 access — any time, any day",
-        "3-hour tee times",
-        "Up to 3 guests included",
-        "2 active bookings at a time"
+        "Anytime — 24/7, peak hours included",
+        "3 guests free per booking",
+        "Book up to 2 weeks ahead",
+        "4 active bookings at a time"
       ],
       "benefits": [
-        "24/7 access — any time, any day",
-        "3-hour tee times",
-        "Up to 3 guests included",
-        "2 active bookings at a time",
+        "Anytime access — 24/7, including peak hours",
+        "Book in 30-minute increments, up to 4 hours per booking",
+        "Book up to 2 weeks ahead",
+        "Hold up to 4 active bookings at a time",
+        "Up to 3 guests per booking, free",
+        "Add a buddy or spouse for +33% ($66/mo)",
         "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
@@ -181,42 +215,79 @@
       "persona": "Your team's fourth place",
       "price": 400,
       "cadence": "/mo",
+      "commitMonthly": "366.66",
+      "commitYear": "4,400",
+      "pifYear": "4,000",
+      "founderPrice": "300",
+      "guestFee": "0",
       "featured": false,
       "gold": false,
       "defining": [
-        "24/7 access for your team",
-        "2–3 named users on the account",
-        "Up to 4 guests per visit",
-        "1 private event per year included"
+        "Anytime access for your team — 24/7",
+        "2 named users, each with their own door code",
+        "3 guests free per booking",
+        "Book up to 2 weeks ahead · 4 active bookings"
       ],
       "benefits": [
-        "24/7 access for your team",
-        "2–3 named users on the account",
-        "Up to 4 guests per visit",
-        "2 active bookings at a time",
+        "Anytime access for your team — 24/7, including peak hours",
+        "2 named users on the account, each with their own door code",
+        "Book in 30-minute increments, up to 4 hours per booking",
+        "Book up to 2 weeks ahead",
+        "Hold up to 4 active bookings at a time, shared by the account",
+        "Up to 3 guests per booking, free",
         "1 private event per year included",
         "Swing A.I. Trainer included",
         "Priority registration & preferred pricing on league play"
       ]
     }
   ],
+  "_membershipNotesComment": "Plain-language notes shared by the membership, studio and home pages. 2026-11-07: `annual` now describes the 12-month plans; `monthToMonth` and `commitRounding` added. Shown only while `billing.monthToMonth` is true: the members admin can switch month-to-month off for new sign-ups, and if it does, set it false here too.",
+  "billing": {
+    "monthToMonth": true
+  },
   "membershipNotes": {
     "everyTier": "Every tier: priority registration & preferred pricing on league play",
-    "annual": "Annual plans: 1 month free — or 2 months free paid in full",
+    "fromLine": "Four tiers, from $100 a month — save a month with a 12-month plan, or two by paying the year up front.",
+    "monthToMonth": "Month to month at the list price, cancel any time",
+    "annual": "12-month plans: 1 month free, billed monthly — or 2 months free paid in full",
+    "commitRounding": "On a 12-month plan billed monthly, the last payment is adjusted by a few cents so the year adds up to exactly 11 months.",
     "limits": "Booking limits protect availability for all members.",
     "waitlistNote": "The waitlist records your preferred tier — no payment required."
   },
-  "_foundersComment": "HANDOFF rule 4. Gold appears ONLY here and in the announcement bar founders mention. Counter stays omitted until a real source exists.",
+  "_memberRulesComment": "Added 2026-11-07. One-line statements of the members system's booking and membership rules, used in FAQs and summary cards so every page says the same thing. Numbers are the members system's defaults (configurable in its admin); keep these in step with it and with wtd-members src/documents/membership-terms.md.",
+  "memberRules": {
+    "peak": "Peak hours are weekdays 5–10 PM and all day Saturday and Sunday.",
+    "booking": "Book in 30-minute increments, from 30 minutes up to 4 hours per booking.",
+    "windows": "Book up to 1 week ahead on Weekday and Full, 2 weeks on Premier and Corporate, and 3 weeks as a Founder.",
+    "limits": "Hold up to 2 upcoming bookings on Weekday and Full, 4 on Premier and Corporate, and 6 as a Founder (no more than 2 in peak hours). Limits are shared by your household.",
+    "household": "One household, one bay at a time. If another bay is still empty within 15 minutes of its start time, your household can claim it for up to an hour.",
+    "guests": "Guests are per booking. Weekday Members bring up to 3 guests at $10 each. Full Members get 1 guest free, with extra guests at $10 each, up to 3. Premier Members and the Corporate Club bring up to 3 guests free.",
+    "guestList": "Every guest must be on your booking — by name, or as “Guest 1” and “Guest 2” if you'd rather not say. Guest fees are charged when you book, and guests come in with you.",
+    "buddy": "Add a buddy or spouse for 33% of your tier's base price, split between you — Premier for two is $266 a month, or $133 each. Each of you gets your own door code, signs your own waiver and pays your own half, and nothing starts until both of you have signed and paid. Not available on the Corporate Club.",
+    "buddyLeave": "If one of you leaves, the other keeps full access for 30 days at their half rate, then switches to a solo membership or cancels. A replacement buddy can step in and take over the remaining months.",
+    "door": "When you join, the system creates your own 6-digit door code. It works right away and stays on once you've done your in-person walkthrough within 30 days. Your code is personal — never share it.",
+    "signup": "Sign the waiver online, pay securely, and you're approved straight away — no application to wait on.",
+    "grace": "If a payment fails, it's retried automatically and you keep full access for at least 24 hours while you update your card.",
+    "cancel": "Cancel a booking any time before it starts. Month-to-month memberships can be cancelled any time; on a 12-month plan, the rest of the commitment is still owed if you leave early.",
+    "anytime": "The Studio never closes: Premier and Corporate members can book any hour, and Weekday and Full members book the off-peak hours their plan includes."
+  },
+  "buddy": {
+    "adderPercent": 33
+  },
+  "_foundersComment": "HANDOFF rule 4. Gold appears ONLY here and in the announcement bar founders mention. Counter stays omitted until a real source exists. 2026-11-07: 'Rate locked for life' replaced by the members system's rule (25% off the base tier price for life while the membership never lapses). Benefits now match the system's founders.perks list. OWNER DECISION PENDING: how to treat people who joined the Founders waitlist under the old 'rate locked for life' wording.",
   "founders": {
     "pill": "Limited · 40 spots only",
     "spots": 40,
     "fee": 500,
+    "discount": 25,
+    "example": "Premier at $150 a month instead of $200",
+    "fine": "The 25% comes off your tier's base price, not the buddy add-on, and 12-month and paid-in-full savings still apply on top. In a buddy household both of you must be Founders — each pays the fee and takes a spot. If your membership ever lapses, the Founders rate ends for good.",
     "_counterNote": "The spots-remaining counter is driven at runtime by /founders.json, not from here. Edit that file to turn it on.",
     "benefits": [
-      "Rate locked for life",
-      "Founding member status",
-      "Priority booking access",
-      "Founding member events"
+      "25% off your tier for life while your membership never lapses",
+      "Book 3 weeks ahead",
+      "Hold up to 6 bookings (2 in peak)",
+      "Embroidered Founders flag"
     ]
   },
   "_onTourComment": "FROZEN — HANDOFF rule 5.",

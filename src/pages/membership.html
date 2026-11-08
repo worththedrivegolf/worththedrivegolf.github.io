@@ -3,7 +3,7 @@
   "slug": "membership",
   "canonical": "membership.html",
   "title": "Membership | Worth the Drive Golf Studio — Wawaka, Indiana",
-  "description": "Four simple membership tiers from $100 a month at the Worth the Drive Golf Studio in Wawaka, Indiana. Join the waitlist or reserve a Founders Club spot.",
+  "description": "Four membership tiers from $100 a month at the Worth the Drive Golf Studio in Wawaka, Indiana — save with a 12-month plan. Join the waitlist or reserve a Founders Club spot.",
   "year": 2026
 }
 -->
@@ -14,10 +14,10 @@
     <div class="reveal">
       <span class="eyebrow">Membership</span>
       <h1 class="h1">Choose your tier.</h1>
-      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. Four simple tiers, from $100 a month — with annual savings if you want them.</p>
+      <p class="lead" style="margin-top:var(--s3)">Every tier includes studio access, the full course library, and the Swing A.I. Trainer. {{ membershipNotes.fromLine }}</p>
       <div class="actions" style="margin-top:var(--s4)">
-        <a class="btn btn-primary" href="#waitlist">{{ ctas.primary.label }}</a>
-        <a class="btn btn-ghost" href="#founders" data-preselect-interest="Founders Club">{{ ctas.founders.label }}</a>
+        <a class="btn btn-primary" href="{{ ctas.primary.href }}">{{ ctas.primary.label }}</a>
+        <a class="btn btn-ghost" href="{{ ctas.founders.href }}" data-preselect-interest="Founders Club">{{ ctas.founders.label }}</a>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
     <div class="reveal" style="margin-bottom:clamp(32px,4vw,52px)">
       <span class="eyebrow">The Tiers</span>
       <h2 class="h2">Membership, in full</h2>
-      <p class="lead" style="margin-top:var(--s3)">Full benefits for every tier. {{ membershipNotes.limits }}</p>
+      <p class="lead" style="margin-top:var(--s3)">{{ memberRules.peak }} {{ membershipNotes.limits }}</p>
     </div>
 
     <div class="tier-grid reveal" data-swipe="tiers">
@@ -39,6 +39,7 @@
           <div class="tier-name">{{ this.name }}</div>
           <p class="tier-persona">{{ this.persona }}</p>
           <div class="tier-price"><sup>$</sup>{{ this.price }}<span>{{ this.cadence }}</span></div>
+          <p class="tier-persona" style="margin:10px 0 0">{{#if billing.monthToMonth}}Month to month{{else}}List price{{/if}} · ${{ this.commitMonthly }}/mo on a 12-month plan · ${{ this.pifYear }}/yr paid in full</p>
         </div>
         <div class="tier-body">
           <ul class="checks">
@@ -48,53 +49,71 @@
           </ul>
         </div>
         <div class="tier-foot">
-          <a class="btn btn-primary btn-sm" href="#waitlist" data-preselect-tier="{{ this.name }}" style="width:100%">Reserve this tier</a>
+          {{#if ctas.joinBase}}<a class="btn btn-primary btn-sm" href="{{ ctas.joinBase }}?tier={{ this.id }}" style="width:100%">Join {{ this.name }}</a>{{else}}<a class="btn btn-primary btn-sm" href="#waitlist" data-preselect-tier="{{ this.name }}" style="width:100%">Reserve this tier</a>{{/if}}
         </div>
       </article>
       {{/each}}
     </div>
     <div class="swipe-dots" data-swipe-dots="tiers"><span></span><span></span><span></span><span></span></div>
 
-    <div class="grid grid-2" style="margin-top:clamp(36px,4vw,56px)">
+    <div class="grid grid-2" style="margin-top:clamp(36px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr))">
       <div class="card card-light reveal">
+        <h3 class="h4" style="margin-bottom:10px">Ways to pay</h3>
+        <p style="font-size:0.9375rem">{{#if billing.monthToMonth}}{{ membershipNotes.monthToMonth }}. {{/if}}{{ membershipNotes.annual }}. {{ membershipNotes.commitRounding }}</p>
+      </div>
+      <div class="card card-light reveal" data-delay="1">
+        <h3 class="h4" style="margin-bottom:10px">Peak hours &amp; booking</h3>
+        <p style="font-size:0.9375rem">{{ memberRules.peak }} {{ memberRules.booking }} {{ memberRules.windows }}</p>
+      </div>
+      <div class="card card-light reveal">
+        <h3 class="h4" style="margin-bottom:10px">Bring a buddy or spouse</h3>
+        <p style="font-size:0.9375rem">{{ memberRules.buddy }}</p>
+      </div>
+      <div class="card card-light reveal" data-delay="1">
         <h3 class="h4" style="margin-bottom:10px">League play &amp; events</h3>
         <p style="font-size:0.9375rem">League play and select events may be offered separately, with members receiving preferred pricing and priority registration. Non-members may participate in select open events.</p>
       </div>
-      <div class="card card-light reveal" data-delay="1">
-        <h3 class="h4" style="margin-bottom:10px">Annual savings</h3>
-        <p style="font-size:0.9375rem">{{ membershipNotes.annual }}. {{ membershipNotes.limits }}</p>
-      </div>
     </div>
+    <p class="fine reveal" style="margin-top:var(--s3)">The full rules are in the <a href="membership-terms.html" style="color:var(--green-deep)">Membership Terms &amp; Policies</a> (draft, under attorney review).</p>
   </div>
 </section>
 
 
-<!-- WAITLIST ============================================================= -->
+<!-- SIGN UP: waitlist while pre-opening, join online once open =========== -->
 <section class="band band-deep" id="waitlist">
   <div class="container">
     <div class="split" style="align-items:start">
       <div class="reveal">
+        {{#if ctas.waitlist}}
         <span class="eyebrow">Sign Up</span>
         <h2 class="h2">Get on the list</h2>
         <p class="lead" style="margin-top:var(--s3)">Waitlist or Founders Club — one form for both. Tell us which below, and we'll be in touch as The Studio gets closer to opening.</p>
         <p class="fine" style="margin-top:var(--s3)">{{ membershipNotes.waitlistNote }} A Founders spot is confirmed later, when we contact you.</p>
+        {{else}}
+        <span class="eyebrow">Join</span>
+        <h2 class="h2">Join online</h2>
+        <p class="lead" style="margin-top:var(--s3)">{{ memberRules.signup }}</p>
+        <p class="fine" style="margin-top:var(--s3)">{{ memberRules.door }}</p>
+        {{/if}}
 
         <!-- Founders explanation lives here, in the same section as the form,
              so a founders CTA anywhere on the site is one click to signing up.
              #founders is on this block, not a separate band. -->
         <div class="founders-inline" id="founders">
           <span class="founders-pill">{{ founders.pill }}</span>
-          <h3 class="h4">Founders Club — lock in your rate. <span class="accent-gold">Forever.</span></h3>
-          <p>Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee locks your monthly rate for life, whatever pricing looks like after opening. Choose <em>Founders Club</em> in the form and we'll contact you when memberships open.</p>
+          <h3 class="h4">Founders Club — {{ founders.discount }}% off your tier. <span class="accent-gold">For life.</span></h3>
+          <p>Be one of the first {{ founders.spots }} founding members: a one-time ${{ founders.fee }} fee takes {{ founders.discount }}% off your tier's monthly price for as long as your membership never lapses — {{ founders.example }}. {{#if ctas.waitlist}}Choose <em>Founders Club</em> in the form and we'll contact you when memberships open.{{else}}<a href="{{ ctas.founders.href }}" style="color:var(--gold)">Claim a Founders spot</a>.{{/if}}</p>
           <ul class="checks">
             {{#each founders.benefits}}
             <li><svg class="icon icon-sm icon-gold" aria-hidden="true"><use href="#i-check"></use></svg><span>{{ this }}</span></li>
             {{/each}}
           </ul>
+          <p class="fine" style="margin-top:var(--s2)">{{ founders.fine }}</p>
           <p class="founders-count" data-founders-count data-founders-total="{{ founders.spots }}" hidden></p>
         </div>
       </div>
 
+      {{#if ctas.waitlist}}
       <div class="card card-dark reveal" data-delay="1">
         <!-- Mailchimp audience — unchanged from the live site. The hidden
              honeypot field below is Mailchimp's bot protection: do not remove. -->
@@ -138,6 +157,19 @@
           <p class="fine" style="margin-top:var(--s2)">No payment required · We'll contact you when memberships open</p>
         </form>
       </div>
+      {{else}}
+      <div class="card card-dark reveal" data-delay="1">
+        <h3 class="h4" style="margin-bottom:var(--s2)">Three steps, one sitting</h3>
+        <ul class="checks">
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Pick your tier, how you pay, and add a buddy or spouse if you like</span></li>
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Sign the waiver online — and the 12-month agreement if you choose a 12-month plan</span></li>
+          <li><svg class="icon icon-sm icon-green" aria-hidden="true"><use href="#i-check"></use></svg><span>Pay securely and get your personal door code straight away</span></li>
+        </ul>
+        <a class="btn btn-primary" href="{{ ctas.primary.href }}" style="width:100%;margin-top:var(--s3)">{{ ctas.primary.label }}</a>
+        <a class="btn btn-gold" href="{{ ctas.founders.href }}" style="width:100%;margin-top:var(--s2)">{{ ctas.founders.label }}</a>
+        {{#if ctas.login}}<p class="fine" style="margin-top:var(--s2)">Already a member? <a href="{{ ctas.login.href }}" style="color:var(--green-bright)">{{ ctas.login.label }}</a></p>{{/if}}
+      </div>
+      {{/if}}
     </div>
   </div>
 </section>
@@ -158,29 +190,61 @@
 
       <details class="faq-item" open>
         <summary>What does every tier include?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Studio access, the full GSPro course library, the Swing A.I. Trainer, and priority registration with preferred pricing on league play. Tiers differ in when you can play, how long your tee times run, how many guests you bring, and how many bookings you can hold at once.</p></div>
+        <div class="faq-answer"><p>Studio access, the full GSPro course library, the Swing A.I. Trainer, and priority registration with preferred pricing on league play. Tiers differ in when you can play, how far ahead you can book, how many bookings you can hold at once, and how many guests come free.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>What are peak hours?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.peak }} Premier Members and the Corporate Club can book any time, peak included. Full Members play off-peak — weekdays before 5 PM and after 10 PM. Weekday Members play weekdays from midnight to 5 PM.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>How does booking work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.booking }} {{ memberRules.windows }} {{ memberRules.limits }} {{ memberRules.cancel }}</p></div>
       </details>
 
       <details class="faq-item" open>
         <summary>How do guests work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Weekday Members bring up to 3 guests at $10 each. Full Members get 1 guest included, with additional guests at $10 each. Premier Members bring up to 3 guests included. The Corporate Club covers up to 4 guests per visit.</p></div>
+        <div class="faq-answer"><p>{{ memberRules.guests }} {{ memberRules.guestList }}</p></div>
       </details>
 
       <details class="faq-item" open>
-        <summary>Is there an annual option?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>Yes. {{ membershipNotes.annual }}.</p></div>
+        <summary>Can my household use two bays at once?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.household }} A second-bay claim doesn't count toward your booking limits.</p></div>
       </details>
 
       <details class="faq-item" open>
-        <summary>Why are bookings limited?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>{{ membershipNotes.limits }} Each tier sets how many bookings you can hold at once so tee times stay open for everyone, and memberships themselves are limited for the same reason.</p></div>
+        <summary>Can I add my spouse or a buddy?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.buddy }} {{ memberRules.buddyLeave }}</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>How do the 12-month plans work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ membershipNotes.annual }}. On {{ tiers.2.name }}, for example, that's ${{ tiers.2.commitMonthly }} a month (${{ tiers.2.commitYear }} for the year) or ${{ tiers.2.pifYear }} paid in full, against ${{ tiers.2.price }} a month{{#if billing.monthToMonth}} month to month{{/if}}. {{ membershipNotes.commitRounding }} If you leave a 12-month plan early, the rest of the commitment is still owed. After the 12 months your membership simply continues month to month.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>How does the Founders Club work?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>The first {{ founders.spots }} members can pay a one-time ${{ founders.fee }} fee for {{ founders.discount }}% off their tier's base price for life, as long as the membership never lapses. Founders also book 3 weeks ahead, hold up to 6 bookings (2 in peak) and get an embroidered Founders flag. {{ founders.fine }}</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>How do I get in?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.signup }} {{ memberRules.door }} {{ access.honesty }}</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>What if a payment fails?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
+        <div class="faq-answer"><p>{{ memberRules.grace }} After that, we'll be in touch and your door code and bookings may pause until it's sorted out.</p></div>
       </details>
 
       <details class="faq-item" open>
         <summary>Can I visit before joining?<svg class="icon icon-sm" aria-hidden="true"><use href="#i-plus"></use></svg></summary>
-        <div class="faq-answer"><p>There are no walk-ins and no drop-in tee times — day-to-day access is reserved for members and invited guests. Watch for advertised open nights to experience the Studio before joining.</p></div>
+        <div class="faq-answer"><p>There are no walk-ins, no drop-in tee times and no public online booking — day-to-day access is reserved for members and invited guests. Watch for advertised open nights to experience the Studio before joining.</p></div>
       </details>
     </div>
+
+    <a class="link-arrow" href="membership-terms.html" style="margin-top:var(--s4)">Membership Terms &amp; Policies <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
   </div>
 </section>
 

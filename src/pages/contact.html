@@ -77,7 +77,7 @@
             <div class="hour"><b>Saturday</b><span>{{ onTour.hours }}</span></div>
             <div class="hour"><b>Sunday</b><span>{{ onTour.hours }}</span></div>
           </div>
-          <p class="fine" style="margin-top:var(--s2)">Studio hours will be 24/7 for members once open.</p>
+          <p class="fine" style="margin-top:var(--s2)">Once open, the Studio never closes: Premier and Corporate members can book any hour, and Weekday and Full plans cover set off-peak hours.</p>
         </div>
       </div>
 
@@ -144,17 +144,17 @@
         <p style="font-size:0.9375rem">Pick your date and pay the ${{ onTour.deposit }} deposit online. Packages from ${{ onTour.packages.0.price }}.</p>
         <span class="link-arrow">Book now <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
       </a>
-      <a class="card card-light" href="membership.html#waitlist" style="text-decoration:none;display:grid;gap:12px;align-content:start">
+      <a class="card card-light" href="{{ ctas.primary.href }}" style="text-decoration:none;display:grid;gap:12px;align-content:start">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-lock"></use></svg>
-        <h3 class="h4">Join the waitlist</h3>
-        <p style="font-size:0.9375rem">Hear first about opening dates and membership availability. No payment required.</p>
-        <span class="link-arrow">Join the waitlist <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+        <h3 class="h4">{{ ctas.primary.label }}</h3>
+        <p style="font-size:0.9375rem">{{ ctas.primary.blurb }}</p>
+        <span class="link-arrow">{{ ctas.primary.label }} <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
       </a>
-      <a class="card card-light" href="membership.html#founders" style="text-decoration:none;display:grid;gap:12px;align-content:start">
+      <a class="card card-light" href="{{ ctas.founders.href }}" style="text-decoration:none;display:grid;gap:12px;align-content:start">
         <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-flag"></use></svg>
         <h3 class="h4">Founders Club</h3>
-        <p style="font-size:0.9375rem">{{ founders.spots }} spots, a one-time ${{ founders.fee }} fee, and your rate locked for life.</p>
-        <span class="link-arrow">Reserve a spot <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+        <p style="font-size:0.9375rem">{{ founders.spots }} spots, a one-time ${{ founders.fee }} fee, and {{ founders.discount }}% off your tier for life while your membership never lapses.</p>
+        <span class="link-arrow">{{ ctas.founders.label }} <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
       </a>
     </div>
   </div>

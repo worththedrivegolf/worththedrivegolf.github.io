@@ -18,7 +18,7 @@
       <ul>
         {{#each nav}}
         <li><a href="{{ this.href }}">{{ this.label }}</a></li>
-        {{/each}}
+        {{/each}}{{#if ctas.login}}<li><a href="{{ ctas.login.href }}">{{ ctas.login.label }}</a></li>{{/if}}
       </ul>
     </nav>
 
@@ -58,7 +58,7 @@
     <ul>
       {{#each nav}}
       <li><a href="{{ this.href }}">{{ this.label }}</a></li>
-      {{/each}}
+      {{/each}}{{#if ctas.login}}<li><a href="{{ ctas.login.href }}">{{ ctas.login.label }}</a></li>{{/if}}
     </ul>
   </nav>
   <div class="mobile-menu-foot">
