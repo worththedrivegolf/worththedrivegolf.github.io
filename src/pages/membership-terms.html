@@ -7,7 +7,7 @@
   "year": 2026
 }
 -->
-<!-- GENERATED from wtd-members src/documents/membership-terms.md (version 2026-11-draft-3)
+<!-- GENERATED from wtd-members src/documents/membership-terms.md (version 2026-11-draft-4)
      by src/documents/tools/terms-to-site.js. Edit the .md and regenerate; do not edit this text by hand.
      DRAFT - FOR ATTORNEY REVIEW - NOT FINAL. -->
 
@@ -25,7 +25,7 @@
   <div class="container">
     <div class="notice reveal" style="margin-bottom:clamp(28px,3vw,44px);max-width:860px">
       <svg class="icon icon-lg icon-green" aria-hidden="true"><use href="#i-lock"></use></svg>
-      <p><strong>DRAFT - FOR ATTORNEY REVIEW - NOT FINAL.</strong> These terms (version 2026-11-draft-3) are a working draft. They are not in effect yet and will change after attorney review. Notes in [brackets] are open questions for the owner or the attorney. On Tour events are covered by the separate <a href="rental-terms.html" style="color:var(--green-deep)">Rental Terms</a>.</p>
+      <p><strong>DRAFT - FOR ATTORNEY REVIEW - NOT FINAL.</strong> These terms (version 2026-11-draft-4) are a working draft. They are not in effect yet and will change after attorney review. Notes in [brackets] are open questions for the owner or the attorney. On Tour events are covered by the separate <a href="rental-terms.html" style="color:var(--green-deep)">Rental Terms</a>.</p>
     </div>
 
     <div class="terms reveal">
@@ -101,7 +101,7 @@
         </ul>
         <p>Both 12-month plans are covered by the Membership Commitment Agreement, which you sign before you pay. When the 12 months end, your membership continues month to month at your plan's month-to-month price until you cancel or choose a new 12-month plan. Your price is fixed for the 12-month term.</p>
         <p>The Founders rate (section 13) and the buddy or spouse add-on (section 11) apply to every way of paying.</p>
-        <p>Payments are handled by our payment processor, Stripe. We never see or store your full card number. You can update your card from your account page. Promotional codes, when we offer them, apply as stated at checkout. {{ memberTerms.billing.codesRule }} [OWNER TO CONFIRM (decisions A2 and A3, working defaults): codes never reduce the Founders fee, and a household's code discounts both payers and counts as one use of the code.]</p>
+        <p>Payments are handled by our payment processor, Stripe. We never see or store your full card number. You can update your card from your account page. Promotional codes, when we offer them, apply as stated at checkout. {{ memberTerms.billing.codesRule }} A household's code counts as one use of the code.</p>
       </div>
 
       <div class="term">
@@ -113,13 +113,19 @@
           <li><strong>You are approved automatically as soon as your payment goes through.</strong> There is no application to wait on.</li>
           <li>You must be at least 18 years old.</li>
           <li>In a buddy or spouse household, nothing starts until both of you have signed and paid (section 11).</li>
+          <li><strong>Complimentary memberships.</strong> The studio may give a membership at no charge, for example for a soft opening before the studio opens to paying members. It works like any other membership on its plan, with the differences below.</li>
+          <li>A complimentary membership has nothing to pay and no card on file, so guests beyond your plan's free guests are not available.</li>
+          <li>With a complimentary membership you sign the Member Waiver and accept these terms, and you accept the House Rules at your first booking, <strong>before your door code is issued</strong>.</li>
+          <li>A complimentary membership may have a last day. It ends at the end of that day.</li>
+          <li>The studio can end a complimentary membership at any time. When it ends, your door code stops working and your future bookings are cancelled.</li>
         </ul>
+        <p style="font-size:0.8125rem;color:var(--muted-light)"><em>[ATTORNEY REVIEW: complimentary memberships: is the waiver and these terms enforceable without payment (consideration); the studio's right to end one at any time, and any notice before it does; and whether a complimentary member who booked before the opening day needs anything more.]</em></p>
       </div>
 
       <div class="term">
         <h3>6. Your door code and walkthrough</h3>
         <ul>
-          <li>When your membership becomes active, the system creates a <strong>{{ memberTerms.access.pinDigits }}-digit door code</strong> for you. Each person gets their own. You cannot choose it, and a code is never reused for anyone else.</li>
+          <li>When your membership becomes active (a complimentary membership: once you have signed, section 5), the system creates a <strong>{{ memberTerms.access.pinDigits }}-digit door code</strong> for you. Each person gets their own. You cannot choose it, and a code is never reused for anyone else.</li>
           <li>Your code works <strong>straight away</strong>. You can see it on your account page.</li>
           <li><strong>It stops working {{ memberTerms.access.walkthroughDays }} after it is issued unless you have done the in-person walkthrough</strong> with the owner or a member of the studio team.{{ memberTerms.access.walkthroughStartRule }} Once your walkthrough is recorded, the code no longer expires, and a code that had expired is switched back on.</li>
           <li>The same code signs you in at your bay, including on a booking another member added you to (section 9).</li>
@@ -252,7 +258,6 @@
           <li>After the grace period, your door code and new bookings are paused automatically until the payment is made, and the studio is notified. In a buddy household only the person whose payment failed is paused. While a payment is overdue, other members cannot add you to their bookings.</li>
           <li>When the payment is made, your access comes back.</li>
           <li>If the payment is never made, your membership may be ended, which ends the Founders rate (section 13). {{ memberTerms.billing.lapseOwedRule }}</li>
-          <li><em style="font-size:0.8125rem;color:var(--muted-light)">[OWNER TO CONFIRM (decision A4/A5): when a membership ends because a payment was never made, is the rest of a 12-month commitment written off too, or still owed? Section 19 says it is still owed when the studio ends a membership for non-payment.]</em></li>
         </ul>
       </div>
 
@@ -302,8 +307,9 @@
           <li><strong>Guest names and emails are used only for that booking's record and for safety.</strong> A guest's email is used for marketing only if the guest agreed and you ticked the box for them. A member you add to your booking sees how many guests are on it, not their names. We never sell member or guest information.</li>
           <li>Door codes are stored encrypted. Studio staff can view one only when needed, and every view is logged.</li>
           <li>We share information only with the services that run the studio (payments, email, hosting and the door-access system) or when the law requires it.</li>
+          <li><strong>How long we keep each kind of record</strong>, and how to ask for a copy of your information or to have it removed after you leave, are in our Privacy Policy, linked at the bottom of every page of the members site. Payment records and signed documents are kept for as long as the law requires.</li>
         </ul>
-        <p style="font-size:0.8125rem;color:var(--muted-light)"><em>[ATTORNEY REVIEW: whether a separate privacy policy is needed, how long records are kept, and data-breach notice duties under Indiana law.]</em></p>
+        <p style="font-size:0.8125rem;color:var(--muted-light)"><em>[ATTORNEY REVIEW: the Privacy Policy draft (legal review notes PR1-PR4) and whether these terms should incorporate it by reference; data-breach notice duties under Indiana law.]</em></p>
       </div>
 
       <div class="term">
@@ -320,7 +326,7 @@
       <div class="term">
         <h3>20. Changes to these terms</h3>
         <ul>
-          <li>These terms are version 2026-11-draft-3. The members system records which version of each document you accepted, and keeps a copy of the exact text.</li>
+          <li>These terms are version 2026-11-draft-4. The members system records which version of each document you accepted, and keeps a copy of the exact text.</li>
           <li>We can change prices, hours, guest allowances, booking windows, limits and these terms. A price change never affects a 12-month term that has already started.</li>
           <li>We will email you before a change takes effect. When the waiver or House Rules change, you accept the new version before your next booking. When these terms change, the members site asks you to accept the new version; it does not stop you booking.</li>
         </ul>

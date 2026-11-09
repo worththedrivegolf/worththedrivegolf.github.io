@@ -351,7 +351,7 @@
       "commitFreeMonths": "1 month",
       "commitPaidMonths": "11 months",
       "graceHours": "48 hours",
-      "lapseOwedRule": "The payment that failed is then written off, so you do not owe it.",
+      "lapseOwedRule": "The payment that failed is then written off, so you do not owe that payment. On a 12-month plan, the rest of your 12-month commitment is still owed, the same as when you leave early (section 15). Nothing more is charged to your card automatically; the studio may contact you to collect it.",
       "pifFreeMonths": "2 months",
       "pifPaidMonths": "10 months",
       "retryWindow": "2 weeks",
