@@ -311,7 +311,7 @@
     "cancel": "Cancel a booking any time before it starts. Month-to-month memberships can be cancelled any time; on a 12-month plan, the rest of the commitment is still owed if you leave early.",
     "anytime": "The Studio never closes: Premier and Corporate members can book any hour, and Weekday and Full members book the off-peak hours their plan includes.",
     "shared": "Two members in one bay get their free guests combined (for example 3 + 3 = 6 free), 8 players maximum.",
-    "session": "Five minutes before your end time the screens let you know. If the bay is free next, you can extend by 30 or 60 minutes, up to 2 hours in total. At your end time the simulator closes, the screen shows “Session over” and the bay computer goes to sleep until the next booking.",
+    "session": "Five minutes before your end time the screens let you know. If the bay is free next, you can extend by 30 or 60 minutes, up to 2 hours in total. At your end time the simulator closes, the screen shows “Session over” and the bay computer goes to sleep, unless the next booking on that bay starts within 15 minutes, when it goes straight back to the sign-in screen instead.",
     "buddyFounders": "Founders: the 25% comes off the base price only, and the add-on stays 33% of the regular price ($66 a month on Premier), so Premier for two Founders is $216 a month ($108 each) month to month."
   },
   "_studioRulesComment": "Added 2026-11-08. Booking and guest numbers from the members settings, WRITTEN BY wtd-members src/documents/tools/site-data.js: the longest booking, the default length of a new booking, players per bay, guests that fit with one or two members on a booking, the guest fee (whole dollars, the site adds the $) and the extension options at the 5-minute warning.",
@@ -331,7 +331,8 @@
   "memberTerms": {
     "access": {
       "pinDigits": "6",
-      "walkthroughDays": "30 days"
+      "walkthroughDays": "30 days",
+      "walkthroughStartRule": " If you join before the studio door goes live, the 30 days start on the day it goes live; until then your code does not expire."
     },
     "advance": {
       "corporate": "2 weeks",
@@ -341,17 +342,19 @@
     },
     "automation": {
       "extendOptions": "30 or 60 minutes",
-      "sleepRule": "the bay computer goes to sleep",
+      "sleepRule": "the bay computer goes to sleep, unless the next booking on that bay starts within 15 minutes, when it goes straight back to the sign-in screen instead",
       "wakeLead": "15 minutes",
       "warning": "5 minutes"
     },
     "billing": {
+      "codesRule": "A code takes money off membership payments only, never off the one-time Founders fee, and a code used by a buddy or spouse household applies to both of you.",
       "commitFreeMonths": "1 month",
       "commitPaidMonths": "11 months",
       "graceHours": "48 hours",
-      "lapseOwedRule": "Unpaid amounts, and the rest of any 12-month commitment, are still owed.",
+      "lapseOwedRule": "The payment that failed is then written off, so you do not owe it.",
       "pifFreeMonths": "2 months",
       "pifPaidMonths": "10 months",
+      "retryWindow": "2 weeks",
       "rounding": "the nearest whole dollar"
     },
     "booking": {

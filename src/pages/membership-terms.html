@@ -101,7 +101,7 @@
         </ul>
         <p>Both 12-month plans are covered by the Membership Commitment Agreement, which you sign before you pay. When the 12 months end, your membership continues month to month at your plan's month-to-month price until you cancel or choose a new 12-month plan. Your price is fixed for the 12-month term.</p>
         <p>The Founders rate (section 13) and the buddy or spouse add-on (section 11) apply to every way of paying.</p>
-        <p>Payments are handled by our payment processor, Stripe. We never see or store your full card number. You can update your card from your account page. Promotional codes, when we offer them, apply as stated at checkout.</p>
+        <p>Payments are handled by our payment processor, Stripe. We never see or store your full card number. You can update your card from your account page. Promotional codes, when we offer them, apply as stated at checkout. {{ memberTerms.billing.codesRule }} [OWNER TO CONFIRM (decisions A2 and A3, working defaults): codes never reduce the Founders fee, and a household's code discounts both payers and counts as one use of the code.]</p>
       </div>
 
       <div class="term">
@@ -121,10 +121,11 @@
         <ul>
           <li>When your membership becomes active, the system creates a <strong>{{ memberTerms.access.pinDigits }}-digit door code</strong> for you. Each person gets their own. You cannot choose it, and a code is never reused for anyone else.</li>
           <li>Your code works <strong>straight away</strong>. You can see it on your account page.</li>
-          <li><strong>It stops working {{ memberTerms.access.walkthroughDays }} after it is issued unless you have done the in-person walkthrough</strong> with the owner or a member of the studio team. If you join before the studio door goes live, the {{ memberTerms.access.walkthroughDays }} start on the day it goes live; until then your code does not expire. Once your walkthrough is recorded, the code no longer expires, and a code that had expired is switched back on.</li>
+          <li><strong>It stops working {{ memberTerms.access.walkthroughDays }} after it is issued unless you have done the in-person walkthrough</strong> with the owner or a member of the studio team.{{ memberTerms.access.walkthroughStartRule }} Once your walkthrough is recorded, the code no longer expires, and a code that had expired is switched back on.</li>
           <li>The same code signs you in at your bay, including on a booking another member added you to (section 9).</li>
           <li>Your code is personal. Never share it, and never use anyone else's. If you think someone has seen it, tell us ({{ memberTerms.studio.contactLine }}) and we will replace it. Sharing a code is grounds for ending a membership (section 19).</li>
           <li>Your code stops working when your membership ends or is paused.</li>
+          <li><strong>The system may replace your code</strong> if it clashes with a code already on the studio's door system. If that happens, your old code stops working, we email you, and your new code is on your account page.</li>
         </ul>
       </div>
 
@@ -246,7 +247,7 @@
       <div class="term">
         <h3>14. Failed payments and grace</h3>
         <ul>
-          <li>If a payment fails, Stripe retries it automatically.</li>
+          <li>If a payment fails, Stripe retries it automatically for up to {{ memberTerms.billing.retryWindow }}.</li>
           <li><strong>You keep full access for a grace period of at least 24 hours</strong> (currently {{ memberTerms.billing.graceHours }}) while you update your card.</li>
           <li>After the grace period, your door code and new bookings are paused automatically until the payment is made, and the studio is notified. In a buddy household only the person whose payment failed is paused. While a payment is overdue, other members cannot add you to their bookings.</li>
           <li>When the payment is made, your access comes back.</li>
